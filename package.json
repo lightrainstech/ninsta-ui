@@ -1,5 +1,5 @@
 {
-  "name": "ammbr-id",
+  "name": "ninsta-ui",
   "private": true,
   "scripts": {
     "dev": "next dev",
