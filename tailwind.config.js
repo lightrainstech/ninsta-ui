@@ -8,9 +8,28 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Oxygen', ...defaultTheme.fontFamily.sans]
+      serif: ['Kaisei HarunoUmi', ...defaultTheme.fontFamily.serif],
+      sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans]
     },
-    extend: {}
+    extend: {
+      colors: {
+        green: {
+          50: '#f6fbf2',
+          100: '#edf7e6',
+          200: '#d1ecbf',
+          300: '#b5e099',
+          400: '#7ec84d',
+          500: '#47b100',
+          600: '#409f00',
+          700: '#358500',
+          800: '#2b6a00',
+          900: '#235700'
+        }
+      }
+    },
+    container: {
+      center: true
+    }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 }
