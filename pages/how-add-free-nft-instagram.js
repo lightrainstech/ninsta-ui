@@ -1,4 +1,3 @@
-import Faq from '../components/Faq'
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
@@ -26,8 +25,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <Faq />
-
       <Footer />
     </>
   )

@@ -12,7 +12,7 @@ export default function Home() {
       />
       <Menu />
 
-      <div className="prose prose-lg mx-auto max-w-screen-md prose-invert">
+      <div className="">
         <Faq />
       </div>
       <Footer />
