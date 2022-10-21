@@ -1,3 +1,4 @@
+import ConnectWallet from './ConnectWallet'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -10,20 +11,25 @@ const Menu = props => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <nav className="container">
-      <div className="flex flex-row justify-between items-center mx-auto pt-10">
+    <nav className="container ">
+      <div className=" flex flex-row justify-between items-center mx-auto pt-10">
         <Link href="/">
           <a className="text-3xl font-bold">N-Insta</a>
         </Link>
-        <div className="hidden md:block flex flex-row items-center space-x-4 md:space-x-12">
-          {menu.map((item, index) => {
-            return (
-              <Link key={index} href={item.path}>
-                <a className="cursor-pointer under-line">{item.title}</a>
-              </Link>
-            )
-          })}
+        <div className="flex gap-5 items-center">
+          <ConnectWallet />
+
+          <div className=" hidden md:block flex flex-row items-center space-x-4 md:space-x-12">
+            {menu.map((item, index) => {
+              return (
+                <Link key={index} href={item.path}>
+                  <a className="cursor-pointer under-line">{item.title}</a>
+                </Link>
+              )
+            })}
+          </div>
         </div>
+        {/* border border-red-600 */}
         <div className="relative md:hidden">
           <svg
             fill="currentColor"

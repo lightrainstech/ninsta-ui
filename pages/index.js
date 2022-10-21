@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <NextSeo title="Add NFTs to your Instagram" />
-      <div className="flex flex-col items-center justify-between h-screen bg-black overflow-hidden">
+      <div className="flex flex-col items-center justify-between h-screen bg-black overflow-hidden bg-[url('/ninsta-bg.png')]">
         <Menu />
         <Masthead />
         <Footer />

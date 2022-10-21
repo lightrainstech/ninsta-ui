@@ -26,7 +26,7 @@ const Masthead = () => {
     setMinting(true)
   }
   return (
-    <section className="container">
+    <section className="container ">
       {!minting && (
         <div className="grid grid-cols-1 md:grid-cols-5 items-center gap-20 top-0 z-20 mx-auto">
           <div className="col-span-1 md:col-span-3">
