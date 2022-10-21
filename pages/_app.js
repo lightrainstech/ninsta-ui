@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 
 import { DefaultSeo } from 'next-seo'
+import Grag from '../components/Gtag'
 import Head from 'next/head'
 import SEO from '../next-seo.config'
 import { motion } from 'framer-motion'
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps, router }) {
         }}>
         <Component {...pageProps} />
       </motion.div>
+      <Grag />
     </>
   )
 }
