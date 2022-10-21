@@ -88,8 +88,8 @@ const Masthead = () => {
                   <span className="text-green-500">{freeCount}</span>/3 free NFT
                 </h1>
                 <p className=" opacity-50">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing eiusmod
-                  tempor incididunt{' '}
+                  Your wallet can Mint 3 Free NFTs using Ninsta, after that you
+                  will be charged.
                 </p>
               </div>
             </div>
