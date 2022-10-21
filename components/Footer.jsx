@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 const Footer = () => {
   return (
-    <nav className="container">
+    <footer className="container">
       <div className="flex flex-row items-start justify-between">
         <div>
           <p className="text-sm text-gray-700">
@@ -26,7 +26,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-    </nav>
+    </footer>
   )
 }
 
