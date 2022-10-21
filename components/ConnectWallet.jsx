@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { getNetwork, truncate } from '../utils/index'
-// import { myProfile, nftLog } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 import ConnectProvider from '../utils/ConnectProvider'
@@ -18,16 +17,7 @@ const ConnectWallet = () => {
     state.network
   ])
 
-  // const nfts = useSelector(state => [state.nfts])
-  // const token = useSelector(state => state.token)
-  // console.log('nft', nfts)
-  //const d = parseFloat(datas.toFixed(3))
-
-  //console.log('d', d)
-  //console.log('network', network)
-
   const connectHandler = useCallback(async () => {
-    //console.log('Called')
     try {
       const providerInstance = await provider.connect()
       providerInstance.on('chainChanged', chainChangeCallback)
@@ -53,6 +43,16 @@ const ConnectWallet = () => {
             network: currentNetwork.title
           }
         })
+        toast.success('Wallet connected!', {
+          position: 'bottom-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark'
+        })
       } else {
         toast.error('Connected network not supported')
         console.log('Connected network not supported')
@@ -69,18 +69,12 @@ const ConnectWallet = () => {
     }
   }, [provider])
 
-  // console.log(
-  //   'heloo',
-  //   useSelector(state => state)
-  // )
   const handlerDisconnect = () => {
     dispatch({
       type: 'DISCONNECT_WALLET'
     })
-    localStorage.clear()
+    // localStorage.clear()
   }
-
-  //const original_phrase = 'this is my secret message'
 
   const accountChangeCallback = accounts => {
     if (accounts.length > 0) {
@@ -115,25 +109,13 @@ const ConnectWallet = () => {
       console.log('Not supported network')
     }
   }
-  useEffect(() => {
-    if (!loading && connected) {
-      // condition
-      connectHandler()
-    }
-  }, [connectHandler, loading, connected])
-  // console.log(account)
-  // React.useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       let results = await myProfile(token, network)
-  //       console.log('rr', results)
-  //       setData(results.data.data.data)
-  //     } catch (e) {
-  //       console.log(e)
-  //     }
+  ///Auto-connect
+  // useEffect(() => {
+  //   if (!loading && connected) {
+  //     // condition
+  //     connectHandler()
   //   }
-  //   fetchData(token, network)
-  // }, [token, network])
+  // }, [connectHandler, loading, connected])
   // console.log(account)
 
   if (!account) {
@@ -141,7 +123,7 @@ const ConnectWallet = () => {
       <>
         <div
           role="button"
-          className="border border-green-500 px-4 py-2 rounded-md cursor-pointer hover:bg-green-500  hover:border"
+          className="max-w-max  border border-green-500 px-4 py-2 rounded-md cursor-pointer hover:bg-green-500  hover:border"
           onClick={connectHandler}>
           Connect Wallet
         </div>
@@ -152,9 +134,9 @@ const ConnectWallet = () => {
     return (
       <div
         role="button"
-        className="text-black rounded-md bg-green-500 px-3 py-2 ml-3 text-blue-800rounded-md"
+        className="text-black max-w-max border border-green-500 rounded-md bg-green-500 px-4 py-2  "
         onClick={handlerDisconnect}>
-        {truncate(account, 13)}
+        {truncate(account, 14)}
       </div>
     )
   }

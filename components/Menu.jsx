@@ -16,18 +16,15 @@ const Menu = props => {
         <Link href="/">
           <a className="text-3xl font-bold">N-Insta</a>
         </Link>
-        <div className="flex gap-5 items-center">
+        <div className=" hidden md:flex flex-row items-center space-x-4 md:space-x-12">
+          {menu.map((item, index) => {
+            return (
+              <Link key={index} href={item.path}>
+                <a className="cursor-pointer under-line">{item.title}</a>
+              </Link>
+            )
+          })}
           <ConnectWallet />
-
-          <div className=" hidden md:block flex flex-row items-center space-x-4 md:space-x-12">
-            {menu.map((item, index) => {
-              return (
-                <Link key={index} href={item.path}>
-                  <a className="cursor-pointer under-line">{item.title}</a>
-                </Link>
-              )
-            })}
-          </div>
         </div>
         {/* border border-red-600 */}
         <div className="relative md:hidden">
@@ -51,12 +48,12 @@ const Menu = props => {
           </svg>
           {isOpen && (
             <div
-              className="origin-top-right absolute right-0 mt-2 w-64 shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="origin-top-right absolute right-0 mt-2 w-64 rounded-lg shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1">
-              <div className="py-1" role="none">
+              <div className="p-5 flex   flex-col gap-5 h-72" role="none">
                 {menu.map((item, index) => {
                   return (
                     <Link key={index} href={item.path}>
@@ -69,6 +66,7 @@ const Menu = props => {
                     </Link>
                   )
                 })}
+                <ConnectWallet />
               </div>
             </div>
           )}
