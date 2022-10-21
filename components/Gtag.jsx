@@ -4,7 +4,7 @@ function Gtag() {
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        src="https://www.googletagmanager.com/gtag/js?id=G-2YMN4CSY6P"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
