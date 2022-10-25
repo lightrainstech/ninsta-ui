@@ -26,9 +26,6 @@
 
   .gradient {
     display: table;
-    font-family: 'Roboto Slab';
-    font-weight: 400;
-    font-size: 5em;
     background: linear-gradient(
       330deg,
       #e05252 0%,
@@ -39,6 +36,5 @@
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 200px;
   }
 }

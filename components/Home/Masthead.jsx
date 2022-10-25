@@ -15,7 +15,7 @@ const Masthead = () => {
   const [royalty, setRoyalty] = useState(false)
   const [freeCount, setFreeCount] = useState(1)
   const [bannerTxt, setBannerTxt] = useState(
-    'N-Insta helps you mint your NFTs for free'
+    'Ninsta helps you mint your NFTs for free'
   )
 
   const [nftInfo, setNftInfo] = useState({
@@ -35,7 +35,7 @@ const Masthead = () => {
 
   useEffect(() => {
     if (u) {
-      setBannerTxt(`@${u} uses N-Insta to Mint their NFTs in Instagram`)
+      setBannerTxt(`@${u} uses Ninsta to Mint their NFTs in Instagram`)
     }
   }, [u])
 
@@ -61,7 +61,7 @@ const Masthead = () => {
       {minting === 1 && (
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-20 top-0 z-20 mx-auto justify-start">
           <div className="col-span-1 md:col-span-3 flex flex-col">
-            <h1 className="text-4xl md:text-5xl font-serif font-medium !leading-relaxed gradient">
+            <h1 className="text-4xl md:text-5xl font-serif font-medium md:!leading-relaxed leading-normal gradient">
               {bannerTxt}
             </h1>
             <h2 className="text-2xl font-thin my-3 text-gray-400 w-full md:w-5/6">
@@ -87,7 +87,7 @@ const Masthead = () => {
               </button>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-2  flex justify-center md:justify-end items-center ">
+          <div className="col-span-1 md:col-span-2  flex justify-center md:justify-end items-center hidden md:block">
             <HomeCard />
           </div>
         </div>
