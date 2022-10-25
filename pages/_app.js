@@ -1,8 +1,10 @@
 import '../styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 
+import toast, { Toaster } from 'react-hot-toast'
+
 import { DefaultSeo } from 'next-seo'
-import Grag from '../components/Gtag'
+import Gtag from '../components/Gtag'
 import Head from 'next/head'
 import { PersistGate } from 'redux-persist/integration/react'
 import SEO from '../next-seo.config'
@@ -38,8 +40,9 @@ function MyApp({ Component, pageProps, router }) {
           <Component {...pageProps} />
           <ToastContainer />
         </motion.div>
+        <Toaster />
       </PersistGate>
-      <Grag />
+      <Gtag />
     </>
   )
 }

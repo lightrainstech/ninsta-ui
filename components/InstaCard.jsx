@@ -1,24 +1,40 @@
-import DragDropIcon from './Icons/DragDropIcon'
-import React from 'react'
+import React, { useState } from 'react'
 
-function InstaCard() {
+import DragDropIcon from './Icons/DragDropIcon'
+import { FileUploader } from 'react-drag-drop-files'
+import Image from 'next/image'
+
+function InstaCard({ nftInfo }) {
+  const fileTypes = ['png', 'jpeg', 'jpg', 'gif']
+  const [file, setFile] = useState(null)
+  const [iSrc, setISrc] = useState(null)
+  const handleChange = file => {
+    setFile(file)
+    setISrc(URL.createObjectURL(file))
+  }
   return (
-    <div class=" bg-zinc-900 flex flex-col gap-4 shadow rounded-md p-4 max-w-sm w-full mx-auto">
-      <div class="animate-pulse flex space-x-4 items-center">
-        <div class="rounded-full bg-zinc-800 h-14 w-14"></div>
-        <div class="h-4 w-1/3 bg-zinc-800 rounded-md"></div>
+    <div className="w-[360px] mx-auto">
+      <div className="bg-zinc-900 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">
+        <FileUploader handleChange={handleChange} name="file" types={fileTypes}>
+          {!file && (
+            <div className="flex flex-col justify-center items-center gap-3 h-[380px] w-full bg-zinc-800 hover:bg-zinc-700 cursor-pointer">
+              <DragDropIcon width={40} height={40} />
+              <p className="text-zinc-300 text-sm">Drag and drop your file</p>
+            </div>
+          )}
+
+          {file && (
+            <div className="relative h-[380px] w-full cursor-pointer">
+              <Image src={iSrc} alt="" layout="fill" objectFit="contain" />
+            </div>
+          )}
+        </FileUploader>
+
+        <div>
+          <strong className="text-lg">{nftInfo.title}</strong>
+          <p className="">{nftInfo.description}</p>
+        </div>
       </div>
-      <div class="animate-pulse flex flex-col  justify-center items-center gap-3 bg-zinc-800 h-72 w-full">
-        <DragDropIcon width={40} height={40} />
-        <h1 className="text-zinc-300 text-sm">Drag and drop your file or</h1>
-        <input
-          className="border-0 max-w-max hidden"
-          type="file"
-          name="myfile"
-        />
-      </div>
-      <div class="h-4 w-2/3 bg-zinc-800 rounded-md"></div>
-      <div class="h-4 w-1/3 bg-zinc-800 rounded-md"></div>
     </div>
   )
 }

@@ -4,12 +4,13 @@ module.exports = {
   darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
+    './components/**/*.{js,ts,jsx,tsx}',
+    './components/*.{js,ts,jsx,tsx}'
   ],
   theme: {
     fontFamily: {
       serif: ['Kaisei HarunoUmi', ...defaultTheme.fontFamily.serif],
-      sans: ['Source Sans Pro', ...defaultTheme.fontFamily.sans]
+      sans: ['Lato', ...defaultTheme.fontFamily.sans]
     },
     extend: {
       colors: {
@@ -24,6 +25,26 @@ module.exports = {
           700: '#358500',
           800: '#2b6a00',
           900: '#235700'
+        }
+      },
+      extend: {
+        aspectRatio: {
+          '4/3': '4 / 3'
+        },
+        keyframes: {
+          'fade-in-down': {
+            '0%': {
+              opacity: '0',
+              transform: 'translateY(-10px)'
+            },
+            '100%': {
+              opacity: '1',
+              transform: 'translateY(0)'
+            }
+          }
+        },
+        animation: {
+          'fade-in-down': 'fade-in-down 0.2s ease-out'
         }
       }
     },

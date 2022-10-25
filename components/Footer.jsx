@@ -1,11 +1,25 @@
 import Link from 'next/link'
 import React from 'react'
+
+const footerMenu = [
+  {
+    title: 'FAQ',
+    path: '/faq'
+  },
+  {
+    title: 'How to add Free NFT to Instagram',
+    path: '/how-add-free-nft-instagram'
+  }
+]
+
 const Footer = () => {
   return (
-    <footer className="container">
-      <div className="flex flex-row items-start justify-between">
+    <footer className="container py-10 bg-[url(/line-2.png)] bg-top bg-no-repeat">
+      <div className="flex flex-col md:flex-row items-start justify-between">
         <div>
-          <p className="text-sm text-gray-700">
+          <h1 className="text-lg font-bold font-serif">Ninsta</h1>
+          <h2>Your free tool to Mint Instagram Digital Collectibles</h2>
+          <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}
             <Link href="https://area58.design">
               <a className="cursor-pointer hover:text-gray-400">Area58</a>
@@ -20,11 +34,19 @@ const Footer = () => {
           </p>
         </div>
 
-        <div>
-          <Link href="/how-add-free-nft-instagram">
-            <a>How to add Free NFT to Instagram</a>
-          </Link>
-        </div>
+        <ul>
+          {footerMenu.map((item, index) => {
+            return (
+              <li key={index}>
+                <Link href={item.path}>
+                  <a className="cursor-pointer" role="menuitem" tabIndex="-1">
+                    {item.title}
+                  </a>
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </footer>
   )

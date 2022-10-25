@@ -4,7 +4,7 @@ const site_name = 'Ninsta'
 export default {
   title: site_name,
   titleTemplate: `%s | ${site_name}`,
-  description: 'Ninsta - NFTs to Instagram',
+  description: 'Your free tool to Mint Instagram Digital Collectibles',
   openGraph: {
     type: 'website',
     locale: 'en_IE',

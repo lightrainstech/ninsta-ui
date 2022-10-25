@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { useRouter } from 'next/router'
 
-const menu = [{ title: 'FAQ', path: '/faq' }]
+const menu = [{ title: 'How it Works', path: '/how-it-works' }]
 
 const Menu = props => {
   const router = useRouter()
@@ -12,11 +12,13 @@ const Menu = props => {
 
   return (
     <nav className="container ">
-      <div className=" flex flex-row justify-between items-center mx-auto pt-10">
+      <div className="flex flex-row justify-between items-center mx-auto pt-10">
         <Link href="/">
-          <a className="text-3xl font-bold">N-Insta</a>
+          <a>
+            <Image src="/ninsta-logo.svg" alt="" height={48} width={48} />
+          </a>
         </Link>
-        <div className=" hidden md:flex flex-row items-center space-x-4 md:space-x-12">
+        <div className="hidden md:flex flex-row items-center space-x-4 md:space-x-8">
           {menu.map((item, index) => {
             return (
               <Link key={index} href={item.path}>
@@ -26,7 +28,6 @@ const Menu = props => {
           })}
           <ConnectWallet />
         </div>
-        {/* border border-red-600 */}
         <div className="relative md:hidden">
           <svg
             fill="currentColor"
