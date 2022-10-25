@@ -16,15 +16,29 @@
       hsl(55deg 100% 50%) 100%
     );
   }
-
   .container {
     @apply px-5 md:px-20;
-  }
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
   }
   input,
   textarea {
     @apply focus:outline-0 border-2 border-zinc-700 p-2 outline-none bg-zinc-800 mb-5 mt-1 w-full;
+  }
+
+  .gradient {
+    display: table;
+    font-family: 'Roboto Slab';
+    font-weight: 400;
+    font-size: 5em;
+    background: linear-gradient(
+      330deg,
+      #e05252 0%,
+      #99e052 25%,
+      #52e0e0 50%,
+      #9952e0 75%,
+      #e05252 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 200px;
   }
 }
