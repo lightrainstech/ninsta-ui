@@ -17,8 +17,8 @@ const Footer = () => {
     <footer className="container py-10 bg-[url(/line-2.png)] bg-top bg-no-repeat">
       <div className="flex flex-col md:flex-row items-start justify-between">
         <div>
-          <h1 className="text-lg font-bold font-serif">Ninsta</h1>
-          <h2>Your free tool to Mint Instagram Digital Collectibles</h2>
+          <h1 className="text-2xl font-bold font-serif mb-2">Ninsta</h1>
+          <h2>Mint Instagram Digital Collectables for free</h2>
           <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}
             <Link href="https://area58.design">
@@ -33,20 +33,25 @@ const Footer = () => {
             <small>&copy; Ninsta 2022</small>
           </p>
         </div>
-
-        <ul>
-          {footerMenu.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link href={item.path}>
-                  <a className="cursor-pointer" role="menuitem" tabIndex="-1">
-                    {item.title}
-                  </a>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
+        <div>
+          <h1 className="text-lg font-bold font-serif mb-4">Resources</h1>
+          <ul>
+            {footerMenu.map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link href={item.path}>
+                    <a
+                      className="cursor-pointer mt-1 block"
+                      role="menuitem"
+                      tabIndex="-1">
+                      {item.title}
+                    </a>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     </footer>
   )
