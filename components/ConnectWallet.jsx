@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ConnectProvider from '../utils/ConnectProvider'
 import Web3 from 'web3'
 import getConfig from 'next/config'
-import { toast } from 'react-toastify'
+import toast from 'react-hot-toast'
 
 const ConnectWallet = () => {
   const [provider, loading, connected] = ConnectProvider()
@@ -43,19 +43,9 @@ const ConnectWallet = () => {
             network: currentNetwork.title
           }
         })
-        toast.success('Wallet connected!', {
-          position: 'bottom-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'dark'
-        })
+        toast.success('Wallet connected!')
       } else {
         toast.error('Connected network not supported')
-        console.log('Connected network not supported')
       }
       // const res = await nftLog({
       //   wallet: account[0]
@@ -123,7 +113,7 @@ const ConnectWallet = () => {
       <>
         <div
           role="button"
-          className="max-w-max  border border-green-500 px-4 py-2 rounded-md cursor-pointer hover:bg-green-500  hover:border"
+          className="bg-green-500 px-4 py-2 rounded-md cursor-pointer hover:bg-green-500 min-w-max text-black"
           onClick={connectHandler}>
           Connect Wallet
         </div>
@@ -134,7 +124,7 @@ const ConnectWallet = () => {
     return (
       <div
         role="button"
-        className="text-black max-w-max border border-green-500 rounded-md bg-green-500 px-4 py-2  "
+        className="text-black max-w-max border border-green-500 rounded-md bg-green-500 px-4 py-2 min-w-max"
         onClick={handlerDisconnect}>
         {truncate(account, 14)}
       </div>

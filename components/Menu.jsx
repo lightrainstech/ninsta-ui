@@ -18,11 +18,11 @@ const Menu = props => {
             <Image src="/ninsta-logo.svg" alt="" height={48} width={48} />
           </a>
         </Link>
-        <div className="hidden md:flex flex-row items-center space-x-4 md:space-x-8">
+        <div className="hidden md:flex flex-row items-center space-x-8 ">
           {menu.map((item, index) => {
             return (
               <Link key={index} href={item.path}>
-                <a className="cursor-pointer under-line">{item.title}</a>
+                <a className="cursor-pointer min-w-max">{item.title}</a>
               </Link>
             )
           })}
