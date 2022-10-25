@@ -15,7 +15,7 @@ const Masthead = () => {
   const [royalty, setRoyalty] = useState(false)
   const [freeCount, setFreeCount] = useState(1)
   const [bannerTxt, setBannerTxt] = useState(
-    'Ninsta helps you mint your NFTs for free'
+    'Ninsta helps you mint your Digital Collectables for free'
   )
 
   const [nftInfo, setNftInfo] = useState({
@@ -57,11 +57,11 @@ const Masthead = () => {
   }
 
   return (
-    <main className="container py-20">
+    <main className="container py-24">
       {minting === 1 && (
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-20 top-0 z-20 mx-auto justify-start">
-          <div className="col-span-1 md:col-span-3 flex flex-col">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold md:!leading-relaxed leading-normal gradient">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-20 top-0 z-10 mx-auto justify-start">
+          <div className="col-span-3 md:col-span-3 flex flex-col">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold md:!leading-[1.4] gradient">
               {bannerTxt}
             </h1>
             <h2 className="text-2xl font-thin my-3 text-gray-500 w-full md:w-5/6">
@@ -87,7 +87,7 @@ const Masthead = () => {
               </button>
             </div>
           </div>
-          <div className="col-span-1 md:col-span-2  flex justify-center md:justify-end items-center hidden md:block">
+          <div className="col-span-2 md:col-span-2 flex justify-center md:justify-end items-center hidden md:block">
             <HomeCard />
           </div>
         </div>
@@ -110,11 +110,11 @@ const Masthead = () => {
             <h1 className="text-3xl font-serif font-medium !leading-relaxed">
               Mint your NFT
             </h1>
-            <div className="">
+            <div>
               <h1 className="text-2xl font-serif font-medium !leading-relaxed">
                 <span className="text-green-500">{freeCount}</span>/3 free NFT
               </h1>
-              <p className=" opacity-50">
+              <p className="opacity-50">
                 Your wallet can Mint 3 free NFTs using Ninsta for your
                 Instagram, after that you will be charged.
               </p>
