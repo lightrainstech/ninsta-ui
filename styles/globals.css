@@ -49,6 +49,6 @@
     }
   }
   .animate-slide {
-    animation: slide-out 1000ms;
+    animation: slide-out 1000ms normal;
   }
 }

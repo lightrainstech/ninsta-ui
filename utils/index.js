@@ -22,6 +22,8 @@ const availableNetworks = [
   // }
 ]
 
+export const delay = ms => new Promise(res => setTimeout(res, ms))
+
 export const getNetwork = chainId => {
   let selectedNetwork = availableNetworks.filter(
     values => values.chainId === chainId && values.disabled === false
