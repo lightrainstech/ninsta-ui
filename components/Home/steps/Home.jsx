@@ -1,19 +1,27 @@
 import React from 'react'
 import toast from 'react-hot-toast'
 import HomeCard from '../HomeCard'
+import { signup } from '../../../actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Home = ({ setMinting }) => {
-  const [emailAddress, setEmailAddress] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const user = useSelector(state => state.user)
+
+  const dispatch = useDispatch()
 
   const signUpSubmit = async () => {
-    if (!emailAddress.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
+    if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
       toast.error('Enter a valid email address to get started')
       return
     }
+    const result = await signup({ name: email.split('@')[0], email })
+    dispatch({
+      type: 'USER_LOGIN',
+      data: { user: { ...result.data.data } }
+    })
 
-    setMinting(2)
-
-    alert(emailAddress)
+    //setMinting(2)
   }
 
   return (
@@ -26,21 +34,36 @@ const Home = ({ setMinting }) => {
           Get your Instagram profile noticed with NFTs
         </h2>
         <div className="py-10">
-          <input
-            type="text"
-            value={emailAddress}
-            onChange={evt => {
-              setEmailAddress(evt.target.value)
-            }}
-            placeholder="Email Address"
-            className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[200px]"
-          />
-          <button
-            className="text-white border-2 border-green-500 rounded-r-md bg-green-500 px-3 py-2"
-            onClick={signUpSubmit}>
-            <span className="hidden md:block text-gray-900">Start Minting</span>
-            <span className="block md:hidden text-black">start</span>
-          </button>
+          {user === null ? (
+            <>
+              <input
+                type="text"
+                value={email}
+                onChange={evt => {
+                  setEmail(evt.target.value)
+                }}
+                placeholder="Email Address"
+                className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[200px]"
+              />
+              <button
+                className="text-white border-2 border-green-500 rounded-r-md bg-green-500 px-3 py-2"
+                onClick={signUpSubmit}>
+                <span className="hidden md:block text-gray-900">
+                  Start Minting
+                </span>
+                <span className="block md:hidden text-black">start</span>
+              </button>
+            </>
+          ) : (
+            <button
+              className="text-white border-2 border-green-500 rounded-md bg-green-500 px-3 py-2"
+              onClick={() => setMinting(2)}>
+              <span className="hidden md:block text-gray-900">
+                Start Minting
+              </span>
+              <span className="block md:hidden text-black">start</span>
+            </button>
+          )}
         </div>
       </div>
       <div className="col-span-2 md:col-span-2 flex justify-center md:justify-end items-center hidden md:block">

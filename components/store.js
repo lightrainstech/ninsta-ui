@@ -5,52 +5,15 @@ import { createStore } from 'redux'
 import storage from 'redux-persist/lib/storage'
 
 const initialState = {
-  nfts: [],
-  nft: [],
-  token: null,
-  wallet: null,
-  domain: null,
-  network: null,
-  networks: null,
-  balance: null,
-  profile: null,
-  upload: [],
-  account: null
+  user: null
 }
 //create your reducer
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'CONNECT_WALLET':
+    case 'USER_LOGIN':
       return {
         ...state,
-        account: action.data.account,
-        network: action.data.network
-      }
-    case 'DISCONNECT_WALLET':
-      return {
-        ...state,
-        account: null,
-        network: null
-      }
-
-    case 'ACCOUNT_CHANGE':
-      return {
-        ...state,
-        account: action.data.account
-      }
-
-    case 'NETWORK_CHANGE':
-      return { ...state, network: action.data.network }
-    case 'ADD_NETWORK':
-      return { ...state, network: action.data.networks }
-
-    case 'ADD_WALLET':
-      return { ...state, wallet: action.payload }
-
-    case 'FILE_UPLOAD':
-      return {
-        ...state,
-        upload: action.payload
+        user: action.data.user
       }
 
     default:
