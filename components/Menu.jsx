@@ -65,7 +65,6 @@ const Menu = props => {
                     </Link>
                   )
                 })}
-                <ConnectWallet />
               </div>
             </div>
           )}
