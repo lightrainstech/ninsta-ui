@@ -37,4 +37,18 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0.25;
+    }
+  }
+  .animate-slide {
+    animation: slide-out 1000ms;
+  }
 }

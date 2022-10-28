@@ -13,8 +13,8 @@ function InstaCard({ nftInfo }) {
     setISrc(URL.createObjectURL(file))
   }
   return (
-    <div className="w-[360px] mx-auto">
-      <div className="bg-zinc-900 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">
+    <div className="w-[360px]">
+      <div className="bg-zinc-800 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">
         <FileUploader handleChange={handleChange} name="file" types={fileTypes}>
           {!file && (
             <div className="flex flex-col justify-center items-center gap-3 h-[380px] w-full bg-zinc-800 hover:bg-zinc-700 cursor-pointer">

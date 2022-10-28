@@ -11,8 +11,9 @@ import { useRouter } from 'next/router'
 
 const Masthead = () => {
   const [emailAddress, setEmailAddress] = useState('')
-  const [minting, setMinting] = useState(1)
+  const [minting, setMinting] = useState(2)
   const [royalty, setRoyalty] = useState(false)
+  const [animating, setAnimating] = useState(false)
   const [freeCount, setFreeCount] = useState(1)
   const [bannerTxt, setBannerTxt] = useState(
     'Ninsta helps you mint your Digital Collectables for free'
@@ -25,6 +26,8 @@ const Masthead = () => {
     royalty: '',
     royaltyPer: ''
   })
+
+  const delay = ms => new Promise(res => setTimeout(res, ms))
 
   const handleChange = event => {
     setNftInfo({ ...nftInfo, [event.target.name]: event.target.value })
@@ -49,11 +52,16 @@ const Masthead = () => {
     }
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
     console.log(nftInfo)
     setMinting(3)
-    setNftInfo({ name: '', description: '' })
+    await delay(5000)
+    setAnimating(true)
+    await delay(1000)
+    setAnimating(false)
+    setMinting(4)
+    //setNftInfo({ name: '', description: '' })
   }
 
   return (
@@ -187,13 +195,32 @@ const Masthead = () => {
       )}
 
       {minting === 3 && (
-        <div className="done w-full flex flex-col items-center gap-4">
+        <div
+          className={`relative done w-full flex flex-col items-center gap-4 ${
+            animating ? 'animate-slide' : ''
+          }`}>
           <h3 className="text-5xl font-serif">Ninsta is minting your NFT</h3>
           <ChevronDownCircle
             set="broken"
             primaryColor="greenyellow"
             size={64}
+            className="animate-spin"
           />
+        </div>
+      )}
+      {minting === 4 && (
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <InstaCard nftInfo={nftInfo} />
+            <div>
+              <h3 className="text-2xl font-serif mb-20">
+                Your nft is ready. Connect your wallet and collect it!
+              </h3>
+              <button className="text-black border-2 border-green-500 rounded-md bg-green-500 hover:bg-green-600 px-3 py-2">
+                Connect wallet
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </main>

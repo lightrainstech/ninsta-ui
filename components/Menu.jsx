@@ -1,4 +1,3 @@
-import ConnectWallet from './ConnectWallet'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -26,7 +25,6 @@ const Menu = props => {
               </Link>
             )
           })}
-          <ConnectWallet />
         </div>
         <div className="relative md:hidden">
           <svg
