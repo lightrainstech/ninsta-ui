@@ -57,7 +57,7 @@
     @apply text-gray-500 text-sm;
   }
   .number {
-    @apply w-10 h-10 p-2 text-sm text-black;
+    @apply w-10 h-10 p-2 text-sm text-black bg-green-500 inline-flex justify-center items-center rounded-full;
   }
   .steps {
     @apply mb-8;

@@ -1,3 +1,5 @@
+import { RiDiscordFill, RiInstagramFill } from 'react-icons/ri'
+
 import Link from 'next/link'
 import React from 'react'
 
@@ -7,7 +9,7 @@ const footerMenu = [
     path: '/faq'
   },
   {
-    title: 'How to add Free NFT to Instagram',
+    title: 'Add NFT to Instagram',
     path: '/how-add-free-nft-instagram'
   },
   {
@@ -25,6 +27,18 @@ const Footer = () => {
           <h2 className="opacity-70">
             Mint Instagram Digital Collectibles for free
           </h2>
+          <div className="flex flex-row space-x-1 mb-4">
+            <Link href="https://discord.gg/2p7KT4da3e">
+              <a className="cursor-pointer hover:opacity-60">
+                <RiDiscordFill size={28} />
+              </a>
+            </Link>
+            <Link href="https://www.instagram.com/MintOnNinsta">
+              <a className="cursor-pointer hover:opacity-60">
+                <RiInstagramFill size={28} />
+              </a>
+            </Link>
+          </div>
           <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}
             <Link href="https://area58.design">

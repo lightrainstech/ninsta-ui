@@ -2,11 +2,9 @@ import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
 import React from 'react'
-import Router from 'next/router'
 import toast from 'react-hot-toast'
 
 export default function Home() {
-  const { affiliateId } = Router.query
   const [email, setEmail] = React.useState('')
 
   const signUpSubmit = async () => {
@@ -40,8 +38,6 @@ export default function Home() {
             products and earn a substantial commission.`}
           </p>
 
-          <p>{affiliateId}</p>
-
           <div className="text-center my-20">
             <h2>Apply today and start spreading the word.</h2>
             <input
@@ -62,8 +58,7 @@ export default function Home() {
 
           <p>
             {`Each application is reviewed thoroughly to determine if you are
-            eligible based on the approval criteria outlined in our requirements
-            article mentioned above. However, if you have not heard back from
+            eligible based on the approval criteria. However, if you have not heard back from
             the network within 1 week after submitting your application, please
             contact Ninsta Support, who can look into this for you. Or, you can
             also wait for the network’s team to follow up with you directly.`}

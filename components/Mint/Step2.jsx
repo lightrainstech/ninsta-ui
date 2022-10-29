@@ -1,8 +1,9 @@
-import { ChevronDown } from 'react-iconly'
+import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
+import { Web3Button, useAccount } from '@web3modal/react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Web3Button, useAccount } from '@web3modal/react'
 import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit }) {
@@ -14,9 +15,11 @@ function Step2({ minting, nftInfo, handleSubmit }) {
         minting === 2 && 'active'
       }`}>
       <div className="pb-10 flex flex-row items-center justify-between space-x-4">
-        <span className="number bg-[url(/mint_closed.svg)] bg-no-repeat" />
+        <span className="number">
+          <RiWallet2Line size={18} />
+        </span>
         <h3 className="text-2xl font-thin flex-1">Mint your NFT</h3>
-        <ChevronDown set="light" primaryColor="#BAF247" size={36} />
+        <RiArrowDownSLine set="light" primaryColor="#BAF247" size={36} />
       </div>
 
       <div className="content pl-8">

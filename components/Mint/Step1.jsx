@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { RiArrowDownSLine, RiImage2Fill } from 'react-icons/ri'
 
-import { ChevronDown } from 'react-iconly'
 import InstaCard from './InstaCard'
 
 function Step1({ minting, nftInfo, setNftInfo, handleStep1 }) {
@@ -15,9 +15,11 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1 }) {
         minting === 1 && 'active'
       }`}>
       <div className="pb-10 flex flex-row items-center justify-between space-x-4">
-        <span className="number bg-[url(/nft.svg)] bg-no-repeat" />
+        <span className="number">
+          <RiImage2Fill size={18} />
+        </span>
         <h3 className="text-2xl font-thin flex-1">NFT details</h3>
-        <ChevronDown set="light" primaryColor="#BAF247" size={36} />
+        <RiArrowDownSLine set="light" primaryColor="#BAF247" size={36} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 content">
         <div className="col-span-1">

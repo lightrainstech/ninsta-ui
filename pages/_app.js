@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
+
+import { chains, providers } from '@web3modal/ethereum'
 import toast, { Toaster } from 'react-hot-toast'
 
 import { DefaultSeo } from 'next-seo'
@@ -8,14 +10,12 @@ import Head from 'next/head'
 import { PersistGate } from 'redux-persist/integration/react'
 import SEO from '../next-seo.config'
 import { ToastContainer } from 'react-toastify'
+import { Web3Modal } from '@web3modal/react'
+// import { persistor, store } from '../components/store'
+import getConfig from 'next/config'
 import { motion } from 'framer-motion'
 import { useStore } from 'react-redux'
 import { wrapper } from '../components/store'
-import { Web3Modal } from '@web3modal/react'
-import { chains, providers } from '@web3modal/ethereum'
-
-// import { persistor, store } from '../components/store'
-import getConfig from 'next/config'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -24,8 +24,8 @@ function MyApp({ Component, pageProps, router }) {
 
   const config = {
     projectId: publicRuntimeConfig.walletconnect,
-    theme: 'dark',
-    accentColor: 'default',
+    theme: 'light',
+    accentColor: 'blue',
     ethereum: {
       appName: 'web3Modal',
       autoConnect: true,
