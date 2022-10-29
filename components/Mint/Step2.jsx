@@ -1,40 +1,50 @@
-import React, { useEffect, useState } from 'react'
-
 import Image from 'next/image'
-import InstaCard from './InstaCard'
 import Link from 'next/link'
+import React from 'react'
 
-function Step2({ minting, nftInfo, setNftInfo, handleSubmit }) {
-  const [freeCount, setFreeCount] = useState(1)
-  const [royalty, setRoyalty] = useState(false)
-
-  const handleChange = event =>
-    setNftInfo({ ...nftInfo, [event.target.name]: event.target.value })
-
+function Step3({ minting, nftInfo, setNftInfo, handleSubmit }) {
   return (
     <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps active">
-      <div className="pb-10 flex flex-row items-center justify-between space-x-8">
-        <span className="number bg-[url(/wallet_closed.svg)] bg-no-repeat" />
-        <h3 className="text-2xl font-thin flex-1">Connect your wallet</h3>
+      <div className="pb-10 flex flex-row items-center justify-between space-x-4">
+        <span className="number bg-[url(/mint_closed.svg)] bg-no-repeat" />
+        <h3 className="text-2xl font-thin flex-1">Mint your NFT</h3>
         <span>2</span>
       </div>
 
-      <div className="content">
-        <div className="flex flex-row items-center justify-start space-x-10">
-          <Image src="/MetaMask_Fox.svg" height={80} width={80} alt="" />
-          <Image src="/coinbase-logo-icon.svg" height={80} width={80} alt="" />
-          <Image src="/MetaMask_Fox.svg" height={80} width={80} alt="" />
-        </div>
+      <div className="content pl-8">
+        <div className="grid grid-cols-2 items-start gap-6 justify-start pb-6">
+          <div className="col-span-1 h-full">
+            <div className="grid grid-col justify-between h-full">
+              <div>
+                <p>Click on connect and choose your wallet</p>
+                <button className="text-black rounded-md bg-green-500 hover:bg-green-600 py-2 px-3 my-4">
+                  Connect Wallet
+                </button>
+              </div>
 
-        <div className="mt-8 flex flex-row space-x-4">
-          <p>Dont have a wallet?</p>
-          <Link href="/">
-            <a className="text-blue-500 cursor-pointer">SET UP WALLET</a>
-          </Link>
+              <div className="text-gray-600">
+                <p>Doesn’t have a wallet yet?</p>
+                <Link href="/">
+                  <a className="uppercase">SET UP WALLET</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="relative w-[300px] h-[300px] cursor-pointer">
+              <Image
+                src="/nft-minted.png"
+                alt=""
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default Step2
+export default Step3

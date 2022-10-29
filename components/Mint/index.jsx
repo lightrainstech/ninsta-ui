@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
-const Step3 = dynamic(() => import('./Step3'), { suspense: true })
 
 function Mint() {
   const [minting, setMinting] = useState(1)
@@ -59,7 +58,6 @@ function Mint() {
               }}
             />
             <Step2 />
-            <Step3 />
           </Suspense>
         </div>
       </div>

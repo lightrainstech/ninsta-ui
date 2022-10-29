@@ -22,14 +22,14 @@ function InstaCard({ nftInfo, setNftInfo }) {
       <div className="bg-zinc-800 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">
         <FileUploader handleChange={handleChange} name="file" types={fileTypes}>
           {!file && (
-            <div className="flex flex-col justify-center items-center gap-3 h-[270px] w-full bg-zinc-800 hover:bg-zinc-700 cursor-pointer">
+            <div className="flex flex-col justify-center items-center gap-3 h-[300px] w-full bg-zinc-800 hover:bg-zinc-700 cursor-pointer">
               <DragDropIcon width={40} height={40} />
               <p className="text-zinc-300 text-sm">Drag and drop your file</p>
             </div>
           )}
 
           {file && (
-            <div className="relative h-[270px] w-full cursor-pointer">
+            <div className="relative h-[300px] w-full cursor-pointer">
               <Image src={iSrc} alt="" layout="fill" objectFit="contain" />
             </div>
           )}

@@ -16,7 +16,7 @@ export default function Home() {
             How to add Free NFT to Instagram
           </h1>
           <p>
-            Instagram recently added support for Digital Collectables aka NFTs
+            Instagram recently added support for Digital Collectibles aka NFTs
           </p>
           <p>
             Today, development on the blockchains continues to be popular;

@@ -10,8 +10,8 @@ function Step1({ minting, nftInfo, setNftInfo, handleSubmit }) {
     setNftInfo({ ...nftInfo, [event.target.name]: event.target.value })
 
   return (
-    <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps active">
-      <div className="pb-10 flex flex-row items-center justify-between space-x-8">
+    <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps inactive">
+      <div className="pb-10 flex flex-row items-center justify-between space-x-4">
         <span className="number bg-[url(/nft.svg)] bg-no-repeat" />
         <h3 className="text-2xl font-thin flex-1">NFT details</h3>
         <span>1</span>
@@ -40,7 +40,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleSubmit }) {
             <div className="min-h-[20px] mb-4">
               <strong
                 onClick={() => setRoyalty(!royalty)}
-                className="text-blue-400 block cursor-pointer">
+                className="text-blue-400 block cursor-pointer select-none">
                 Royalty?
               </strong>
               {royalty && (

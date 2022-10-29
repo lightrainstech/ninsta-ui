@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     fontFamily: {
       serif: ['Kaisei HarunoUmi', ...defaultTheme.fontFamily.serif],
-      sans: ['Lato', ...defaultTheme.fontFamily.sans]
+      sans: ['Sora', ...defaultTheme.fontFamily.sans]
     },
     extend: {
       colors: {
