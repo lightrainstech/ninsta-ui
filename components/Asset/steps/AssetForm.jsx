@@ -96,7 +96,7 @@ const AssetForm = ({ minting, nftInfo, setNftInfo, handleSubmit }) => {
           </form>
         </div>
         <div className="col-span-1">
-          <InstaCard nftInfo={nftInfo} />
+          <InstaCard {...{ nftInfo, setNftInfo }} />
         </div>
       </div>
     </motion.div>

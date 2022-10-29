@@ -3,15 +3,20 @@ import React, { useState } from 'react'
 import DragDropIcon from './Icons/DragDropIcon'
 import { FileUploader } from 'react-drag-drop-files'
 import Image from 'next/image'
+import { upload } from '../actions'
+import { useSelector } from 'react-redux'
 
-function InstaCard({ nftInfo }) {
+function InstaCard({ nftInfo, setNftInfo }) {
   const fileTypes = ['png', 'jpeg', 'jpg', 'gif']
   const [file, setFile] = useState(null)
   const [iSrc, setISrc] = useState(null)
-  const handleChange = file => {
-    setFile(file)
-    setISrc(URL.createObjectURL(file))
+  const user = useSelector(state => state.user)
+  const handleChange = async newFile => {
+    //setNftInfo(...nftInfo, newFile)
+    await upload({ files: newFile }, user.accessToken)
+    setISrc(URL.createObjectURL(newFile))
   }
+
   return (
     <div className="w-[360px]">
       <div className="bg-zinc-800 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">

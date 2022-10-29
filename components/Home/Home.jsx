@@ -1,7 +1,7 @@
 import React from 'react'
 import toast from 'react-hot-toast'
-import HomeCard from '../HomeCard'
-import { signup } from '../../../actions'
+import HomeCard from './HomeCard'
+import { signup } from '../../actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Home = ({ setMinting }) => {
@@ -20,8 +20,6 @@ const Home = ({ setMinting }) => {
       type: 'USER_LOGIN',
       data: { user: { ...result.data.data } }
     })
-
-    //setMinting(2)
   }
 
   return (
@@ -66,7 +64,7 @@ const Home = ({ setMinting }) => {
           )}
         </div>
       </div>
-      <div className="col-span-2 md:col-span-2 flex justify-center md:justify-end items-center hidden md:block">
+      <div className="flex col-span-2 md:col-span-2  justify-center md:justify-end items-center hidden md:block">
         <HomeCard />
       </div>
     </div>

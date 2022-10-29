@@ -7,8 +7,7 @@ const instance = () => {
   const axiosInstance = axios.create({
     baseURL: publicRuntimeConfig.backendUrl,
     headers: {
-      'Content-type': 'application/json',
-      'x-api-key': publicRuntimeConfig.apiKey
+      'Content-type': 'application/json'
     }
   })
 
