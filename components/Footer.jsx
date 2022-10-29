@@ -9,6 +9,10 @@ const footerMenu = [
   {
     title: 'How to add Free NFT to Instagram',
     path: '/how-add-free-nft-instagram'
+  },
+  {
+    title: 'Affiliate program',
+    path: '/become-affiliate'
   }
 ]
 
@@ -36,14 +40,14 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h1 className="text-lg font-bold font-serif mb-4">Resources</h1>
+          <h1 className="text-lg font-bold font-serif mb-6">Resources</h1>
           <ul>
             {footerMenu.map((item, index) => {
               return (
                 <li key={index}>
                   <Link href={item.path}>
                     <a
-                      className="cursor-pointer mt-1 block"
+                      className="cursor-pointer mt-1.5 block"
                       role="menuitem"
                       tabIndex="-1">
                       {item.title}

@@ -1,10 +1,8 @@
 import React from 'react'
-import InstaCard from '../../InstaCard'
 
 const CollectWallet = ({ nftInfo }) => (
   <div className="w-full">
     <div className="grid grid-cols-1 md:grid-cols-2">
-      <InstaCard nftInfo={nftInfo} />
       <div>
         <h3 className="text-2xl font-serif mb-20">
           Your nft is ready. Connect your wallet and collect it!

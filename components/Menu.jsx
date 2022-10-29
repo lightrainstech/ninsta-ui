@@ -1,19 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { useRouter } from 'next/router'
 
 const menu = [{ title: 'How it Works', path: '/how-it-works' }]
 
-const Menu = props => {
-  const router = useRouter()
+const Menu = () => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <nav className="container ">
       <div className="flex flex-row justify-between items-center mx-auto pt-8">
         <Link href="/">
-          <a>
+          <a className="cursor-pointer">
             <Image src="/ninsta-logo.svg" alt="" height={48} width={48} />
           </a>
         </Link>
