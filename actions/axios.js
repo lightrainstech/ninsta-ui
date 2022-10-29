@@ -7,7 +7,7 @@ const instance = () => {
   const axiosInstance = axios.create({
     baseURL: publicRuntimeConfig.backendUrl,
     headers: {
-      'Content-type': 'application/json'
+      'Content-Type': 'application/json'
     }
   })
 

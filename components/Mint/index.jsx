@@ -16,7 +16,8 @@ function Mint() {
     description: '',
     royalty: '',
     royaltyPer: '',
-    file: ''
+    file: '',
+    fileLocal: null
   })
   const user = useSelector(state => state.user)
 
