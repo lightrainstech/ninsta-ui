@@ -3,31 +3,65 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import { upload, saveAsset } from '../../actions'
+import toast from 'react-hot-toast'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
 function Mint() {
-  const [minting, setMinting] = useState(1)
-  const [isMinting, setIsMinting] = useState(false)
-  const [animating, setAnimating] = useState(false)
+  const [minting, setMinting] = useState(2)
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
     royalty: '',
-    royaltyPer: '',
+    royaltyPer: 0,
     file: '',
     fileLocal: null
   })
   const user = useSelector(state => state.user)
 
-  const handleSubmit = async event => {
-    event.preventDefault()
-    setIsMinting(true)
-    await delay(5000)
-    setAnimating(true)
-    await delay(1000)
+  const validate = () => {
+    const { title, file } = nftInfo
+    if (title === '' || file === '') return false
+    return true
+  }
+
+  const handleStep1 = event => {
+    if (!validate()) {
+      toast.error('Fill all the info')
+      return
+    }
+
     setMinting(2)
+  }
+
+  const handleSubmit = async event => {
+    try {
+      const { title, description, royalty, royaltyPer } = nftInfo
+      event.preventDefault()
+
+      if (!validate()) {
+        toast.error('Fill all the info')
+        return
+      }
+      const result = await upload({ files: nftInfo.file }, user.accessToken)
+      await saveAsset(
+        {
+          title,
+          description,
+          royalty,
+          royaltyPer,
+          media: result.data.data.filePath,
+          mediaType: result.data.data.mimeType,
+          wallet: '0xFd277dF0F425DA6e0ABCEB88BB5056e0a50c0AcF'
+        },
+        user.accessToken
+      )
+      setMinting(2)
+    } catch (error) {
+      console.log('error', error)
+    }
   }
 
   return (
@@ -53,14 +87,12 @@ function Mint() {
             <Step1
               {...{
                 minting,
-                isMinting,
-                animating,
                 nftInfo,
                 setNftInfo,
-                handleSubmit
+                handleStep1
               }}
             />
-            <Step2 />
+            <Step2 {...{ minting, nftInfo, handleSubmit }} />
           </Suspense>
         </div>
       </div>

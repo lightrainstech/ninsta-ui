@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import DragDropIcon from '../Icons/DragDropIcon'
 import { FileUploader } from 'react-drag-drop-files'
 import Image from 'next/image'
-import { upload } from '../../actions'
 import { useSelector } from 'react-redux'
 
 function InstaCard({ nftInfo, setNftInfo }) {
@@ -14,9 +13,8 @@ function InstaCard({ nftInfo, setNftInfo }) {
   const handleChange = async newFile => {
     setIsloading(true)
     try {
-      const result = await upload({ files: newFile }, user.accessToken)
       const tempClone = { ...nftInfo }
-      tempClone.file = result.data.data.filePath
+      tempClone.file = newFile
       tempClone.fileLocal = URL.createObjectURL(newFile)
       setNftInfo(tempClone)
     } catch (error) {

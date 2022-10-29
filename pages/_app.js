@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
-
 import toast, { Toaster } from 'react-hot-toast'
 
 import { DefaultSeo } from 'next-seo'
@@ -12,11 +11,33 @@ import { ToastContainer } from 'react-toastify'
 import { motion } from 'framer-motion'
 import { useStore } from 'react-redux'
 import { wrapper } from '../components/store'
+import { Web3Modal } from '@web3modal/react'
+import { chains, providers } from '@web3modal/ethereum'
 
 // import { persistor, store } from '../components/store'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 function MyApp({ Component, pageProps, router }) {
   const store = useStore(state => state)
+
+  const config = {
+    projectId: publicRuntimeConfig.walletconnect,
+    theme: 'dark',
+    accentColor: 'default',
+    ethereum: {
+      appName: 'web3Modal',
+      autoConnect: true,
+      chains: [chains.polygon],
+      providers: [
+        providers.walletConnectProvider({
+          projectId: publicRuntimeConfig.walletconnect
+        })
+      ]
+    }
+  }
+
   return (
     <>
       <Head>
@@ -43,6 +64,7 @@ function MyApp({ Component, pageProps, router }) {
         <Toaster />
       </PersistGate>
       <Gtag />
+      <Web3Modal config={config} />
     </>
   )
 }

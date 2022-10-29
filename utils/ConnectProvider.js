@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import Web3Modal from 'web3modal'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 const ConnectProvider = props => {
   const [provider, setProvider] = useState(null)
@@ -10,18 +13,18 @@ const ConnectProvider = props => {
 
   useEffect(() => {
     const providerOptions = {
+      network: 'polygon',
       walletconnect: {
         display: {
           name: 'Wallet Connect'
         },
         package: WalletConnectProvider,
         options: {
-          infuraId: '9aa3d95b3bc440fa88ea12eaa4456161' // required
+          infuraId: publicRuntimeConfig.infura // required
         }
       }
     }
     const web3Modal = new Web3Modal({
-      network: 'ethereum',
       cacheProvider: true,
       theme: 'light',
       providerOptions // required
