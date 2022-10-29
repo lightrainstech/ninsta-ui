@@ -2,12 +2,11 @@ import { ChevronDown } from 'react-iconly'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import ConnectWallet from '../ConnectWallet'
 import { Web3Button, useAccount } from '@web3modal/react'
+import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit }) {
   const { account, isReady } = useAccount()
-  console.log(Web3Button, account, isReady)
 
   return (
     <div
@@ -24,10 +23,17 @@ function Step2({ minting, nftInfo, handleSubmit }) {
         <div className="grid grid-cols-2 items-start gap-6 justify-start pb-6">
           <div className="col-span-1 h-full">
             <div className="grid grid-col justify-between h-full">
-              <div>
-                <p>Click on connect and choose your wallet</p>
-
-                {account.isConnected ? <h1>{account.address}</h1> : null}
+              <div className="mb-5">
+                {account.isConnected ? (
+                  <>
+                    <p>Connected Wallet</p>
+                    <p className="text-sm">{truncate(account.address, 14)}</p>
+                  </>
+                ) : (
+                  <>
+                    <p>Click on connect and choose your wallet</p>
+                  </>
+                )}
                 <Web3Button />
               </div>
 
