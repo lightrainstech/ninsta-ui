@@ -14,10 +14,10 @@ const footerMenu = [
 
 const Footer = () => {
   return (
-    <footer className="container pt-10 pb-5 bg-[url(/line-2.png)] bg-top bg-no-repeat">
+    <footer className="container p-10 bg-[url(/line-2.png)] bg-top bg-no-repeat">
       <div className="flex flex-col md:flex-row items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold font-serif mb-2">Ninsta</h1>
+          <h1 className="text-xl font-bold font-serif mb-2">Ninsta</h1>
           <h2>Mint Instagram Digital Collectables for free</h2>
           <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}

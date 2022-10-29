@@ -21,7 +21,8 @@
   }
   input,
   textarea {
-    @apply focus:outline-0 border-2 border-zinc-700 p-2 outline-none bg-zinc-800 mb-5 mt-1 w-full;
+    @apply outline-0 focus:outline-0 border-0 p-2 outline-none mb-4 mt-0.5 w-full rounded-md resize-none;
+    background: rgba(43, 46, 53, 0.72);
   }
 
   .gradient {
@@ -50,5 +51,21 @@
   }
   .animate-slide {
     animation: slide-out 1000ms normal;
+  }
+
+  form label {
+    @apply text-gray-500 text-sm;
+  }
+  .number {
+    @apply w-10 h-10 p-2 text-sm text-black;
+  }
+  .steps {
+    @apply mb-8;
+  }
+  .steps .content {
+    @apply hidden;
+  }
+  .steps.active .content {
+    @apply grid;
   }
 }

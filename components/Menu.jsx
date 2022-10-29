@@ -11,7 +11,7 @@ const Menu = props => {
 
   return (
     <nav className="container ">
-      <div className="flex flex-row justify-between items-center mx-auto pt-10">
+      <div className="flex flex-row justify-between items-center mx-auto pt-8">
         <Link href="/">
           <a>
             <Image src="/ninsta-logo.svg" alt="" height={48} width={48} />
