@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+
 import { motion } from 'framer-motion'
-import InstaCard from '../../InstaCard'
 
 const AssetForm = ({ minting, nftInfo, setNftInfo, handleSubmit }) => {
   const [freeCount, setFreeCount] = useState(1)
@@ -95,9 +95,7 @@ const AssetForm = ({ minting, nftInfo, setNftInfo, handleSubmit }) => {
             </button>
           </form>
         </div>
-        <div className="col-span-1">
-          <InstaCard {...{ nftInfo, setNftInfo }} />
-        </div>
+        <div className="col-span-1"></div>
       </div>
     </motion.div>
   )
