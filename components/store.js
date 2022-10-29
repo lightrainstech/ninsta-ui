@@ -31,7 +31,7 @@ const makeStore = ({ isServer }) => {
     const storage = require('redux-persist/lib/storage').default
 
     const persistConfig = {
-      key: 'nextjs',
+      key: 'ninsta',
       storage
     }
 

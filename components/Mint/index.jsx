@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
@@ -17,6 +18,7 @@ function Mint() {
     royaltyPer: '',
     file: ''
   })
+  const user = useSelector(state => state.user)
 
   const handleSubmit = async event => {
     event.preventDefault()

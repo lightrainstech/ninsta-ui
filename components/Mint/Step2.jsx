@@ -1,14 +1,15 @@
+import { ChevronDown } from 'react-iconly'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function Step3({ minting, nftInfo, setNftInfo, handleSubmit }) {
+function Step2({ minting, nftInfo, setNftInfo, handleSubmit }) {
   return (
     <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps active">
       <div className="pb-10 flex flex-row items-center justify-between space-x-4">
         <span className="number bg-[url(/mint_closed.svg)] bg-no-repeat" />
         <h3 className="text-2xl font-thin flex-1">Mint your NFT</h3>
-        <span>2</span>
+        <ChevronDown set="light" primaryColor="#BAF247" size={36} />
       </div>
 
       <div className="content pl-8">
@@ -47,4 +48,4 @@ function Step3({ minting, nftInfo, setNftInfo, handleSubmit }) {
   )
 }
 
-export default Step3
+export default Step2
