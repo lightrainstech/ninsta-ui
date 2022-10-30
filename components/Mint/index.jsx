@@ -5,12 +5,13 @@ import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import { upload, saveAsset } from '../../actions'
 import toast from 'react-hot-toast'
+import { useAccount } from '@web3modal/react'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
 function Mint() {
-  const [minting, setMinting] = useState(2)
+  const [minting, setMinting] = useState(1)
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
@@ -20,6 +21,7 @@ function Mint() {
     fileLocal: null
   })
   const user = useSelector(state => state.user)
+  const { account } = useAccount()
 
   const validate = () => {
     const { title, file } = nftInfo
@@ -39,12 +41,7 @@ function Mint() {
   const handleSubmit = async event => {
     try {
       const { title, description, royalty, royaltyPer } = nftInfo
-      event.preventDefault()
 
-      if (!validate()) {
-        toast.error('Fill all the info')
-        return
-      }
       const result = await upload({ files: nftInfo.file }, user.accessToken)
       await saveAsset(
         {
@@ -54,7 +51,7 @@ function Mint() {
           royaltyPer,
           media: result.data.data.filePath,
           mediaType: result.data.data.mimeType,
-          wallet: '0xFd277dF0F425DA6e0ABCEB88BB5056e0a50c0AcF'
+          wallet: account.address
         },
         user.accessToken
       )

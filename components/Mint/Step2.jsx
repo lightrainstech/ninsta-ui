@@ -1,8 +1,5 @@
-import {
-  RiArrowDownSLine,
-  RiWallet2Line,
-  RiCloseCircleFill
-} from 'react-icons/ri'
+import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
+
 import { useConnectModal, useAccount, AccountButton } from '@web3modal/react'
 
 import Image from 'next/image'
@@ -55,7 +52,7 @@ function Step2({ minting, nftInfo, handleSubmit }) {
               {account.isConnected && (
                 <button
                   className="text-black rounded-md  bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
-                  onClick={open}>
+                  onClick={handleSubmit}>
                   Create NFT
                 </button>
               )}

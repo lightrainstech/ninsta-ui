@@ -22,6 +22,8 @@ const { publicRuntimeConfig } = getConfig()
 function MyApp({ Component, pageProps, router }) {
   const store = useStore(state => state)
 
+  console.log(chains)
+
   const config = {
     projectId: publicRuntimeConfig.walletconnect,
     theme: 'light',
@@ -29,7 +31,10 @@ function MyApp({ Component, pageProps, router }) {
     ethereum: {
       appName: 'web3Modal',
       autoConnect: true,
-      chains: [chains.polygon],
+      chains: [
+        //chains.polygon
+        chains.polygonMumbai
+      ],
       providers: [
         providers.walletConnectProvider({
           projectId: publicRuntimeConfig.walletconnect
