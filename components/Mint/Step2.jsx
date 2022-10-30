@@ -3,12 +3,7 @@ import {
   RiWallet2Line,
   RiCloseCircleFill
 } from 'react-icons/ri'
-import {
-  useConnectModal,
-  useAccount,
-  ConnectButton,
-  AccountButton
-} from '@web3modal/react'
+import { useConnectModal, useAccount, AccountButton } from '@web3modal/react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,7 +12,7 @@ import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit }) {
   const { account, isReady } = useAccount()
-  const { isOpen, open, close } = useConnectModal()
+  const { open } = useConnectModal()
 
   return (
     <div
@@ -41,9 +36,9 @@ function Step2({ minting, nftInfo, handleSubmit }) {
                   <>
                     <p>Connected Wallet</p>
                     <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
-                      <p>{truncate(account.address, 16)}</p>
+                      <p>{truncate(account.address, 20)}</p>
                     </div>
-                    <AccountButton />
+                    {/* <AccountButton /> */}
                   </>
                 ) : (
                   <>
@@ -56,6 +51,14 @@ function Step2({ minting, nftInfo, handleSubmit }) {
                   </>
                 )}
               </div>
+
+              {account.isConnected && (
+                <button
+                  className="text-black rounded-md  bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                  onClick={open}>
+                  Create NFT
+                </button>
+              )}
 
               <div className="text-gray-600">
                 <p>Doesn’t have a wallet yet?</p>
