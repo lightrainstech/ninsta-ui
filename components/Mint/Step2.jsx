@@ -1,5 +1,14 @@
-import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-import { Web3Button, useAccount } from '@web3modal/react'
+import {
+  RiArrowDownSLine,
+  RiWallet2Line,
+  RiCloseCircleFill
+} from 'react-icons/ri'
+import {
+  useConnectModal,
+  useAccount,
+  ConnectButton,
+  AccountButton
+} from '@web3modal/react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,6 +17,7 @@ import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit }) {
   const { account, isReady } = useAccount()
+  const { isOpen, open, close } = useConnectModal()
 
   return (
     <div
@@ -30,14 +40,21 @@ function Step2({ minting, nftInfo, handleSubmit }) {
                 {account.isConnected ? (
                   <>
                     <p>Connected Wallet</p>
-                    <p className="text-sm">{truncate(account.address, 14)}</p>
+                    <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
+                      <p>{truncate(account.address, 16)}</p>
+                    </div>
+                    <AccountButton />
                   </>
                 ) : (
                   <>
                     <p>Click on connect and choose your wallet</p>
+                    <button
+                      className="text-black rounded-md bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                      onClick={open}>
+                      Connect Wallet
+                    </button>
                   </>
                 )}
-                <Web3Button />
               </div>
 
               <div className="text-gray-600">
