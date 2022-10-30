@@ -19,7 +19,7 @@ export default function Home() {
       <NextSeo title="Redirecting..." description="Become Ninsta affiliate" />
       <div className="h-screen flex flex-col items-center justify-center text-gray-600">
         <RiLoader5Line className="animate-spin text-gray-600" size={40} />
-        <p className="text-sm mt-3 text-lg">Redirecting...</p>
+        <p className="mt-3 text-lg">Redirecting...</p>
         <p>{affcode}</p>
       </div>
       <Footer />
