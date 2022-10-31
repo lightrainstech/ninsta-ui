@@ -1,6 +1,5 @@
+import { AccountButton, useAccount, useConnectModal } from '@web3modal/react'
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-
-import { useConnectModal, useAccount, AccountButton } from '@web3modal/react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -24,8 +23,8 @@ function Step2({ minting, nftInfo, handleSubmit }) {
         <RiArrowDownSLine set="light" primaryColor="#BAF247" size={36} />
       </div>
 
-      <div className="content pl-8">
-        <div className="grid grid-cols-2 items-start gap-6 justify-start pb-6">
+      <div className="content pl-0 md:pl-8">
+        <div className="flex flex-cols-2 items-start gap-6 justify-start pb-6">
           <div className="col-span-1 h-full">
             <div className="grid grid-col justify-between h-full">
               <div className="mb-5">
@@ -68,7 +67,7 @@ function Step2({ minting, nftInfo, handleSubmit }) {
 
           <div>
             {nftInfo.fileLocal !== null && (
-              <div className="relative w-[300px] h-[300px] cursor-pointer">
+              <div className="relative w-[160px] h-[160px] md:w-[300px] md:h-[300px] cursor-pointer">
                 <Image
                   src={nftInfo.fileLocal}
                   alt=""

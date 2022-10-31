@@ -62,13 +62,13 @@ function Mint() {
 
   return (
     <div className="container py-20">
-      <div className="grid grid-cols-6 gap-10">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
         <div className="col-span-2 pr-6">
-          <h1 className="font-bold text-5xl font-serif leading-[1.35]">
+          <h1 className="font-bold text-3xl md:text-5xl font-serif leading-[1.35]">
             Mint Your{' '}
             <span className="text-green-500">Digital Collectable</span>
           </h1>
-          <div className="mt-40">
+          <div className="mt-10 md:mt-40">
             <b className="text-lg mb-2 inline-block">
               <span className="text-green-500">1/3</span> Free NFT
             </b>
@@ -78,7 +78,7 @@ function Mint() {
             </p>
           </div>
         </div>
-        <div className="col-span-4 pl-6">
+        <div className="col-span-4 p-1 md:pl-6">
           <Suspense fallback={`Loading...`}>
             <Step1
               {...{

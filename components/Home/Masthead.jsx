@@ -32,7 +32,7 @@ const Masthead = () => {
             <span className="text-green-500">Digital Collectibles</span> <br />
             for free
           </h1>
-          <h2 className="text-lg font-thin my-3 text-gray-500 w-full md:w-5/6">
+          <h2 className="text-lg font-thin my-3 text-gray-400 w-full md:w-5/6">
             Get your Instagram profile noticed with NFTs
           </h2>
           <div className="py-8">
