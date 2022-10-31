@@ -1,7 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 const site_name = 'Mint Digital Collectibles',
-  desc =
-    'Your free tool to Mint Instagram Digital Collectibles. #MintedOnNinsta'
+  desc = 'Free tool to Mint Instagram Digital Collectibles. #MintedOnNinsta'
 
 export default {
   title: site_name,
@@ -11,18 +10,17 @@ export default {
     type: 'website',
     locale: 'en_IE',
     url: 'https://ninsta.io/',
-    siteName: site_name,
-    title: site_name,
+    siteName: `Ninsta - ${site_name}`,
+    title: `Ninsta - ${site_name}`,
     description: desc,
     images: [
       {
         url: 'https://ninsta.io/og/free-tool.png',
         width: 1200,
-        height: 720,
+        height: 640,
         alt: desc,
         type: 'image/png'
-      },
-      { url: 'https://ninsta.io/og/free-tool-nft.png' }
+      }
     ]
   }
 }
