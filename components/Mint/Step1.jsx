@@ -21,7 +21,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1 }) {
         <h3 className="text-2xl font-thin flex-1">NFT details</h3>
         <RiArrowDownSLine set="light" primaryColor="#BAF247" size={36} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-8 content">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 md:pl-8 content">
         <div className="col-span-1">
           <label htmlFor="title">Title</label>
           <input
