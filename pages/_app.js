@@ -47,7 +47,13 @@ function MyApp({ Component, pageProps, router }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <DefaultSeo {...SEO} />
-      <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
+      <PersistGate
+        persistor={store.__persistor}
+        loading={
+          <div className="h-screen flex flex-col items-center justify-center text-gray-600">
+            <p className="mt-3 text-lg">Loading...</p>
+          </div>
+        }>
         <LazyMotion features={domAnimation}>
           <m.div
             key={router.route}
