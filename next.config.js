@@ -41,7 +41,8 @@ module.exports = withBundleAnalyzer({
   publicRuntimeConfig: {
     backendUrl: 'https://api.ninsta.io/api',
     infura: '9969f5fd1bc248289bb7cc90bb20e163',
-    walletconnect: 'aacd16027c242c0034350228947f584c'
+    walletconnect: 'aacd16027c242c0034350228947f584c',
+    nftContract: '0xE8dC4e9f26584d1A2cE26E459E3B6943541c082c'
   },
   poweredByHeader: false,
   async headers() {
