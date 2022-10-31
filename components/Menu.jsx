@@ -11,7 +11,7 @@ const Menu = () => {
     <nav className="container ">
       <div className="flex flex-row justify-between items-center mx-auto pt-8">
         <Link href="/">
-          <a className="cursor-pointer">
+          <a className="cursor-pointer" aria-label="Ninta Home">
             <Image src="/ninsta-logo.svg" alt="" height={48} width={48} />
           </a>
         </Link>

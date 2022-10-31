@@ -29,12 +29,16 @@ const Footer = () => {
           </h2>
           <div className="flex flex-row space-x-1 mb-4">
             <Link href="https://discord.gg/2p7KT4da3e">
-              <a className="cursor-pointer hover:opacity-60">
+              <a
+                className="cursor-pointer hover:opacity-60"
+                aria-label="Ninta Discord">
                 <RiDiscordFill size={28} />
               </a>
             </Link>
             <Link href="https://www.instagram.com/MintOnNinsta">
-              <a className="cursor-pointer hover:opacity-60">
+              <a
+                className="cursor-pointer hover:opacity-60"
+                aria-label="Ninta Instagram">
                 <RiInstagramFill size={28} />
               </a>
             </Link>
@@ -42,11 +46,19 @@ const Footer = () => {
           <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}
             <Link href="https://area58.design">
-              <a className="cursor-pointer hover:text-gray-400">Area58</a>
+              <a
+                className="cursor-pointer hover:text-gray-400"
+                aria-label="Area 58">
+                Area58
+              </a>
             </Link>{' '}
             and{' '}
             <Link href="https://lightrains.com">
-              <a className="cursor-pointer hover:text-gray-400">Lightrains</a>
+              <a
+                className="cursor-pointer hover:text-gray-400"
+                aria-label="Lightrains">
+                Lightrains
+              </a>
             </Link>
           </p>
           <p className="text-sm text-gray-700">
@@ -60,12 +72,7 @@ const Footer = () => {
               return (
                 <li key={index}>
                   <Link href={item.path}>
-                    <a
-                      className="cursor-pointer mt-1.5 block"
-                      role="menuitem"
-                      tabIndex="-1">
-                      {item.title}
-                    </a>
+                    <a className="cursor-pointer mt-1.5 block">{item.title}</a>
                   </Link>
                 </li>
               )
