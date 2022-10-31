@@ -72,7 +72,11 @@ const Footer = () => {
               return (
                 <li key={index}>
                   <Link href={item.path}>
-                    <a className="cursor-pointer mt-1.5 block">{item.title}</a>
+                    <a
+                      className="cursor-pointer mt-1.5 block"
+                      aria-label={item.title}>
+                      {item.title}
+                    </a>
                   </Link>
                 </li>
               )
