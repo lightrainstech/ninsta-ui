@@ -1,11 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-const site_name = 'Ninsta',
+const site_name = 'Mint Digital Collectibles',
   desc =
     'Your free tool to Mint Instagram Digital Collectibles. #MintedOnNinsta'
 
 export default {
   title: site_name,
-  titleTemplate: `%s | ${site_name}`,
+  titleTemplate: `%s | Ninsta`,
   description: desc,
   openGraph: {
     type: 'website',
