@@ -11,12 +11,10 @@ export default function Home() {
       />
       <Menu />
       <section className="container py-20">
-        <div className="">
-          <h1 className="leading-relaxed text-5xl font-bold text-center">
-            How to add Free NFT to Instagram
-          </h1>
-          <Howto />
-        </div>
+        <h1 className="leading-relaxed text-5xl font-bold text-center">
+          How to add Free NFT to Instagram
+        </h1>
+        <Howto />
       </section>
       <Footer />
     </>

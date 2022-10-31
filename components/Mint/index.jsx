@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { saveAsset, upload } from '../../actions'
 
-import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
