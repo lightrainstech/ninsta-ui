@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ninsta.io
+
+# Sitemaps
+Sitemap: https://ninsta.io/sitemap.xml
