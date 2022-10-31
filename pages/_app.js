@@ -4,6 +4,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { chains, providers } from '@web3modal/ethereum'
 
 import { DefaultSeo } from 'next-seo'
+import Favicons from '../components/Favicons'
 import Head from 'next/head'
 import { PersistGate } from 'redux-persist/integration/react'
 import SEO from '../next-seo.config'
@@ -45,6 +46,7 @@ function MyApp({ Component, pageProps, router }) {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Favicons />
       </Head>
       <DefaultSeo {...SEO} />
       <PersistGate
