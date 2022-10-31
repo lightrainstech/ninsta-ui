@@ -1,29 +1,26 @@
 import '../styles/globals.css'
-import 'react-toastify/dist/ReactToastify.css'
 
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { chains, providers } from '@web3modal/ethereum'
-import toast, { Toaster } from 'react-hot-toast'
 
 import { DefaultSeo } from 'next-seo'
-import Gtag from '../components/Gtag'
 import Head from 'next/head'
 import { PersistGate } from 'redux-persist/integration/react'
 import SEO from '../next-seo.config'
-import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
 import { Web3Modal } from '@web3modal/react'
+import dynamic from 'next/dynamic'
 // import { persistor, store } from '../components/store'
 import getConfig from 'next/config'
-import { motion } from 'framer-motion'
 import { useStore } from 'react-redux'
 import { wrapper } from '../components/store'
 
 const { publicRuntimeConfig } = getConfig()
 
+const DynamicGtag = dynamic(() => import('../components/Gtag'))
+
 function MyApp({ Component, pageProps, router }) {
   const store = useStore(state => state)
-
-  console.log(chains)
-
   const config = {
     projectId: publicRuntimeConfig.walletconnect,
     theme: 'light',
@@ -51,24 +48,25 @@ function MyApp({ Component, pageProps, router }) {
       </Head>
       <DefaultSeo {...SEO} />
       <PersistGate persistor={store.__persistor} loading={<div>Loading</div>}>
-        <motion.div
-          key={router.route}
-          initial="initial"
-          animate="animate"
-          variants={{
-            initial: {
-              opacity: 0
-            },
-            animate: {
-              opacity: 1
-            }
-          }}>
-          <Component {...pageProps} />
-          <ToastContainer />
-        </motion.div>
+        <LazyMotion features={domAnimation}>
+          <m.div
+            key={router.route}
+            initial="initial"
+            animate="animate"
+            variants={{
+              initial: {
+                opacity: 0
+              },
+              animate: {
+                opacity: 1
+              }
+            }}>
+            <Component {...pageProps} />
+          </m.div>
+        </LazyMotion>
         <Toaster />
       </PersistGate>
-      <Gtag />
+      <DynamicGtag />
       <Web3Modal config={config} />
     </>
   )

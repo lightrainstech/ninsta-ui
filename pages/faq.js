@@ -11,10 +11,7 @@ export default function Home() {
         description="Frequently-asked questions like How to add Free NFT to your Instagram account"
       />
       <Menu />
-
-      <div className="">
-        <Faq />
-      </div>
+      <Faq />
       <Footer />
     </>
   )
