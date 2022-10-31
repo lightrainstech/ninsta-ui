@@ -3,4 +3,69 @@
 @tailwind utilities;
 
 @layer utilities {
+  .bg-gradient-all {
+    background-image: linear-gradient(
+      45deg,
+      hsl(240deg 100% 20%) 0%,
+      hsl(298deg 100% 21%) 25%,
+      hsl(324deg 100% 32%) 40%,
+      hsl(336deg 100% 42%) 52%,
+      hsl(0deg 93% 61%) 62%,
+      hsl(24deg 100% 57%) 72%,
+      hsl(42deg 100% 50%) 83%,
+      hsl(55deg 100% 50%) 100%
+    );
+  }
+  .container {
+    @apply px-5 md:px-20;
+  }
+  input,
+  textarea {
+    @apply outline-0 focus:outline-0 border-0 p-2 outline-none mb-4 mt-0.5 w-full rounded-md resize-none;
+    background: rgba(43, 46, 53, 0.72);
+  }
+
+  .gradient {
+    display: table;
+    background: linear-gradient(
+      330deg,
+      #e05252 0%,
+      #baf247 25%,
+      #52e0e0 50%,
+      #9952e0 75%,
+      #e05252 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes slide-out {
+    from {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0.25;
+    }
+  }
+  .animate-slide {
+    animation: slide-out 1000ms normal;
+  }
+
+  form label {
+    @apply text-gray-500 text-sm;
+  }
+  .number {
+    @apply w-10 h-10 p-2 text-sm text-black bg-green-500 inline-flex justify-center items-center rounded-full;
+  }
+  .steps {
+    @apply mb-8;
+  }
+  .steps .content {
+    @apply hidden;
+  }
+  .steps.active .content {
+    @apply grid;
+  }
 }

@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en" className="text-gray-600 bg-gray-50 font-sans">
+      <Html lang="en" className="dark text-gray-50 bg-black font-sans">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -17,7 +17,7 @@ class MyDocument extends Document {
             crossOrigin="true"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;700&family=Sora:wght@400;700&display=swap"
             rel="stylesheet"
           />
         </Head>
