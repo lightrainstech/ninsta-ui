@@ -68,4 +68,7 @@
   .steps.active .content {
     @apply grid;
   }
+  a.link {
+    @apply hover:text-green-400 cursor-pointer max-w-max;
+  }
 }
