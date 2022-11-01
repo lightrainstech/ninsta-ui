@@ -53,7 +53,7 @@ const Masthead = () => {
                   <span className="text-gray-900">Sign Me Up!</span>
                 </button>
                 <p className="text-xs text-gray-500 mt-2 w-[280px]">
-                  By creating an account, you agree to Ninsta's{' '}
+                  {`By creating an account, you agree to Ninsta's`}
                   <Link href="/privacy">
                     <a>Privacy Policy and Terms of Use.</a>
                   </Link>
