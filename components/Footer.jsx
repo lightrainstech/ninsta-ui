@@ -35,7 +35,7 @@ const Footer = () => {
                 <RiDiscordFill size={28} />
               </a>
             </Link>
-            <Link href="https://www.instagram.com/MintOnNinsta">
+            <Link href="https://www.instagram.com/ninstacollectables">
               <a
                 className="cursor-pointer hover:opacity-60"
                 aria-label="Ninta Instagram">
