@@ -6,6 +6,8 @@ import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
 import { useSelector } from 'react-redux'
 
+import FreemintCount from './FreemintCount'
+
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
@@ -19,6 +21,7 @@ function Mint() {
     file: '',
     fileLocal: null
   })
+
   const user = useSelector(state => state.user)
   const { account } = useAccount()
 
@@ -70,7 +73,7 @@ function Mint() {
           </h1>
           <div className="mt-10 md:mt-40">
             <b className="text-lg mb-2 inline-block">
-              <span className="text-green-500">1/3</span> Free NFT
+              <FreemintCount />
             </b>
             <p className="text-gray-500">
               Your wallet can Mint 3 free NFTs using Ninsta for your Instagram,

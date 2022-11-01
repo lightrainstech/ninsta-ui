@@ -10,6 +10,7 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@makerdao/multicall": "^0.12.0",
     "@web3modal/ethereum": "^2.0.0-beta.1",
     "@web3modal/react": "^2.0.0-beta.1",
     "axios": "^1.1.3",

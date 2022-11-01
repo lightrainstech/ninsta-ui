@@ -2,7 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const menu = [{ title: 'How it Works', path: '/how-it-works' }]
+const menu = [
+  { title: 'How it Works', path: '/how-it-works' },
+  { title: 'Contact', path: '/contact' }
+]
 
 const Menu = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,7 +22,7 @@ const Menu = () => {
           {menu.map((item, index) => {
             return (
               <Link key={index} href={item.path}>
-                <a className="cursor-pointer min-w-max">{item.title}</a>
+                <a className="link text-xl">{item.title}</a>
               </Link>
             )
           })}
