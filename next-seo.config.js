@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 const site_name = 'Mint Digital Collectibles',
-  desc = 'Free tool to Mint Instagram Digital Collectibles. #MintedOnNinsta'
+  desc = 'Free tool to Mint Digital Collectibles for Instagram. #MintedOnNinsta'
 
 export default {
   title: site_name,
