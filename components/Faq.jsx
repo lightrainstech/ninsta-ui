@@ -20,9 +20,9 @@ const Accordion = ({ title, content }) => {
   return (
     <div className="accordion-item mb-2">
       <div
-        className="flex flex-row gap-3"
+        className="flex flex-row justify-between gap-3 cursor-pointer hover:text-green-500"
         onClick={() => setIsActive(!isActive)}>
-        <h3 className="text-2xl cursor-pointer mb-2">{title}</h3>
+        <h3 className="text-2xl mb-2">{title}</h3>
         <div>{isActive ? '-' : '+'}</div>
       </div>
       {isActive && <div className="text-lg mb-16">{content}</div>}
