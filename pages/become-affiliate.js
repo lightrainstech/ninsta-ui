@@ -11,6 +11,7 @@ export default function Home() {
   const [email, setEmail] = React.useState('')
   const [copy, setCopy] = React.useState(false)
   const [myAffCode, setMyAffCode] = React.useState('')
+  const [myAffLink, setMyAffLink] = React.useState('')
   const user = useSelector(state => state.user)
 
   const formSubmit = async () => {
@@ -21,11 +22,24 @@ export default function Home() {
     try {
       const result = await affiliate({ affEmail: email }, user.accessToken)
       setCopy(false)
-      setMyAffCode(result.data.data.user.affiliateCode || '23cf193k')
+
+      if (result.data.data.user.affiliateCode === null) {
+        setEmail('')
+        toast.error(
+          'Unable to find affiliate information associated with this email, make sure you are a registered Ninsta user.'
+        )
+      } else {
+        setMyAffCode(result.data.data.user.affiliateCode || '')
+        setMyAffLink(
+          `https://ninsta.io/a/${result.data.data.user.affiliateCode}`,
+          ''
+        )
+      }
     } catch (error) {
       toast.error(
         'Unable to find affiliate information, make sure you are a registered Ninsta user.'
       )
+      setEmail('')
     }
   }
 
@@ -68,15 +82,21 @@ export default function Home() {
 
           {myAffCode && (
             <div className="text-center">
+              <h3>Your Affiliate Code</h3>
+
               <CopyToClipboard text={myAffCode} onCopy={() => setCopy(!copy)}>
                 <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all">
                   {myAffCode}
                 </div>
               </CopyToClipboard>
               <h3>Alternatively you can use following link</h3>
-              <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all break-all">
-                {`https://ninsta.io/a/${myAffCode}`}
-              </div>
+
+              <CopyToClipboard text={myAffLink} onCopy={() => setCopy(!copy)}>
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all break-all">
+                  {myAffLink}
+                </div>
+              </CopyToClipboard>
+
               {copy ? (
                 <span className="text-center mx-auto text-brand-700">
                   Copied.
@@ -84,14 +104,6 @@ export default function Home() {
               ) : null}
             </div>
           )}
-
-          <p className="mt-10">
-            {`Each application is reviewed thoroughly to determine if you are
-            eligible based on the approval criteria. However, if you have not heard back from
-            the network within 1 week after submitting your application, please
-            contact Ninsta Support, who can look into this for you. Or, you can
-            also wait for the network’s team to follow up with you directly.`}
-          </p>
         </div>
       </section>
       <Footer />
