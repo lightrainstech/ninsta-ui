@@ -33,7 +33,7 @@ const Accordion = ({ title, content }) => {
 export default function Faq() {
   return (
     <section className="container mt-20">
-      <h1 className="leading-relaxed text-5xl font-bold text-center">
+      <h1 className="leading-relaxed text-5xl font-bold text-center font-serif">
         How to add Free NFT to Instagram
       </h1>
       <div className="accordion my-20 mx-40">

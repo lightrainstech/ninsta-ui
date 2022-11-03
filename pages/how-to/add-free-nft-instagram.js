@@ -12,7 +12,7 @@ export default function Home() {
       <Menu />
       <section className="container py-20">
         <div className="prose prose-lg mx-auto max-w-screen-md prose-invert">
-          <h1 className="leading-relaxed text-center">
+          <h1 className="leading-relaxed text-center font-serif">
             How to add Free NFT to Instagram
           </h1>
           <p>
