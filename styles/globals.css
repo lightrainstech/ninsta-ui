@@ -26,17 +26,42 @@
   }
 
   .gradient {
-    display: table;
-    background: linear-gradient(
-      330deg,
-      #e05252 0%,
-      #baf247 25%,
-      #52e0e0 50%,
-      #9952e0 75%,
-      #e05252 100%
-    );
+    background: linear-gradient(330deg, #ff0069 0%, #d300c5 75%, #7638fa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  .bttn {
+    @apply px-3 py-2 text-lg text-white hover:bttn_hover;
+    background-image: linear-gradient(
+      45deg,
+      hsl(335deg 100% 50%) 0%,
+      hsl(331deg 100% 50%) 10%,
+      hsl(326deg 100% 49%) 20%,
+      hsl(320deg 100% 47%) 30%,
+      hsl(313deg 100% 45%) 40%,
+      hsl(304deg 100% 41%) 50%,
+      hsl(297deg 89% 43%) 60%,
+      hsl(290deg 79% 48%) 70%,
+      hsl(281deg 79% 52%) 80%,
+      hsl(271deg 86% 56%) 90%,
+      hsl(259deg 95% 60%) 100%
+    );
+  }
+  .bttn_hover {
+    background-image: linear-gradient(
+      305deg,
+      hsl(335deg 100% 50%) 0%,
+      hsl(331deg 100% 50%) 10%,
+      hsl(326deg 100% 49%) 20%,
+      hsl(320deg 100% 47%) 30%,
+      hsl(313deg 100% 45%) 40%,
+      hsl(304deg 100% 41%) 50%,
+      hsl(297deg 89% 43%) 60%,
+      hsl(290deg 79% 48%) 70%,
+      hsl(281deg 79% 52%) 80%,
+      hsl(271deg 86% 56%) 90%,
+      hsl(259deg 95% 60%) 100%
+    );
   }
 
   @keyframes slide-out {
@@ -57,7 +82,7 @@
     @apply text-gray-500 text-sm;
   }
   .number {
-    @apply w-10 h-10 p-2 text-sm text-black bg-green-500 inline-flex justify-center items-center rounded-full;
+    @apply w-10 h-10 p-2 text-sm text-black bg-brand-500 inline-flex justify-center items-center rounded-full;
   }
   .steps {
     @apply mb-8;
@@ -69,6 +94,6 @@
     @apply grid;
   }
   a.link {
-    @apply hover:text-green-400 cursor-pointer max-w-max;
+    @apply hover:text-brand-400 cursor-pointer max-w-max;
   }
 }

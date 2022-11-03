@@ -1,7 +1,9 @@
+import { useAccount, useContractRead } from '@web3modal/react'
+
 import React from 'react'
-import { useContractRead, useAccount } from '@web3modal/react'
-import nftAbi from '../abi/nft.json'
 import getConfig from 'next/config'
+import nftAbi from '../abi/nft.json'
+
 const { publicRuntimeConfig } = getConfig()
 
 const FreemintCount = () => {
@@ -23,7 +25,7 @@ const FreemintCount = () => {
 
   return (
     <>
-      <span className="text-green-500">
+      <span className="text-brand-500">
         {isNaN(parseInt(getFreeMinting?.data?.toString()))
           ? 1
           : parseInt(getFreeMinting?.data?.toString()) + 1}

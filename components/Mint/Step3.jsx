@@ -16,7 +16,7 @@ const Step3 = ({ nftInfo }) => {
           </p>
           <Link href="/mint-digital-collectable">
             <a
-              className="text-green-500 link inline-flex mt-5 text-lg"
+              className="text-brand-500 link inline-flex mt-5 text-lg"
               title="Mint Digital Collectibles for Free">
               Try one more?
             </a>

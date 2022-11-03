@@ -56,7 +56,7 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                       Wallet
                     </p>
                     <button
-                      className="text-black rounded-md bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                      className="text-black rounded-md bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
                       onClick={open}>
                       Connect Wallet
                     </button>
@@ -67,7 +67,7 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
               {account.isConnected && (
                 <div>
                   <button
-                    className="text-black rounded-md disabled:bg-green-300  bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                    className="text-black rounded-md disabled:bg-brand-300  bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
                     onClick={handleSubmit}
                     disabled={isSubmit}>
                     Create NFT

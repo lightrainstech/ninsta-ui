@@ -21,7 +21,7 @@ function Howto() {
                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
                   <span className="font-black">Step 1</span> - Sign up
                 </div>
-                <h3 className="p-3 text-3xl text-green-500 font">
+                <h3 className="p-3 text-3xl text-brand-500 font">
                   Sign up to get started
                 </h3>
                 <div className="px-3 pb-6 text-lg">
@@ -59,7 +59,7 @@ function Howto() {
                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
                   <span className="font-black">Step 2</span> - Mint
                 </div>
-                <h3 className="p-3 text-3xl text-green-500 font">
+                <h3 className="p-3 text-3xl text-brand-500 font">
                   Mint your Digital Collectable
                 </h3>
                 <div className="px-3 pb-6 text-lg">
@@ -98,7 +98,7 @@ function Howto() {
                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
                   <span className="font-black">Step 3</span> - Connect Wallet
                 </div>
-                <h3 className="p-3 text-3xl text-green-500 font">
+                <h3 className="p-3 text-3xl text-brand-500 font">
                   Connect or Create your Wallet
                 </h3>
                 <div className="px-3 pb-6 text-lg">
@@ -136,7 +136,7 @@ function Howto() {
                 <div className="md:hidden text-sm font-normal uppercase pt-3 pl-3 text-gray-500">
                   <span className="font-black">Step 4</span> - Publish
                 </div>
-                <h3 className="p-3 text-3xl text-green-500 font">
+                <h3 className="p-3 text-3xl text-brand-500 font">
                   Publish to Instagram
                 </h3>
                 <div className="px-3 pb-6 text-lg">
