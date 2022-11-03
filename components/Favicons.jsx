@@ -32,7 +32,7 @@ function Favicons() {
         name="msapplication-config"
         content="/favicons/browserconfig.xml?v=16"
       />
-      <meta name="theme-color" content="#111111"></meta>
+      <meta name="theme-color" content="#d300c5" />
     </>
   )
 }

@@ -1,6 +1,7 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Ninsta",
+  "start_url": "https://ninsta.io",
+  "short_name": "Mint Instagram Digital Collectibles for free",
   "icons": [
     {
       "src": "android-chrome-192x192.png?v=12",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#111111",
+  "theme_color": "#ff0069",
   "background_color": "#111111",
   "display": "standalone"
 }
