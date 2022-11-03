@@ -66,7 +66,7 @@ const Masthead = () => {
                     setEmail(evt.target.value)
                   }}
                   placeholder="Email Address"
-                  className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                  className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[200px] md:w-[220px] -z-10"
                 />
                 <button
                   className="bttn -ml-2 z-20 rounded-r-md"
