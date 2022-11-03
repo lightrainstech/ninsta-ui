@@ -35,7 +35,7 @@ export default function Home() {
             <p className="text-lg mb-2">
               {`We are also active on following social media for any support that you might need during the whole process of getting your Digital Collectible up in Instagram. Feel free to connect.`}
             </p>
-            <SocialLinks />
+            <SocialLinks size={48} />
           </div>
           <div>
             <iframe
