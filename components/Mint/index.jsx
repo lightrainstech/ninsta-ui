@@ -102,7 +102,12 @@ function Mint() {
         </div>
         <div className="col-span-4 p-1 md:pl-6">
           {minting < 3 && (
-            <Suspense fallback={`Loading...`}>
+            <Suspense
+              fallback={
+                <div className="h-full min-w-min flex flex-col items-center justify-center text-gray-600">
+                  <p className="mt-3 text-lg">Loading...</p>
+                </div>
+              }>
               <Step1
                 {...{
                   minting,
