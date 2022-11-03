@@ -80,20 +80,21 @@ const Masthead = () => {
                     className="text-blue-400 block cursor-pointer select-none">
                     Referral Code?
                   </p>
-                  {aff && (
-                    <div className="animate-fade-in-down">
-                      <input
-                        type="text"
-                        name="royalty"
-                        className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
-                        value={affCode}
-                        placeholder="Referral Code"
-                        onChange={evt => {
-                          setAffCode(evt.target.value)
-                        }}
-                      />
-                    </div>
-                  )}
+                  <div
+                    className={
+                      aff ? 'visible animate-fade-in-down' : 'invisible'
+                    }>
+                    <input
+                      type="text"
+                      name="royalty"
+                      className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                      value={affCode}
+                      placeholder="Referral Code"
+                      onChange={evt => {
+                        setAffCode(evt.target.value)
+                      }}
+                    />
+                  </div>
                 </div>
 
                 <p className="text-xs text-gray-500 mt-2 w-[280px]">
