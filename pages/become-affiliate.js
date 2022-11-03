@@ -1,22 +1,31 @@
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
 import React from 'react'
+import { affiliate } from '../actions'
 import toast from 'react-hot-toast'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
   const [email, setEmail] = React.useState('')
+  const [copy, setCopy] = React.useState(false)
+  const [myAffCode, setMyAffCode] = React.useState('')
+  const user = useSelector(state => state.user)
 
-  const signUpSubmit = async () => {
+  const formSubmit = async () => {
     if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
       toast.error('Enter a valid email address to get started')
       return
     }
-    const result = await signup({ name: email.split('@')[0], email })
-    dispatch({
-      type: 'USER_LOGIN',
-      data: { user: { ...result.data.data } }
-    })
+    try {
+      const result = await affiliate({ affEmail: email }, user.accessToken)
+      setCopy(false)
+      setMyAffCode(result.data.data.user.affiliateCode || '23cf193k')
+      // router.push('/mint-digital-collectable')
+    } catch (error) {
+      toast.error('Failed to authenticate, please try again!')
+    }
   }
 
   return (
@@ -38,7 +47,7 @@ export default function Home() {
             products and earn a substantial commission.`}
           </p>
 
-          <div className="text-center my-20">
+          <div className="text-center my-16">
             <h2>Apply today and start spreading the word.</h2>
             <input
               type="text"
@@ -51,12 +60,31 @@ export default function Home() {
             />
             <button
               className="text-white border-2 border-green-500 rounded-r-md bg-green-500 px-3 py-2 -ml-2 z-20"
-              onClick={signUpSubmit}>
-              <span className="hidden md:block text-gray-900">Apply</span>
+              onClick={formSubmit}>
+              <span className="text-gray-900">Get Code</span>
             </button>
           </div>
 
-          <p>
+          {myAffCode && (
+            <div className="text-center">
+              <CopyToClipboard text={myAffCode} onCopy={() => setCopy(!copy)}>
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all">
+                  {myAffCode}
+                </div>
+              </CopyToClipboard>
+              <h3>Alternatively you can use following link</h3>
+              <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all break-all">
+                {`https://ninsta.io/a/${myAffCode}`}
+              </div>
+              {copy ? (
+                <span className="text-center mx-auto text-green-700">
+                  Copied.
+                </span>
+              ) : null}
+            </div>
+          )}
+
+          <p className="mt-10">
             {`Each application is reviewed thoroughly to determine if you are
             eligible based on the approval criteria. However, if you have not heard back from
             the network within 1 week after submitting your application, please

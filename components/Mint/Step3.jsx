@@ -7,12 +7,12 @@ const Step3 = ({ nftInfo }) => {
     <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps min-h-[200px]">
       <div className="flex flex-row space-x-3">
         <div>
-          <Image src="/thumbs-up.svg" height={140} width={140} />
+          <Image src="/thumbs-up.svg" height={140} width={140} alt="" />
         </div>
         <div>
           <h3 className="text-xl font-bold">Congratulations!</h3>
           <p className="font-light text-gray-600">
-            {`Your Digital Collectable has been minted successfully`}
+            {`Your Digital Collectable ${nftInfo.title} has been minted successfully.`}
           </p>
           <Link href="/mint-digital-collectable">
             <a
