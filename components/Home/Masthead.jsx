@@ -33,7 +33,7 @@ const Masthead = () => {
       })
       router.push('/mint-digital-collectable')
     } catch (error) {
-      toast.error('Login failed. Try again')
+      toast.error('Failed to authenticate, please try again!')
     }
     setIsSubmit(false)
   }

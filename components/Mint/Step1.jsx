@@ -18,7 +18,9 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
         <span className="number">
           <RiImage2Fill size={18} />
         </span>
-        <h3 className="text-2xl font-thin flex-1">NFT details</h3>
+        <h3 className="text-xl md:text-2xl font-thin flex-1">
+          Digital Collectable
+        </h3>
         <RiArrowDownSLine
           set="light"
           primaryColor="#BAF247"
@@ -28,7 +30,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 md:pl-8 content">
-        <div className="col-span-1">
+        <div className="col-span-1 order-2 md:order-1">
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -86,7 +88,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
             Save & Proceed
           </button>
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 order-1 md:order-2">
           <InstaCard {...{ nftInfo, setNftInfo }} />
         </div>
       </div>
