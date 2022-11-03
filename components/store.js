@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import storage from 'redux-persist/lib/storage'
 
 const initialState = {
+  affcode: '',
   user: null,
   account: null,
   network: null,
@@ -17,6 +18,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.data.user
+      }
+
+    case 'USER_AFF_CODE':
+      return {
+        ...state,
+        affcode: action.data
       }
 
     case 'CONNECT_WALLET':

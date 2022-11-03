@@ -34,6 +34,9 @@ function InstaCard({ nftInfo, setNftInfo }) {
               }`}>
               <DragDropIcon width={40} height={40} />
               <p className="text-zinc-300 text-sm">Drag and drop your file</p>
+              <p className="text-zinc-300 text-xs">
+                Allowed file types are png, jpeg, jpg, gif
+              </p>
             </div>
           ) : (
             <div className="relative h-[300px] w-full cursor-pointer">

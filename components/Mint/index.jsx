@@ -1,12 +1,12 @@
 import React, { Suspense, useState } from 'react'
 import { saveAsset, upload } from '../../actions'
 
+import FreemintCount from './FreemintCount'
+import Step3 from './Step3'
 import dynamic from 'next/dynamic'
 import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
 import { useSelector } from 'react-redux'
-
-import FreemintCount from './FreemintCount'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
@@ -21,6 +21,7 @@ function Mint() {
     file: '',
     fileLocal: null
   })
+  const [isSubmit, setIsSubmit] = useState(false)
 
   const user = useSelector(state => state.user)
   const { account } = useAccount()
@@ -33,31 +34,49 @@ function Mint() {
 
   const handleStep1 = event => {
     if (!validate()) {
-      toast.error('Fill all the info')
+      toast.error('Please fill the required fields')
       return
     }
-
     setMinting(2)
   }
+  const handleActive = value => setMinting(value)
 
   const handleSubmit = async event => {
-    try {
-      const { title, description, royalty, royaltyPer } = nftInfo
+    setIsSubmit(true)
 
-      const result = await upload({ files: nftInfo.file }, user.accessToken)
+    try {
+      const {
+        title,
+        description,
+        royalty = '0x0000000000000000000000000000000000000000',
+        royaltyPer,
+        file
+      } = nftInfo
+
+      const result = await upload(
+        { file, title, description },
+        user.accessToken
+      )
+
+      const { assetUri, mimeType, image } = result.data.data
+
       await saveAsset(
         {
           title,
           description,
           royalty,
           royaltyPer,
-          media: result.data.data.filePath,
-          mediaType: result.data.data.mimeType,
+          assetUri,
+          handle: 'ninsta',
+          media: image,
+          mediaType: mimeType,
           wallet: account.address
         },
         user.accessToken
       )
-      setMinting(2)
+
+      //setMinting(2)
+      setIsSubmit(false)
     } catch (error) {
       console.log('error', error)
     }
@@ -82,17 +101,24 @@ function Mint() {
           </div>
         </div>
         <div className="col-span-4 p-1 md:pl-6">
-          <Suspense fallback={`Loading...`}>
-            <Step1
-              {...{
-                minting,
-                nftInfo,
-                setNftInfo,
-                handleStep1
-              }}
-            />
-            <Step2 {...{ minting, nftInfo, handleSubmit }} />
-          </Suspense>
+          {minting < 3 && (
+            <Suspense fallback={`Loading...`}>
+              <Step1
+                {...{
+                  minting,
+                  nftInfo,
+                  setNftInfo,
+                  handleStep1,
+                  handleActive,
+                  isSubmit
+                }}
+              />
+              <Step2
+                {...{ minting, nftInfo, handleSubmit, handleActive, isSubmit }}
+              />
+            </Suspense>
+          )}
+          {minting === 3 && <Step3 {...{ nftInfo }} />}
         </div>
       </div>
     </div>
