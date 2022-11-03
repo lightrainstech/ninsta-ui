@@ -55,7 +55,7 @@ export default function Home() {
           <h1 className="leading-relaxed font-serif text-center">
             Become an Affiliate for Ninsta
           </h1>
-          <p>
+          <p className="text-center">
             {`As an affiliate, you'll get the chance to connect with Ninsta
             community while building a passive income that takes almost no time
             to make. We support you with the tools you need to promote our

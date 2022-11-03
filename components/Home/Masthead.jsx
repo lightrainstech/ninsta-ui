@@ -10,7 +10,6 @@ import { useRouter } from 'next/router'
 const Masthead = () => {
   const user = useSelector(state => state.user)
   const affcode = useSelector(state => state.affcode)
-  console.log(affcode)
   const [email, setEmail] = React.useState('')
   const [affCode, setAffCode] = React.useState(affcode)
   const [aff, setAffiliate] = React.useState(false)
@@ -34,8 +33,9 @@ const Masthead = () => {
       router.push('/mint-digital-collectable')
     } catch (error) {
       toast.error('Failed to authenticate, please try again!')
+    } finally {
+      setIsSubmit(false)
     }
-    setIsSubmit(false)
   }
 
   return (
@@ -47,13 +47,13 @@ const Masthead = () => {
             <span className="text-brand-500">Digital Collectibles</span> <br />
             for{' '}
             <TypeAnimation
-              sequence={['Instagram', 2000, 'Reddit', 2000, 'OpenSea', 2000]}
+              sequence={['Instagram', 2000, 'Facebook', 2000, 'OpenSea', 2000]}
               wrapper="span"
               cursor={true}
               repeat={Infinity}
             />
           </h1>
-          <h2 className="text-lg mt-3 text-gray-400 w-full md:w-5/6">
+          <h2 className="text-lg mt-3 text-gray-600 w-full md:w-5/6">
             Get your Instagram profile noticed with NFTs
           </h2>
           <div className="py-8">
@@ -77,8 +77,8 @@ const Masthead = () => {
                 <div className="min-h-[20px] mb-4">
                   <p
                     onClick={() => setAffiliate(!aff)}
-                    className="text-blue-400 block cursor-pointer select-none">
-                    Referral Code?
+                    className="text-blue-400 text-sm block cursor-pointer select-none">
+                    Affiliate Code?
                   </p>
                   <div
                     className={
@@ -87,7 +87,7 @@ const Masthead = () => {
                     <input
                       type="text"
                       name="royalty"
-                      className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                      className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
                       value={affCode}
                       placeholder="Referral Code"
                       onChange={evt => {
