@@ -99,7 +99,7 @@ const Masthead = () => {
 
                 <p className="text-xs text-gray-500 mt-2 w-[280px]">
                   {`By creating an account, you agree to Ninsta's `}
-                  <Link href="/privacy">
+                  <Link href="/privacy" prefetch={false}>
                     <a className="text-gray-300 hover:text-brand-500">
                       Privacy Policy and Terms of Use.
                     </a>
@@ -107,7 +107,7 @@ const Masthead = () => {
                 </p>
               </>
             ) : (
-              <Link href="/mint-digital-collectable">
+              <Link href="/mint-digital-collectable" prefetch={false}>
                 <a className="bttn rounded-md">Start Minting</a>
               </Link>
             )}

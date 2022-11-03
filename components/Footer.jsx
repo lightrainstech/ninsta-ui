@@ -57,7 +57,7 @@ const Footer = () => {
             {footerMenu.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link href={item.path}>
+                  <Link href={item.path} prefetch={false}>
                     <a className="link mt-3 block" aria-label={item.title}>
                       {item.title}
                     </a>

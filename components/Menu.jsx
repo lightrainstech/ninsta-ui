@@ -14,14 +14,14 @@ const Menu = () => {
     <nav className="container ">
       <div className="flex flex-row justify-between items-center mx-auto pt-8">
         <Link href="/">
-          <a className="cursor-pointer" aria-label="Ninta Home">
-            <Image src="/ninsta.svg" alt="" height={48} width={48} />
+          <a className="cursor-pointer" aria-label="Ninsta Home">
+            <Image src="/ninsta.svg" priority alt="" height={48} width={48} />
           </a>
         </Link>
         <div className="hidden md:flex flex-row items-center space-x-8 ">
           {menu.map((item, index) => {
             return (
-              <Link key={index} href={item.path}>
+              <Link key={index} href={item.path} prefetch={false}>
                 <a className="link text-xl">{item.title}</a>
               </Link>
             )
