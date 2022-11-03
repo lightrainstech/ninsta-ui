@@ -24,7 +24,7 @@ const Footer = () => {
     <footer className="container p-10 bg-[url(/line-2.png)] bg-top bg-no-repeat">
       <div className="flex flex-col md:flex-row items-start justify-between">
         <div>
-          <h1 className="text-xl font-bold font-serif mb-1">Ninsta</h1>
+          <h3 className="text-xl font-bold font-serif mb-1">Ninsta</h3>
           <h2 className="opacity-70 mb-6">
             Mint Instagram Digital Collectibles for free
           </h2>
@@ -52,7 +52,7 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h1 className="text-lg font-bold font-serif mb-6">Resources</h1>
+          <h3 className="text-lg font-bold font-serif mb-6">Resources</h3>
           <ul>
             {footerMenu.map((item, index) => {
               return (
