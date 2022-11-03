@@ -16,11 +16,12 @@ function Mint() {
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
-    royalty: '',
+    royalty: '0x0000000000000000000000000000000000000000',
     royaltyPer: 0,
     file: '',
     fileLocal: null
   })
+  const [isSubmit, setIsSubmit] = useState(false)
 
   const user = useSelector(state => state.user)
   const { account } = useAccount()
@@ -39,25 +40,38 @@ function Mint() {
 
     setMinting(2)
   }
+  const handleActive = value => setMinting(value)
 
   const handleSubmit = async event => {
-    try {
-      const { title, description, royalty, royaltyPer } = nftInfo
+    setIsSubmit(true)
 
-      const result = await upload({ files: nftInfo.file }, user.accessToken)
+    try {
+      const { title, description, royalty, royaltyPer, file } = nftInfo
+
+      const result = await upload(
+        { file, title, description },
+        user.accessToken
+      )
+
+      const { assetUri, mimeType, image } = result.data.data
+
       await saveAsset(
         {
           title,
           description,
           royalty,
           royaltyPer,
-          media: result.data.data.filePath,
-          mediaType: result.data.data.mimeType,
+          assetUri,
+          handle: 'ninsta',
+          media: image,
+          mediaType: mimeType,
           wallet: account.address
         },
         user.accessToken
       )
-      setMinting(2)
+
+      //setMinting(2)
+      setIsSubmit(false)
     } catch (error) {
       console.log('error', error)
     }
@@ -88,10 +102,14 @@ function Mint() {
                 minting,
                 nftInfo,
                 setNftInfo,
-                handleStep1
+                handleStep1,
+                handleActive,
+                isSubmit
               }}
             />
-            <Step2 {...{ minting, nftInfo, handleSubmit }} />
+            <Step2
+              {...{ minting, nftInfo, handleSubmit, handleActive, isSubmit }}
+            />
           </Suspense>
         </div>
       </div>
