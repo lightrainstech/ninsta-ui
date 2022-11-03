@@ -1,11 +1,9 @@
 import React, { Suspense } from 'react'
 
+import Masthead from '../components/Home/Masthead'
 import Menu from '../components/Menu'
 import dynamic from 'next/dynamic'
 
-const DynamicMasthead = dynamic(() => import('../components/Home/Masthead'), {
-  suspense: true
-})
 const DynamicFooter = dynamic(() => import('../components/Footer'), {
   suspense: true
 })
@@ -20,7 +18,7 @@ export default function Home() {
             <p className="mt-3 text-lg">Loading...</p>
           </div>
         }>
-        <DynamicMasthead />
+        <Masthead />
         <DynamicFooter />
       </Suspense>
     </div>
