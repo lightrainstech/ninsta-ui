@@ -24,8 +24,9 @@ export default function Home() {
       setCopy(false)
 
       if (result.data.data.user.affiliateCode === null) {
+        setEmail('')
         toast.error(
-          'Unable to find affiliate information, make sure you are a registered Ninsta user.'
+          'Unable to find affiliate information associated with this email, make sure you are a registered Ninsta user.'
         )
       } else {
         setMyAffCode(result.data.data.user.affiliateCode || '')
@@ -38,6 +39,7 @@ export default function Home() {
       toast.error(
         'Unable to find affiliate information, make sure you are a registered Ninsta user.'
       )
+      setEmail('')
     }
   }
 
@@ -102,14 +104,6 @@ export default function Home() {
               ) : null}
             </div>
           )}
-
-          <p className="mt-10">
-            {`Each application is reviewed thoroughly to determine if you are
-            eligible based on the approval criteria. However, if you have not heard back from
-            the network within 1 week after submitting your application, please
-            contact Ninsta Support, who can look into this for you. Or, you can
-            also wait for the network’s team to follow up with you directly.`}
-          </p>
         </div>
       </section>
       <Footer />
