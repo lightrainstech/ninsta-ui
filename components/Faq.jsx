@@ -20,7 +20,7 @@ const Accordion = ({ title, content }) => {
   return (
     <div className="accordion-item mb-2">
       <div
-        className="flex flex-row justify-between gap-3 cursor-pointer hover:text-green-500"
+        className="flex flex-row justify-between gap-3 cursor-pointer hover:text-brand-500"
         onClick={() => setIsActive(!isActive)}>
         <h3 className="text-2xl mb-2">{title}</h3>
         <div>{isActive ? '-' : '+'}</div>
@@ -33,7 +33,7 @@ const Accordion = ({ title, content }) => {
 export default function Faq() {
   return (
     <section className="container mt-20">
-      <h1 className="leading-relaxed text-5xl font-bold text-center">
+      <h1 className="leading-relaxed text-5xl font-bold text-center font-serif">
         How to add Free NFT to Instagram
       </h1>
       <div className="accordion my-20 mx-40">

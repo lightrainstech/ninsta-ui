@@ -16,3 +16,10 @@ export const saveAsset = (data, token) =>
       Authorization: `Bearer ${token}`
     }
   })
+
+export const affiliate = (data, token) =>
+  http.post('/affiliates/', data, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })

@@ -1,10 +1,11 @@
 import { AccountButton, useAccount, useConnectModal } from '@web3modal/react'
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import Loading from '../Loading'
 import React from 'react'
 import { truncate } from '../../utils/index'
-import Loading from '../Loading'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
   const { account, isReady } = useAccount()
@@ -19,7 +20,9 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
         <span className="number">
           <RiWallet2Line size={18} />
         </span>
-        <h3 className="text-2xl font-thin flex-1">Mint your NFT</h3>
+        <h3 className="text-xl md:text-2xl font-thin flex-1">
+          Mint Digital Collectable
+        </h3>
         <RiArrowDownSLine
           set="light"
           primaryColor="#BAF247"
@@ -45,13 +48,15 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                     <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
                       <p>{truncate(account.address, 20)}</p>
                     </div>
-                    {/* <AccountButton /> */}
                   </>
                 ) : (
                   <>
-                    <p>Click on connect and choose your wallet</p>
+                    <p className="text-gray-600">
+                      Click on Connect Wallet to connect or Create your Crypto
+                      Wallet
+                    </p>
                     <button
-                      className="text-black rounded-md bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                      className="text-black rounded-md bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
                       onClick={open}>
                       Connect Wallet
                     </button>
@@ -62,7 +67,7 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
               {account.isConnected && (
                 <div>
                   <button
-                    className="text-black rounded-md disabled:bg-green-300  bg-green-500 hover:bg-green-600 py-2 px-3 my-4"
+                    className="text-black rounded-md disabled:bg-brand-300  bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
                     onClick={handleSubmit}
                     disabled={isSubmit}>
                     Create NFT
@@ -70,13 +75,6 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                   {isSubmit && <Loading />}
                 </div>
               )}
-
-              <div className="text-gray-600">
-                <p>Doesn’t have a wallet yet?</p>
-                <Link href="/">
-                  <a className="uppercase">SET UP WALLET</a>
-                </Link>
-              </div>
             </div>
           </div>
 

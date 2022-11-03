@@ -1,22 +1,46 @@
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
 import React from 'react'
+import { affiliate } from '../actions'
 import toast from 'react-hot-toast'
+import { useSelector } from 'react-redux'
 
 export default function Home() {
   const [email, setEmail] = React.useState('')
+  const [copy, setCopy] = React.useState(false)
+  const [myAffCode, setMyAffCode] = React.useState('')
+  const [myAffLink, setMyAffLink] = React.useState('')
+  const user = useSelector(state => state.user)
 
-  const signUpSubmit = async () => {
+  const formSubmit = async () => {
     if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
       toast.error('Enter a valid email address to get started')
       return
     }
-    const result = await signup({ name: email.split('@')[0], email })
-    dispatch({
-      type: 'USER_LOGIN',
-      data: { user: { ...result.data.data } }
-    })
+    try {
+      const result = await affiliate({ affEmail: email }, user.accessToken)
+      setCopy(false)
+
+      if (result.data.data.user.affiliateCode === null) {
+        setEmail('')
+        toast.error(
+          'Unable to find affiliate information associated with this email, make sure you are a registered Ninsta user.'
+        )
+      } else {
+        setMyAffCode(result.data.data.user.affiliateCode || '')
+        setMyAffLink(
+          `https://ninsta.io/a/${result.data.data.user.affiliateCode}`,
+          ''
+        )
+      }
+    } catch (error) {
+      toast.error(
+        'Unable to find affiliate information, make sure you are a registered Ninsta user.'
+      )
+      setEmail('')
+    }
   }
 
   return (
@@ -38,7 +62,7 @@ export default function Home() {
             products and earn a substantial commission.`}
           </p>
 
-          <div className="text-center my-20">
+          <div className="text-center my-16">
             <h2>Apply today and start spreading the word.</h2>
             <input
               type="text"
@@ -47,22 +71,39 @@ export default function Home() {
                 setEmail(evt.target.value)
               }}
               placeholder="Email Address"
-              className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[300px] -z-10"
+              className="outline-0 focus:outline-0 border-2 border-brand-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[300px] -z-10"
             />
             <button
-              className="text-white border-2 border-green-500 rounded-r-md bg-green-500 px-3 py-2 -ml-2 z-20"
-              onClick={signUpSubmit}>
-              <span className="hidden md:block text-gray-900">Apply</span>
+              className="text-white border-2 border-brand-500 rounded-r-md bg-brand-500 px-3 py-2 -ml-2 z-20"
+              onClick={formSubmit}>
+              <span className="text-gray-900">Get Code</span>
             </button>
           </div>
 
-          <p>
-            {`Each application is reviewed thoroughly to determine if you are
-            eligible based on the approval criteria. However, if you have not heard back from
-            the network within 1 week after submitting your application, please
-            contact Ninsta Support, who can look into this for you. Or, you can
-            also wait for the network’s team to follow up with you directly.`}
-          </p>
+          {myAffCode && (
+            <div className="text-center">
+              <h3>Your Affiliate Code</h3>
+
+              <CopyToClipboard text={myAffCode} onCopy={() => setCopy(!copy)}>
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded-xl cursor-pointer select-all">
+                  {myAffCode}
+                </div>
+              </CopyToClipboard>
+              <h3>Alternatively you can use following link</h3>
+
+              <CopyToClipboard text={myAffLink} onCopy={() => setCopy(!copy)}>
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded-xl cursor-pointer select-all break-all">
+                  {myAffLink}
+                </div>
+              </CopyToClipboard>
+
+              {copy ? (
+                <span className="text-center mx-auto text-brand-700">
+                  Copied.
+                </span>
+              ) : null}
+            </div>
+          )}
         </div>
       </section>
       <Footer />

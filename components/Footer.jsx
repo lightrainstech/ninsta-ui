@@ -2,6 +2,7 @@ import { RiDiscordFill, RiInstagramFill } from 'react-icons/ri'
 
 import Link from 'next/link'
 import React from 'react'
+import SocialLinks from './SocialLinks'
 
 const footerMenu = [
   {
@@ -10,7 +11,7 @@ const footerMenu = [
   },
   {
     title: 'Add NFT to Instagram',
-    path: '/how-add-free-nft-instagram'
+    path: '/how-to/add-free-nft-instagram'
   },
   {
     title: 'Affiliate program',
@@ -23,26 +24,11 @@ const Footer = () => {
     <footer className="container p-10 bg-[url(/line-2.png)] bg-top bg-no-repeat">
       <div className="flex flex-col md:flex-row items-start justify-between">
         <div>
-          <h1 className="text-xl font-bold font-serif mb-6">Ninsta</h1>
-          <h2 className="opacity-70">
+          <h1 className="text-xl font-bold font-serif mb-1">Ninsta</h1>
+          <h2 className="opacity-70 mb-6">
             Mint Instagram Digital Collectibles for free
           </h2>
-          <div className="flex flex-row space-x-1 mb-4">
-            <Link href="https://discord.gg/2p7KT4da3e">
-              <a
-                className="cursor-pointer hover:opacity-60"
-                aria-label="Ninta Discord">
-                <RiDiscordFill size={28} />
-              </a>
-            </Link>
-            <Link href="https://www.instagram.com/ninstacollectables">
-              <a
-                className="cursor-pointer hover:opacity-60"
-                aria-label="Ninta Instagram">
-                <RiInstagramFill size={28} />
-              </a>
-            </Link>
-          </div>
+          <SocialLinks />
           <p className="text-sm text-gray-700 mt-6">
             In collaboration with{' '}
             <Link href="https://area58.design">
