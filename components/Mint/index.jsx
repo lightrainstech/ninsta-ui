@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic'
 import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
 import { useSelector } from 'react-redux'
+import Step3 from './Step3'
 
 import FreemintCount from './FreemintCount'
 
@@ -96,21 +97,24 @@ function Mint() {
           </div>
         </div>
         <div className="col-span-4 p-1 md:pl-6">
-          <Suspense fallback={`Loading...`}>
-            <Step1
-              {...{
-                minting,
-                nftInfo,
-                setNftInfo,
-                handleStep1,
-                handleActive,
-                isSubmit
-              }}
-            />
-            <Step2
-              {...{ minting, nftInfo, handleSubmit, handleActive, isSubmit }}
-            />
-          </Suspense>
+          {minting < 3 && (
+            <Suspense fallback={`Loading...`}>
+              <Step1
+                {...{
+                  minting,
+                  nftInfo,
+                  setNftInfo,
+                  handleStep1,
+                  handleActive,
+                  isSubmit
+                }}
+              />
+              <Step2
+                {...{ minting, nftInfo, handleSubmit, handleActive, isSubmit }}
+              />
+            </Suspense>
+          )}
+          {minting === 3 && <Step3 {...{ nftInfo }} />}
         </div>
       </div>
     </div>
