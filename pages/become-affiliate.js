@@ -55,7 +55,7 @@ export default function Home() {
           <h1 className="leading-relaxed font-serif text-center">
             Become an Affiliate for Ninsta
           </h1>
-          <p>
+          <p className="text-center">
             {`As an affiliate, you'll get the chance to connect with Ninsta
             community while building a passive income that takes almost no time
             to make. We support you with the tools you need to promote our
@@ -85,14 +85,14 @@ export default function Home() {
               <h3>Your Affiliate Code</h3>
 
               <CopyToClipboard text={myAffCode} onCopy={() => setCopy(!copy)}>
-                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all">
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded-xl cursor-pointer select-all">
                   {myAffCode}
                 </div>
               </CopyToClipboard>
               <h3>Alternatively you can use following link</h3>
 
               <CopyToClipboard text={myAffLink} onCopy={() => setCopy(!copy)}>
-                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded cursor-pointer select-all break-all">
+                <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded-xl cursor-pointer select-all break-all">
                   {myAffLink}
                 </div>
               </CopyToClipboard>
