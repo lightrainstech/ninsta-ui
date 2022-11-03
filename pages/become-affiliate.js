@@ -22,9 +22,10 @@ export default function Home() {
       const result = await affiliate({ affEmail: email }, user.accessToken)
       setCopy(false)
       setMyAffCode(result.data.data.user.affiliateCode || '23cf193k')
-      // router.push('/mint-digital-collectable')
     } catch (error) {
-      toast.error('Failed to authenticate, please try again!')
+      toast.error(
+        'Unable to find affiliate information, make sure you are a registered Ninsta user.'
+      )
     }
   }
 
