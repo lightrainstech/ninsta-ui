@@ -1,18 +1,22 @@
 import Footer from '../../components/Footer'
 import { NextSeo } from 'next-seo'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { RiLoader5Line } from 'react-icons/ri'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
 
 export default function Home() {
-  const { affcode } = Router.query
+  const router = useRouter()
+  const { affcode } = router.query
+  const dispatch = useDispatch()
 
-  const redirect = () => {
-    setTimeout(() => {
-      Router.push('/')
-    }, 2000)
-  }
-  redirect()
+  useEffect(() => {
+    dispatch({
+      type: 'USER_AFF_CODE',
+      data: affcode
+    })
+    router.push('/')
+  }, [affcode])
 
   return (
     <>

@@ -5,13 +5,18 @@ import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { signup } from '../../actions'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/router'
 
 const Masthead = () => {
-  const [email, setEmail] = React.useState('')
-  const [affCode, setAffCode] = React.useState('')
-  const [aff, setAffiliate] = React.useState(false)
   const user = useSelector(state => state.user)
+  const affcode = useSelector(state => state.affcode)
+  console.log(affcode)
+  const [email, setEmail] = React.useState('')
+  const [affCode, setAffCode] = React.useState(affcode)
+  const [aff, setAffiliate] = React.useState(false)
+  const [isSubmit, setIsSubmit] = React.useState(false)
 
+  const router = useRouter()
   const dispatch = useDispatch()
 
   const signUpSubmit = async () => {
@@ -19,11 +24,18 @@ const Masthead = () => {
       toast.error('Enter a valid email address to get started')
       return
     }
-    const result = await signup({ name: email.split('@')[0], email })
-    dispatch({
-      type: 'USER_LOGIN',
-      data: { user: { ...result.data.data } }
-    })
+    setIsSubmit(true)
+    try {
+      const result = await signup({ name: email.split('@')[0], email })
+      dispatch({
+        type: 'USER_LOGIN',
+        data: { user: { ...result.data.data } }
+      })
+      router.push('/mint-digital-collectable')
+    } catch (error) {
+      toast.error('Login failed. Try again')
+    }
+    setIsSubmit(false)
   }
 
   return (
