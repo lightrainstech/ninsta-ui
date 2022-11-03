@@ -22,9 +22,10 @@ export default function Home() {
       const result = await affiliate({ affEmail: email }, user.accessToken)
       setCopy(false)
       setMyAffCode(result.data.data.user.affiliateCode || '23cf193k')
-      // router.push('/mint-digital-collectable')
     } catch (error) {
-      toast.error('Failed to authenticate, please try again!')
+      toast.error(
+        'Unable to find affiliate information, make sure you are a registered Ninsta user.'
+      )
     }
   }
 
@@ -56,10 +57,10 @@ export default function Home() {
                 setEmail(evt.target.value)
               }}
               placeholder="Email Address"
-              className="outline-0 focus:outline-0 border-2 border-green-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[300px] -z-10"
+              className="outline-0 focus:outline-0 border-2 border-brand-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[300px] -z-10"
             />
             <button
-              className="text-white border-2 border-green-500 rounded-r-md bg-green-500 px-3 py-2 -ml-2 z-20"
+              className="text-white border-2 border-brand-500 rounded-r-md bg-brand-500 px-3 py-2 -ml-2 z-20"
               onClick={formSubmit}>
               <span className="text-gray-900">Get Code</span>
             </button>
@@ -77,7 +78,7 @@ export default function Home() {
                 {`https://ninsta.io/a/${myAffCode}`}
               </div>
               {copy ? (
-                <span className="text-center mx-auto text-green-700">
+                <span className="text-center mx-auto text-brand-700">
                   Copied.
                 </span>
               ) : null}

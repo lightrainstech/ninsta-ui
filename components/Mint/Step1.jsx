@@ -83,7 +83,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
             )}
           </div>
           <button
-            className="text-black rounded-md bg-green-500 hover:bg-green-600 px-3 py-2 w-full"
+            className="text-black rounded-md bg-brand-500 hover:bg-brand-600 px-3 py-2 w-full"
             onClick={handleStep1}>
             Save & Proceed
           </button>

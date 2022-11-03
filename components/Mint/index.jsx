@@ -86,18 +86,18 @@ function Mint() {
     <div className="container py-20">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
         <div className="col-span-2 pr-6">
-          <h1 className="font-bold text-3xl md:text-5xl font-serif leading-[1.35]">
+          <h1 className="font-bold text-3xl md:text-5xl font-serif !leading-[1.3]">
             Mint Your{' '}
-            <span className="text-green-500">Digital Collectable</span>
+            <span className="text-brand-500">Digital Collectable</span>
           </h1>
           <div className="mt-10 md:mt-40">
             <b className="text-lg mb-2 inline-block">
               <FreemintCount />
             </b>
-            <p className="text-gray-500">
-              Your wallet can Mint 3 free NFTs using Ninsta for your Instagram,
-              after that you will be charged.
-            </p>
+            <h3 className="text-gray-500">
+              Your wallet can Mint 3 free Digital Collectable using Ninsta for
+              your Instagram.
+            </h3>
           </div>
         </div>
         <div className="col-span-4 p-1 md:pl-6">

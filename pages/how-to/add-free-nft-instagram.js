@@ -1,5 +1,5 @@
-import Footer from '../components/Footer'
-import Menu from '../components/Menu'
+import Footer from '../../components/Footer'
+import Menu from '../../components/Menu'
 import { NextSeo } from 'next-seo'
 
 export default function Home() {
