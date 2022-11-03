@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 
 function Howto() {
@@ -26,9 +25,9 @@ function Howto() {
                 </h3>
                 <div className="px-3 pb-6 text-lg">
                   Enter your eMail address to Sign Up. If you have a referral
-                  code, please enter the code to avail free benefits. Voila. You
-                  have signed up for a free trial of Ninsta: your gateway to
-                  Digital Collectibles on Instagram.
+                  code, please enter the code to avail free benefits. You have
+                  signed up for a free trial of Ninsta: your gateway to{' '}
+                  <b>Digital Collectibles on Instagram</b>.
                 </div>
               </div>
             </div>
@@ -67,7 +66,7 @@ function Howto() {
                   Title & a Caption. If you would like to put up the Collectible
                   for sale in the future & expect Royalty for future sales,
                   please click on the Royalty tab and add your details. Save the
-                  info & proceed.
+                  details & proceed.
                 </div>
               </div>
             </div>
@@ -103,12 +102,13 @@ function Howto() {
                 </h3>
                 <div className="px-3 pb-6 text-lg">
                   Connect your NFT wallet for us to mint the Image and upload to
-                  your wallet for free. (Note: We will not have access to your
-                  wallet & would only be able to upload the collectable to your
-                  wallet). If you do not have a NFT wallet, please click on the
-                  “Set up wallet” tab and you will be shown various wallet
-                  options you can chose from. Select one of the options and
-                  create a wallet. Repeat the above step.
+                  your wallet for free. (Note:{' '}
+                  <b>We will not have access to your wallet</b> & would only be
+                  able to upload the collectable to your wallet). If you do not
+                  have a NFT wallet, please click on the <b>Set up wallet</b>{' '}
+                  tab and you will be shown various wallet options you can chose
+                  from. Select one of the options and create a wallet. Repeat
+                  the above step.
                 </div>
               </div>
             </div>
@@ -141,9 +141,9 @@ function Howto() {
                 </h3>
                 <div className="px-3 pb-6 text-lg">
                   Your collectable is ready and uploaded to your wallet. Go to
-                  instagram and choose Digital collectibles from the settings.
-                  Link the same NFT wallet on instagram and select the
-                  collectibles you want to display on Instagram.
+                  Instagram and choose <b>Digital collectibles</b> from the
+                  settings. Link the same <b>NFT wallet on instagram</b> and
+                  select the collectibles you want to display on Instagram.
                 </div>
               </div>
             </div>
