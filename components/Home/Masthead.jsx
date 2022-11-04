@@ -53,7 +53,7 @@ const Masthead = () => {
               repeat={Infinity}
             />
           </h1>
-          <h2 className="text-lg mt-3 text-gray-600 w-full md:w-5/6">
+          <h2 className="text-lg mt-3 text-gray-400 w-full md:w-5/6">
             Get your Instagram profile noticed with NFTs
           </h2>
           <div className="py-8">
@@ -66,10 +66,10 @@ const Masthead = () => {
                     setEmail(evt.target.value)
                   }}
                   placeholder="Email Address"
-                  className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[200px] md:w-[220px] -z-10"
+                  className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
                 />
                 <button
-                  className="bttn -ml-2 z-20 rounded-r-md"
+                  className="bttn -ml-2 z-20 outline-none rounded-r-md"
                   onClick={signUpSubmit}>
                   Sign Me Up!
                 </button>
