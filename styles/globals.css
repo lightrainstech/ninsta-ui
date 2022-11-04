@@ -3,19 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  .bg-gradient-all {
-    background-image: linear-gradient(
-      45deg,
-      hsl(240deg 100% 20%) 0%,
-      hsl(298deg 100% 21%) 25%,
-      hsl(324deg 100% 32%) 40%,
-      hsl(336deg 100% 42%) 52%,
-      hsl(0deg 93% 61%) 62%,
-      hsl(24deg 100% 57%) 72%,
-      hsl(42deg 100% 50%) 83%,
-      hsl(55deg 100% 50%) 100%
-    );
-  }
   .container {
     @apply px-5 md:px-20;
   }
@@ -25,11 +12,6 @@
     background: rgba(43, 46, 53, 0.72);
   }
 
-  .gradient {
-    background: linear-gradient(330deg, #ff0069 0%, #d300c5 75%, #7638fa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   .bttn {
     @apply px-3 py-2 text-lg text-white hover:bttn_hover;
     background-image: linear-gradient(
