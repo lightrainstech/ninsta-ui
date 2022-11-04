@@ -22,14 +22,12 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
           Digital Collectable
         </h3>
         <RiArrowDownSLine
-          set="light"
-          primaryColor="#BAF247"
           size={36}
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-brand-500"
           onClick={() => handleActive(1)}
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 md:pl-8 content">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 md:pl-14 content form">
         <div className="col-span-1 order-2 md:order-1">
           <label htmlFor="title">Title</label>
           <input
@@ -82,9 +80,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
               </div>
             )}
           </div>
-          <button
-            className="text-black rounded-md bg-brand-500 hover:bg-brand-600 px-3 py-2 w-full"
-            onClick={handleStep1}>
+          <button className="bttn rounded-md w-full" onClick={handleStep1}>
             Save & Proceed
           </button>
         </div>

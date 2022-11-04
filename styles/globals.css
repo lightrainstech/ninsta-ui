@@ -19,8 +19,8 @@
   .container {
     @apply px-5 md:px-20;
   }
-  input,
-  textarea {
+  .form input,
+  .form textarea {
     @apply outline-0 focus:outline-0 border-0 p-2 outline-none mb-4 mt-0.5 w-full rounded-md resize-none;
     background: rgba(43, 46, 53, 0.72);
   }

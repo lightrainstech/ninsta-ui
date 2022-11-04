@@ -24,10 +24,8 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
           Mint Digital Collectable
         </h3>
         <RiArrowDownSLine
-          set="light"
-          primaryColor="#BAF247"
           size={36}
-          className="cursor-pointer"
+          className="cursor-pointer hover:text-brand-500"
           onClick={() =>
             nftInfo.fileLocal !== null &&
             nftInfo.title !== '' &&
@@ -37,50 +35,46 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
         />
       </div>
 
-      <div className="content pl-0 md:pl-8">
-        <div className="flex flex-cols-2 items-start gap-6 justify-start pb-6">
-          <div className="col-span-1 h-full">
-            <div className="grid grid-col justify-between h-full">
-              <div className="mb-5">
-                {account.isConnected ? (
-                  <>
-                    <p>Connected Wallet</p>
-                    <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
-                      <p>{truncate(account.address, 20)}</p>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-gray-600">
-                      Click on Connect Wallet to connect or Create your Crypto
-                      Wallet
-                    </p>
-                    <button
-                      className="text-black rounded-md bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
-                      onClick={open}>
-                      Connect Wallet
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {account.isConnected && (
-                <div>
-                  <button
-                    className="text-black rounded-md disabled:bg-brand-300  bg-brand-500 hover:bg-brand-600 py-2 px-3 my-4"
-                    onClick={handleSubmit}
-                    disabled={isSubmit}>
-                    Create NFT
+      <div className="content pl-0 md:pl-14">
+        <div className="flex flex-col md:flex-row gap-6  pb-6">
+          <div className="h-full">
+            <div className="mb-5">
+              {account.isConnected ? (
+                <>
+                  <p>Connected Wallet</p>
+                  <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
+                    <p>{truncate(account.address, 20)}</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-gray-500">
+                    Click on Connect Wallet to connect or Create your Crypto
+                    Wallet
+                  </p>
+                  <button className="bttn rounded-md my-4" onClick={open}>
+                    Connect Wallet
                   </button>
-                  {isSubmit && <Loading />}
-                </div>
+                </>
               )}
             </div>
+
+            {account.isConnected && (
+              <div>
+                <button
+                  className="bttn rounded-md my-4"
+                  onClick={handleSubmit}
+                  disabled={isSubmit}>
+                  Create NFT
+                </button>
+                {isSubmit && <Loading />}
+              </div>
+            )}
           </div>
 
           <div>
             {nftInfo.fileLocal !== null && (
-              <div className="relative w-[160px] h-[160px] md:w-[300px] md:h-[300px] cursor-pointer">
+              <div className="relative w-[160px] h-[160px] md:w-[280px] md:h-[280px] cursor-pointer">
                 <Image
                   src={nftInfo.fileLocal}
                   alt=""
