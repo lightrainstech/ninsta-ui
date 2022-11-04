@@ -23,7 +23,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             as="image"
-            href="https://ninsta.io/bgfinal.min.png"
+            href="https://ninsta.io/bgfinal.min.webp"
           />
         </Head>
         <body>
