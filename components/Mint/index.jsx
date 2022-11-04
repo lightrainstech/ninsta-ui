@@ -12,7 +12,7 @@ const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
 function Mint() {
-  const [minting, setMinting] = useState(1)
+  const [minting, setMinting] = useState(3)
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
@@ -95,8 +95,8 @@ function Mint() {
               <FreemintCount />
             </b>
             <h3 className="text-gray-500">
-              Your wallet can Mint 3 free Digital Collectable using Ninsta for
-              your Instagram.
+              You can Mint 3 free Digital Collectibles using Ninsta for your
+              Instagram.
             </h3>
           </div>
         </div>
