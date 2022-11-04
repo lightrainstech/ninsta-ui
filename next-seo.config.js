@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 const site_name = 'Mint Digital Collectibles',
   desc =
-    'Mint Digital Collectibles for Instagram for free. Organize and share your digital collectible with Ninsta a free & powerful tool to fuel your NFTs. #MintedOnNinsta'
+    'Mint Digital Collectibles for Instagram. Organize and share your Digital Collectable with Ninsta a free & powerful tool to fuel your NFTs. #MintedOnNinsta'
 
 export default {
   title: site_name,
