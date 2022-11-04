@@ -12,7 +12,7 @@ const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
 function Mint() {
-  const [minting, setMinting] = useState(3)
+  const [minting, setMinting] = useState(2)
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
@@ -78,6 +78,9 @@ function Mint() {
       //setMinting(2)
       setIsSubmit(false)
     } catch (error) {
+      toast.error(
+        'Unable to Mint, please contact support team for further assistance.'
+      )
       console.log('error', error)
     }
   }
