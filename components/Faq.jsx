@@ -36,7 +36,7 @@ export default function Faq() {
       <h1 className="leading-relaxed text-5xl font-bold text-center font-serif">
         How to add Free NFT to Instagram
       </h1>
-      <div className="accordion my-20 mx-40">
+      <div className="accordion my-20 mx-4 md:mx-40">
         {accordionData.map(({ title, content, key }) => (
           <Accordion title={title} content={content} key={key} />
         ))}
