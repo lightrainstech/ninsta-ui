@@ -26,11 +26,11 @@ const Step3 = ({ nftInfo }) => {
           </h3>
           <ul>
             <li>
-              <Link href="/how-to/add-free-nft-instagram">
+              <Link href="/faq">
                 <a
                   className="text-brand-400 link inline-flex text-lg"
-                  title="Digital Collectable in Instagram">
-                  How to see Digital Collectable in Instagram
+                  title="Frequently Asked Questions">
+                  Frequently Asked Questions
                 </a>
               </Link>
             </li>

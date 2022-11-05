@@ -10,12 +10,12 @@ const footerMenu = [
     path: '/faq'
   },
   {
-    title: 'Add NFT to Instagram',
-    path: '/how-to/add-free-nft-instagram'
-  },
-  {
     title: 'Affiliate program',
     path: '/become-affiliate'
+  },
+  {
+    title: 'Privacy Policy',
+    path: '/privacypolicy'
   }
 ]
 
@@ -52,7 +52,7 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h3 className="text-lg font-bold font-serif mb-6">Resources</h3>
+          <p className="text-lg font-bold font-serif mb-6">Resources</p>
           <ul>
             {footerMenu.map((item, index) => {
               return (

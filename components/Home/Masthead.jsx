@@ -59,26 +59,25 @@ const Masthead = () => {
           <div className="py-8">
             {user === null ? (
               <>
-                <div className="">
-                  <input
-                    type="text"
-                    value={email}
-                    onChange={evt => {
-                      setEmail(evt.target.value)
-                    }}
-                    placeholder="Email Address"
-                    className="text-lg outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
-                  />
-                  <button
-                    className="bttn -ml-2 z-20 outline-none rounded-r-md"
-                    onClick={signUpSubmit}>
-                    Sign Me Up!
-                  </button>
-                </div>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={evt => {
+                    setEmail(evt.target.value)
+                  }}
+                  placeholder="Email Address"
+                  className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
+                />
+                <button
+                  className="bttn -ml-2 z-20 outline-none rounded-r-md"
+                  onClick={signUpSubmit}>
+                  Sign Me Up!
+                </button>
+
                 <div className="min-h-[20px] mb-4">
                   <p
                     onClick={() => setAffiliate(!aff)}
-                    className="text-blue-400 text-sm block cursor-pointer select-none">
+                    className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
                     Affiliate Code?
                   </p>
                   <div
@@ -88,9 +87,9 @@ const Masthead = () => {
                     <input
                       type="text"
                       name="royalty"
-                      className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                      className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
                       value={affCode}
-                      placeholder="Referral Code"
+                      placeholder="Enter Affiliate Code"
                       onChange={evt => {
                         setAffCode(evt.target.value)
                       }}
@@ -100,7 +99,7 @@ const Masthead = () => {
 
                 <p className="text-xs text-gray-500 mt-2 w-[280px]">
                   {`By creating an account, you agree to Ninsta's `}
-                  <Link href="/privacy" prefetch={false}>
+                  <Link href="/privacypolicy" prefetch={false}>
                     <a className="text-gray-300 hover:text-brand-500">
                       Privacy Policy and Terms of Use.
                     </a>
