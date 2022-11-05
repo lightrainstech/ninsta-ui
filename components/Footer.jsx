@@ -12,6 +12,10 @@ const footerMenu = [
   {
     title: 'Affiliate program',
     path: '/become-affiliate'
+  },
+  {
+    title: 'Privacy Policy',
+    path: '/privacypolicy'
   }
 ]
 
