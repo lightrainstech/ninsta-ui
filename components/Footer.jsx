@@ -10,10 +10,6 @@ const footerMenu = [
     path: '/faq'
   },
   {
-    title: 'Add NFT to Instagram',
-    path: '/how-to/add-free-nft-instagram'
-  },
-  {
     title: 'Affiliate program',
     path: '/become-affiliate'
   }

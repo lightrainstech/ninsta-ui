@@ -53,7 +53,7 @@ const Menu = () => {
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1">
-              <div className="p-5 flex   flex-col gap-5 h-72" role="none">
+              <div className="p-5 flex flex-col gap-5 h-72" role="none">
                 {menu.map((item, index) => {
                   return (
                     <Link key={index} href={item.path} prefetch={false}>
