@@ -76,13 +76,13 @@ function Mint() {
       )
 
       //setMinting(2)
-      setIsSubmit(false)
     } catch (error) {
       toast.error(
         'Unable to Mint, please contact support team for further assistance.'
       )
       console.log('error', error)
     }
+    setIsSubmit(false)
   }
 
   return (
