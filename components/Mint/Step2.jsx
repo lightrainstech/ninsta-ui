@@ -3,7 +3,6 @@ import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import Loading from '../Loading'
 import React from 'react'
 import { truncate } from '../../utils/index'
 
@@ -67,7 +66,6 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                   disabled={isSubmit}>
                   Create NFT
                 </button>
-                {isSubmit && <Loading />}
               </div>
             )}
           </div>

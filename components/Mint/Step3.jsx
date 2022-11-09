@@ -14,7 +14,7 @@ const Step3 = ({ nftInfo }) => {
           <p className="font-light text-lg text-gray-500">
             {`Your Digital Collectable ${nftInfo.title} has been minted successfully. You can now see it in your Instagram when you connect the same wallet in Instagram.`}
           </p>
-          <Link href="/mint-digital-collectable">
+          <Link href="mint-digital-collectable">
             <a
               className="bttn rounded-md inline-flex mt-5 text-lg"
               title="Mint Digital Collectibles for Free">

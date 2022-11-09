@@ -53,33 +53,24 @@ function Mint() {
         file
       } = nftInfo
 
-      const result = await upload(
-        { file, title, description },
-        user.accessToken
-      )
-
-      const { assetUri, mimeType, image } = result.data.data
-
       await saveAsset(
         {
+          file,
           title,
           description,
           royalty,
           royaltyPer,
-          assetUri,
           handle: 'ninsta',
-          media: image,
-          mediaType: mimeType,
           wallet: account.address
         },
         user.accessToken
       )
 
-      //setMinting(2)
+      setMinting(3)
     } catch (error) {
-      toast.error(
-        'Unable to Mint, please contact support team for further assistance.'
-      )
+      // toast.error(
+      //   'Unable to Mint, please contact support team for further assistance.'
+      // )
       console.log('error', error)
     }
     setIsSubmit(false)
