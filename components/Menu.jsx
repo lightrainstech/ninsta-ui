@@ -4,6 +4,7 @@ import React from 'react'
 
 const menu = [
   { title: 'How it Works', path: '/how-it-works' },
+  { title: 'Collections', path: '/collections' },
   { title: 'Contact', path: '/contact' }
 ]
 
