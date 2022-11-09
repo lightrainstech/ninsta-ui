@@ -13,7 +13,8 @@ export const upload = (data, token) =>
 export const saveAsset = (data, token) =>
   http.post('/assets', data, {
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
     }
   })
 
