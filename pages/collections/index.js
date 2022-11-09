@@ -8,8 +8,8 @@ export default function Collections() {
   return (
     <>
       <NextSeo
-        title="How to add Free NFT to Instagram"
-        description="How to add Free NFT to your Instagram account"
+        title="Ninsta Collections"
+        description="Ninsta Collections are the best way for you as a content creator or artist to enter the world of Digital Collectibles."
       />
       <Menu />
       <section className="container py-20">
