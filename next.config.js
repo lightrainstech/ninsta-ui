@@ -1,3 +1,5 @@
+const { m } = require('framer-motion')
+
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -36,7 +38,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['unsplash.it']
+    domains: ['unsplash.it'],
+    formats: ['image/avif', 'image/webp']
   },
   publicRuntimeConfig: {
     backendUrl: 'https://api.ninsta.io/api',
