@@ -12,7 +12,7 @@ function Latest() {
             layout="responsive"
             objectFit="cover"
             alt=""
-            src="/coll/bull.avif"
+            src="/coll/bull.jpg"
           />
           <h3 className="text-2xl font-bold mt-2">Bull</h3>
           <p className="text-gray-400">
@@ -27,7 +27,7 @@ function Latest() {
             height="100%"
             layout="responsive"
             alt=""
-            src="/coll/lion.avif"
+            src="/coll/lion.jpeg"
           />
           <h3 className="text-2xl font-bold mt-2">Angry Lion</h3>
           <p className="text-gray-400">
