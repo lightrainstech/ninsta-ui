@@ -8,15 +8,15 @@ export default function Collections() {
   return (
     <>
       <NextSeo
-        title="How to add Free NFT to Instagram"
-        description="How to add Free NFT to your Instagram account"
+        title="Ninsta Collections"
+        description="Ninsta Collections are the best way for you as a content creator or artist to enter the world of Digital Collectibles."
       />
       <Menu />
       <section className="container py-20">
-        <h1 className="text-6xl font-bold leading-relaxed text-center font-serif">
+        <h1 className="text-4xl md:text-6xl font-bold leading-relaxed text-center font-serif">
           Ninsta Collections
         </h1>
-        <h2 className="text-3xl leading-relaxed text-center text-medium mt-4 mb-12 w-full md:w-[700px] mx-auto">
+        <h2 className="text-xl md:text-3xl leading-relaxed text-center text-medium mt-4 mb-12 w-full md:w-[700px] mx-auto">
           Ninsta Collections are the best way for you as a creator to enter the
           world of Digital Collectibles.
         </h2>

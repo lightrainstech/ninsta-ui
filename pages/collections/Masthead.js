@@ -8,7 +8,7 @@ function Masthead() {
         <div className="container mx-auto px-6 flex relative py-16">
           <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
             <span className="w-20 h-2 bg-gray-800 dark:bg-white mb-12"></span>
-            <h2 className="text-4xl dark:text-white text-gray-800 font-serif">
+            <h2 className="text-3xl md:text-4xl dark:text-white text-gray-800 font-serif">
               Collections
             </h2>
             <p className="text-lg text-gray-700 dark:text-white mt-6">
@@ -22,7 +22,7 @@ function Masthead() {
             </div>
           </div>
           <div className="hidden sm:block sm:w-1/3 lg:w-3/5 text-center">
-            <Image src="/thumbs-up.svg" width="300" height="300" />
+            <Image src="/thumbs-up.svg" width="300" height="300" alt="" />
           </div>
         </div>
       </div>
