@@ -2,6 +2,7 @@ import Footer from '../components/Footer'
 import Howto from '../components/Howto'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
+
 export default function Home() {
   return (
     <>
