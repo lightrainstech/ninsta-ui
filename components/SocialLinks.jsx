@@ -1,4 +1,4 @@
-import { RiDiscordFill, RiInstagramFill } from 'react-icons/ri'
+import { RiDiscordFill, RiInstagramFill, RiTelegramFill } from 'react-icons/ri'
 
 import Link from 'next/link'
 import React from 'react'
@@ -18,6 +18,13 @@ function SocialLinks({ size = 28 }) {
           className="cursor-pointer hover:text-brand-500 hover:opacity-60"
           aria-label="Ninsta Instagram">
           <RiInstagramFill size={size} />
+        </a>
+      </Link>
+      <Link href="https://t.me/+2uPgQRHAT8JiMTM1">
+        <a
+          className="cursor-pointer hover:text-brand-500 hover:opacity-60"
+          aria-label="Ninsta Telegram">
+          <RiTelegramFill size={size} />
         </a>
       </Link>
     </div>
