@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { FAQPageJsonLd } from 'next-seo'
+
 const accordionData = [
   {
     title: 'What are digital collectibles?',
@@ -42,14 +44,13 @@ const accordionData = [
     content: `The <b>Ninsta Affiliate Program</b> is a plan built to connect with the Ninsta community. As an affiliate, one needs to promote our products and services. Ninsta would provide the tools and means to its affiliates. Moreover, an affiliate would be entitled to earn a substantial commission, based on their performance.`
   },
   {
-    title: 'How do I become a ‘Ninsta’ affiliate?',
+    title: 'How do I become a Ninsta affiliate?',
     content: `To become a part of our community, go to <a class='link' href='https://ninsta.io/become-affiliate'>https://ninsta.io/become-affiliate</a>. Enter your email address, and click on <b>Get Code</b> to begin your journey with us. `
   }
 ]
 
 const Accordion = ({ title, content, open }) => {
   const [isActive, setIsActive] = useState(open)
-  console.log(open)
   return (
     <div className="accordion-item mb-3">
       <div
@@ -84,6 +85,7 @@ export default function Faq() {
           />
         ))}
       </div>
+      <FAQPageJsonLd mainEntity={accordionData} />
     </section>
   )
 }
