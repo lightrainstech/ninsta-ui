@@ -47,7 +47,7 @@ export default function Home() {
     <>
       <NextSeo
         title="Become an Affiliate"
-        description="How to add Free NFT to your Instagram account"
+        description="As an affiliate, you'll get the chance to connect with Ninsta community while building a passive income that takes almost no time to make."
       />
       <Menu />
       <section className="container py-20">
