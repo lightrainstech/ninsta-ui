@@ -1,13 +1,15 @@
 import Footer from '../components/Footer'
-import Link from 'next/link'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
+
 export default function Home() {
   return (
     <>
       <NextSeo
-        title="Frequently-asked questions"
-        description="Frequently-asked questions like How to add Free NFT to your Instagram account"
+        title="Privacy Policy for Ninsta"
+        description="This Privacy Policy document contains
+            types of information that is collected and recorded by Ninsta and
+            how we use it."
       />
       <Menu />
       <div className="container mt-32 ">

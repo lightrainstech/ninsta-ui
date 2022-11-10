@@ -1,5 +1,3 @@
-import { RiDiscordFill, RiInstagramFill } from 'react-icons/ri'
-
 import Link from 'next/link'
 import React from 'react'
 import SocialLinks from './SocialLinks'

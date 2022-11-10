@@ -31,7 +31,10 @@ export default function Home() {
   }
   return (
     <>
-      <NextSeo title="Mint Digital Collectable" />
+      <NextSeo
+        title="Mint Digital Collectable"
+        description="Upload the image you want to convert to Digital Collectable"
+      />
       <div className="bg-[#100E1A]">
         <Menu />
         <DynamicMint />
