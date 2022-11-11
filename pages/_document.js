@@ -25,11 +25,6 @@ class MyDocument extends Document {
             as="image"
             href="https://ninsta.io/bgfinal.min.webp"
           />
-          <link
-            href="https://www.googletagmanager.com/gtag/js?id=G-2YMN4CSY6P"
-            rel="preload"
-            as="script"
-          />
           <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
         </Head>
         <body>

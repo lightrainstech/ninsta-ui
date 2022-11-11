@@ -156,7 +156,7 @@ export default function Home() {
 
           <h2>Consent</h2>
 
-          <p>
+          <p className="mb-20">
             By using our website, you hereby consent to our Privacy Policy and
             agree to its Terms and Conditions.
           </p>
