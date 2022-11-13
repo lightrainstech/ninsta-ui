@@ -13,7 +13,7 @@ function SocialLinks({ size = 28 }) {
           <RiDiscordFill size={size} />
         </a>
       </Link>
-      <Link href="https://www.instagram.com/ninstacollectables">
+      <Link href="https://www.instagram.com/ninstaio">
         <a
           className="cursor-pointer hover:text-brand-500 hover:opacity-60"
           aria-label="Ninsta Instagram">
@@ -31,4 +31,4 @@ function SocialLinks({ size = 28 }) {
   )
 }
 
-export default SocialLinks
+export default React.memo(SocialLinks)
