@@ -173,7 +173,7 @@ function Howto() {
                 text: 'Enter your eMail address to Sign Up. If you have a referral code, please enter the code to avail free benefits. You have signed up for a free trial of Ninsta: your gateway to Digital Collectibles on Instagram.'
               }
             ],
-            image: 'https://ninsta.io/og/free-tool.png'
+            image: 'https://ninsta.io/og/step-1.webp'
           },
           {
             url: 'https://ninsta.io/how-it-works#step2',
@@ -187,7 +187,8 @@ function Howto() {
                 type: 'HowToDirection',
                 text: 'Upload the image you want to convert to Collectable. Assign a Title & a Caption. If you would like to put up the Collectible for sale in the future & expect Royalty for future sales, please click on the Royalty tab and add your details. Save the details & proceed.'
               }
-            ]
+            ],
+            image: 'https://ninsta.io/og/step-2.webp'
           },
           {
             url: 'https://ninsta.io/how-it-works#step3',
@@ -201,7 +202,8 @@ function Howto() {
                 type: 'HowToDirection',
                 text: 'Connect your NFT wallet for us to mint the Image and upload to your wallet for free. (Note: We will not have access to your wallet & would only be able to upload the collectable to your wallet). If you do not have a NFT wallet, please click on the Set up wallet tab and you will be shown various wallet options you can chose from. Select one of the options and create a wallet. Repeat the above step.'
               }
-            ]
+            ],
+            image: 'https://ninsta.io/og/step-3.webp'
           },
           {
             url: 'https://ninsta.io/how-it-works#step4',
@@ -215,7 +217,8 @@ function Howto() {
                 type: 'HowToDirection',
                 text: 'Your collectable is ready and uploaded to your wallet. Go to Instagram and choose Digital collectibles from the settings. Link the same NFT wallet on instagram and select the collectibles you want to display on Instagram.'
               }
-            ]
+            ],
+            image: 'https://ninsta.io/og/step-4.webp'
           }
         ]}
         totalTime="PT10M"
