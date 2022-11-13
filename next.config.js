@@ -1,5 +1,3 @@
-const { m } = require('framer-motion')
-
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
