@@ -1,5 +1,3 @@
-const { m } = require('framer-motion')
-
 const securityHeaders = [
   {
     key: 'X-DNS-Prefetch-Control',
@@ -38,14 +36,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['unsplash.it'],
+    domains: ['unsplash.it', 'gateway.pinata.cloud', 'ipfs.io'],
     formats: ['image/avif', 'image/webp']
   },
   publicRuntimeConfig: {
     backendUrl: 'https://api.ninsta.io/api',
     infura: '9969f5fd1bc248289bb7cc90bb20e163',
     walletconnect: 'aacd16027c242c0034350228947f584c',
-    nftContract: '0xE8dC4e9f26584d1A2cE26E459E3B6943541c082c'
+    nftContract: '0xF68b751A471CDeF5f18Ce88fB62085498f492b8C',
+    chainExplorer: 'https://mumbai.polygonscan.com/',
+    opesnSea: 'https://testnets.opensea.io/assets/mumbai/'
   },
   poweredByHeader: false,
   async headers() {

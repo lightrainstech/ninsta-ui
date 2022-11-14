@@ -24,3 +24,10 @@ export const affiliate = (data, token) =>
       Authorization: `Bearer ${token}`
     }
   })
+
+export const getAssets = token =>
+  http.get('/assets', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })

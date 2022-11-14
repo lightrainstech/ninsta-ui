@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import PreviousMints from './PreviousMints'
 import React from 'react'
-
 const Step3 = ({ nftInfo }) => {
   return (
     <div className="rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps min-h-[200px]">
@@ -9,10 +9,10 @@ const Step3 = ({ nftInfo }) => {
         <div className="text-center">
           <Image src="/thumbs-up.svg" height={140} width={140} alt="" />
         </div>
-        <div>
-          <h3 className="text-2xl font-bold mb-3">Congratulations!</h3>
-          <p className="font-light text-lg text-gray-500">
-            {`Your Digital Collectable ${nftInfo.title} has been minted successfully. You can now see it in your Instagram when you connect the same wallet in Instagram.`}
+        <div className="overflow-hidden">
+          <h3 className="text-2xl mb-3">Congratulations!</h3>
+          <p className="font-light text-lg text-gray-400">
+            {`Your Digital Collectable ${nftInfo.title} has been minted successfully. You can now see it in your Instagram when you connect the same wallet.`}
           </p>
           <Link href="/mint-digital-collectable">
             <a
@@ -21,6 +21,9 @@ const Step3 = ({ nftInfo }) => {
               Try one more?
             </a>
           </Link>
+
+          <PreviousMints />
+
           <h3 className="text-2xl mt-8 mb-3 font-serif text-gray-300">
             How to Guides
           </h3>

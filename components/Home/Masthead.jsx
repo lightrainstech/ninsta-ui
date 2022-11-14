@@ -47,7 +47,7 @@ const Masthead = () => {
             <span className="text-brand-500">Digital Collectibles</span> <br />
             for{' '}
             <TypeAnimation
-              sequence={['Instagram', 2000, 'Facebook', 2000, 'OpenSea', 2000]}
+              sequence={['Instagram', 2000, 'Meta', 2000, 'OpenSea', 2000]}
               wrapper="span"
               cursor={true}
               repeat={Infinity}
@@ -107,9 +107,16 @@ const Masthead = () => {
                 </p>
               </>
             ) : (
-              <Link href="/mint-digital-collectable" prefetch={false}>
-                <a className="bttn rounded-md">Start Minting</a>
-              </Link>
+              <div className="flex flex-row space-x-2">
+                <Link href="/mint-digital-collectable" prefetch={false}>
+                  <a className="bttn rounded-md">Start Minting</a>
+                </Link>
+                <Link href="/me" prefetch={false}>
+                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
+                    My Profile
+                  </a>
+                </Link>
+              </div>
             )}
           </div>
         </div>
