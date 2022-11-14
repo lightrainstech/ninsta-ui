@@ -6,11 +6,22 @@ import { NextSeo } from 'next-seo'
 import { Web3Modal } from '@web3modal/react'
 import dynamic from 'next/dynamic'
 import getConfig from 'next/config'
+import useAuth from '../components/useAuth'
+import { useRouter } from 'next/router'
 
 const DynamicMint = dynamic(() => import('../components/Mint'))
 const { publicRuntimeConfig } = getConfig()
 
-export default function Home() {
+export default function Home({props}) {
+
+  const isAuthenticate = useAuth()
+  const router = useRouter()
+
+  if(isAuthenticate !== null && isAuthenticate === false){
+    router.push('/')
+  }
+
+
   const config = {
     projectId: publicRuntimeConfig.walletconnect,
     theme: 'dark',
@@ -29,6 +40,7 @@ export default function Home() {
       ]
     }
   }
+
   return (
     <>
       <NextSeo
@@ -44,3 +56,8 @@ export default function Home() {
     </>
   )
 }
+
+
+
+
+

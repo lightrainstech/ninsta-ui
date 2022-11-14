@@ -6,6 +6,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { signup } from '../../actions'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/router'
+import useAuth from '../useAuth'
 
 const Masthead = () => {
   const user = useSelector(state => state.user)
@@ -17,6 +18,7 @@ const Masthead = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
+  const isAuthenticate = useAuth()
 
   const signUpSubmit = async () => {
     if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
@@ -57,7 +59,18 @@ const Masthead = () => {
             Get your Instagram profile noticed with NFTs
           </h2>
           <div className="py-8">
-            {user === null ? (
+            {isAuthenticate ? (
+              <div className="flex flex-row space-x-2">
+                <Link href="/mint-digital-collectable" prefetch={false}>
+                  <a className="bttn rounded-md">Start Minting</a>
+                </Link>
+                <Link href="/me" prefetch={false}>
+                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
+                    My Profile
+                  </a>
+                </Link>
+              </div>
+            ):(
               <>
                 <input
                   type="text"
@@ -106,17 +119,6 @@ const Masthead = () => {
                   </Link>
                 </p>
               </>
-            ) : (
-              <div className="flex flex-row space-x-2">
-                <Link href="/mint-digital-collectable" prefetch={false}>
-                  <a className="bttn rounded-md">Start Minting</a>
-                </Link>
-                <Link href="/me" prefetch={false}>
-                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
-                    My Profile
-                  </a>
-                </Link>
-              </div>
             )}
           </div>
         </div>
