@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+import { AiOutlineLoading } from 'react-icons/ai'
 import Link from 'next/link'
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { signup } from '../../actions'
 import toast from 'react-hot-toast'
+import useAuth from '../useAuth'
 import { useRouter } from 'next/router'
 
 const Masthead = () => {
@@ -17,6 +19,7 @@ const Masthead = () => {
 
   const router = useRouter()
   const dispatch = useDispatch()
+  const isAuthenticate = useAuth()
 
   const signUpSubmit = async () => {
     if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
@@ -57,43 +60,62 @@ const Masthead = () => {
             Get your Instagram profile noticed with NFTs
           </h2>
           <div className="py-8">
-            {user === null ? (
+            {isAuthenticate ? (
+              <div className="flex flex-row space-x-2">
+                <Link href="/mint-digital-collectable" prefetch={false}>
+                  <a className="bttn rounded-md">Start Minting</a>
+                </Link>
+                <Link href="/me" prefetch={false}>
+                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
+                    My Profile
+                  </a>
+                </Link>
+              </div>
+            ) : (
               <>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={evt => {
-                    setEmail(evt.target.value)
-                  }}
-                  placeholder="Email Address"
-                  className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
-                />
-                <button
-                  className="bttn -ml-2 z-20 outline-none rounded-r-md"
-                  onClick={signUpSubmit}>
-                  Sign Me Up!
-                </button>
+                <div
+                  className={
+                    isSubmit
+                      ? 'opacity-20 select-none z-50 pointer-events-none animate-pulse'
+                      : 'active'
+                  }>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={evt => {
+                      setEmail(evt.target.value)
+                    }}
+                    placeholder="Email Address"
+                    className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
+                  />
+                  <button
+                    className="bttn -ml-2 z-20 outline-none rounded-r-md"
+                    onClick={signUpSubmit}
+                    disabled={isSubmit}>
+                    Sign Me Up!
+                  </button>
 
-                <div className="min-h-[20px] mb-4">
-                  <p
-                    onClick={() => setAffiliate(!aff)}
-                    className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
-                    Affiliate Code?
-                  </p>
-                  <div
-                    className={
-                      aff ? 'visible animate-fade-in-down' : 'invisible'
-                    }>
-                    <input
-                      type="text"
-                      name="royalty"
-                      className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
-                      value={affCode}
-                      placeholder="Enter Affiliate Code"
-                      onChange={evt => {
-                        setAffCode(evt.target.value)
-                      }}
-                    />
+                  <div className="min-h-[20px] mb-4">
+                    <p
+                      onClick={() => setAffiliate(!aff)}
+                      className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
+                      Affiliate Code?
+                    </p>
+                    <div
+                      className={
+                        aff ? 'visible animate-fade-in-down' : 'invisible'
+                      }>
+                      <input
+                        type="text"
+                        name="royalty"
+                        className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                        value={affCode}
+                        placeholder="Enter Affiliate Code"
+                        onChange={evt => {
+                          setAffCode(evt.target.value)
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -106,17 +128,6 @@ const Masthead = () => {
                   </Link>
                 </p>
               </>
-            ) : (
-              <div className="flex flex-row space-x-2">
-                <Link href="/mint-digital-collectable" prefetch={false}>
-                  <a className="bttn rounded-md">Start Minting</a>
-                </Link>
-                <Link href="/me" prefetch={false}>
-                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
-                    My Profile
-                  </a>
-                </Link>
-              </div>
             )}
           </div>
         </div>

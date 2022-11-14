@@ -1,9 +1,9 @@
 import React, { Suspense, useState } from 'react'
-import { saveAsset, upload } from '../../actions'
 
 import FreemintCount from './FreemintCount'
 import Step3 from './Step3'
 import dynamic from 'next/dynamic'
+import { saveAsset } from '../../actions'
 import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
 import { useSelector } from 'react-redux'
@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
 
-function Mint() {
+function Mint({ props }) {
   const [minting, setMinting] = useState(1)
   const [nftInfo, setNftInfo] = useState({
     title: '',
@@ -21,17 +21,15 @@ function Mint() {
     file: '',
     fileLocal: null
   })
-  const [isSubmit, setIsSubmit] = useState(false)
 
+  const [isSubmit, setIsSubmit] = useState(false)
   const user = useSelector(state => state.user)
   const { account } = useAccount()
-
   const validate = () => {
     const { title, file } = nftInfo
     if (title === '' || file === '') return false
     return true
   }
-
   const handleStep1 = event => {
     if (!validate()) {
       toast.error('Please fill the required fields')
@@ -40,20 +38,11 @@ function Mint() {
     setMinting(2)
   }
   const handleActive = value => setMinting(value)
-
   const handleSubmit = async event => {
     setIsSubmit(true)
-
     try {
-      const {
-        title,
-        description,
-        royalty,
-        royaltyPer,
-        file
-      } = nftInfo
+      const { title, description, royalty, royaltyPer, file } = nftInfo
 
-      
       await saveAsset(
         {
           file,
@@ -66,12 +55,11 @@ function Mint() {
         },
         user.accessToken
       )
-
       setMinting(3)
     } catch (error) {
-      // toast.error(
-      //   'Unable to Mint, please contact support team for further assistance.'
-      // )
+      toast.error(
+        'Failed to Mint, please contact our support team for further assistance.'
+      )
       console.log('error', error)
     }
     setIsSubmit(false)
