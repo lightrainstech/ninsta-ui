@@ -7,6 +7,7 @@ import { RiImageEditLine } from 'react-icons/ri'
 import { getAssets } from '../../actions'
 import getConfig from 'next/config'
 import { useSelector } from 'react-redux'
+import useInterval from '../../hooks/useInterval'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -111,7 +112,14 @@ const PreviousMints = () => {
     getAllAssets()
   }, [])
 
-  console.log(assets)
+  useInterval(() => {
+    const filterAssets = assets.filter(value => !value.tokenId)
+    if (filterAssets.length > 0) {
+      getAssets(user.accessToken)
+        .then(res => setAssets(res.data.data.data))
+        .catch(e => console.log(e))
+    }
+  }, 60000)
 
   return (
     <div className="py-6 overflow-hidden">

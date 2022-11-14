@@ -1,8 +1,9 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
 import { useAccount, useConnectModal } from '@web3modal/react'
+import { AiOutlineLoading } from 'react-icons/ai'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
@@ -60,9 +61,10 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
             {account.isConnected && (
               <div>
                 <button
-                  className="bttn rounded-md my-4"
+                  className="bttn rounded-md my-4 flex gap-5"
                   onClick={handleSubmit}
                   disabled={isSubmit}>
+                  {isSubmit && <AiOutlineLoading className="animate-spin" />}
                   Create NFT
                 </button>
               </div>
