@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+import { AiOutlineLoading } from 'react-icons/ai'
 import Link from 'next/link'
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation'
 import { signup } from '../../actions'
 import toast from 'react-hot-toast'
-import { useRouter } from 'next/router'
 import useAuth from '../useAuth'
+import { useRouter } from 'next/router'
 
 const Masthead = () => {
   const user = useSelector(state => state.user)
@@ -72,43 +73,49 @@ const Masthead = () => {
               </div>
             ) : (
               <>
-                <input
-                  type="text"
-                  value={email}
-                  onChange={evt => {
-                    setEmail(evt.target.value)
-                  }}
-                  placeholder="Email Address"
-                  className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
-                />
-                <button
-                  className="bttn -ml-2 z-20 outline-none rounded-r-md"
-                  onClick={signUpSubmit}
-                  disabled={isSubmit}>
-                  {isSubmit && <AiOutlineLoading className="animate-spin" />}
-                  Sign Me Up!
-                </button>
+                <div
+                  className={
+                    isSubmit
+                      ? 'opacity-20 select-none z-50 pointer-events-none animate-pulse'
+                      : 'active'
+                  }>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={evt => {
+                      setEmail(evt.target.value)
+                    }}
+                    placeholder="Email Address"
+                    className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
+                  />
+                  <button
+                    className="bttn -ml-2 z-20 outline-none rounded-r-md"
+                    onClick={signUpSubmit}
+                    disabled={isSubmit}>
+                    Sign Me Up!
+                  </button>
 
-                <div className="min-h-[20px] mb-4">
-                  <p
-                    onClick={() => setAffiliate(!aff)}
-                    className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
-                    Affiliate Code?
-                  </p>
-                  <div
-                    className={
-                      aff ? 'visible animate-fade-in-down' : 'invisible'
-                    }>
-                    <input
-                      type="text"
-                      name="royalty"
-                      className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
-                      value={affCode}
-                      placeholder="Enter Affiliate Code"
-                      onChange={evt => {
-                        setAffCode(evt.target.value)
-                      }}
-                    />
+                  <div className="min-h-[20px] mb-4">
+                    <p
+                      onClick={() => setAffiliate(!aff)}
+                      className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
+                      Affiliate Code?
+                    </p>
+                    <div
+                      className={
+                        aff ? 'visible animate-fade-in-down' : 'invisible'
+                      }>
+                      <input
+                        type="text"
+                        name="royalty"
+                        className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                        value={affCode}
+                        placeholder="Enter Affiliate Code"
+                        onChange={evt => {
+                          setAffCode(evt.target.value)
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
