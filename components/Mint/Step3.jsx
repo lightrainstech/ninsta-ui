@@ -9,7 +9,7 @@ const Step3 = ({ nftInfo }) => {
         <div className="text-center">
           <Image src="/thumbs-up.svg" height={140} width={140} alt="" />
         </div>
-        <div>
+        <div className="overflow-hidden">
           <h3 className="text-2xl mb-3">Congratulations!</h3>
           <p className="font-light text-lg text-gray-400">
             {`Your Digital Collectable ${nftInfo.title} has been minted successfully. You can now see it in your Instagram when you connect the same wallet.`}

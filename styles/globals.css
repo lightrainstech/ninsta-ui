@@ -81,4 +81,7 @@
   .h1 {
     @apply leading-relaxed text-center font-serif text-3xl md:text-5xl;
   }
+  .list-info {
+    @apply flex flex-row justify-between items-center;
+  }
 }
