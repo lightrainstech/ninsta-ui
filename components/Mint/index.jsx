@@ -16,7 +16,7 @@ function Mint() {
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
-    royalty: '',
+    royalty: '0x0000000000000000000000000000000000000000',
     royaltyPer: 0,
     file: '',
     fileLocal: null
@@ -48,11 +48,12 @@ function Mint() {
       const {
         title,
         description,
-        royalty = '0x0000000000000000000000000000000000000000',
+        royalty,
         royaltyPer,
         file
       } = nftInfo
 
+      
       await saveAsset(
         {
           file,
