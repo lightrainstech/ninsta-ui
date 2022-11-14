@@ -10,6 +10,7 @@ const DCCard = () => {
           src={'/coll/panda.jpeg'}
           alt=""
           layout="fill"
+          className="rounded"
           objectFit="contain"
         />
       </div>
@@ -26,6 +27,15 @@ const DCCard = () => {
 
         <p className="list-info">
           <span>Contract:</span>
+          <Link href="https://opensea.io/assets/ethereum/0x0a278d4c904c4ce1bba91cdc0c3ec2b14307c67c/187">
+            <a className="link text-brand-400" target="_blank">
+              0x6a...3a7c
+            </a>
+          </Link>
+        </p>
+
+        <p className="list-info">
+          <span>OpenSea:</span>
           <Link href="https://opensea.io/assets/ethereum/0x0a278d4c904c4ce1bba91cdc0c3ec2b14307c67c/187">
             <a className="link text-brand-400" target="_blank">
               0x6a...3a7c
@@ -72,7 +82,7 @@ const PreviousMints = () => {
       </div>
 
       <div className="w-[600px] md:w-[900px] overflow-scroll">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {Array.apply(null, { length: 3 }).map((e, i) => (
             <DCCard key={i} />
           ))}
