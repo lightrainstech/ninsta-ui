@@ -43,7 +43,7 @@ module.exports = withBundleAnalyzer({
     backendUrl: 'https://api.ninsta.io/api',
     infura: '9969f5fd1bc248289bb7cc90bb20e163',
     walletconnect: 'aacd16027c242c0034350228947f584c',
-    nftContract: '0x1954C9356196033f2531f4fC85E46be10383d127',
+    nftContract: '0xF68b751A471CDeF5f18Ce88fB62085498f492b8C',
     chainExplorer: 'https://mumbai.polygonscan.com/',
     opesnSea: 'https://testnets.opensea.io/assets/mumbai/'
   },
