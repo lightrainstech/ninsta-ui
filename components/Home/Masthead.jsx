@@ -70,7 +70,7 @@ const Masthead = () => {
                   </a>
                 </Link>
               </div>
-            ):(
+            ) : (
               <>
                 <input
                   type="text"
@@ -83,7 +83,8 @@ const Masthead = () => {
                 />
                 <button
                   className="bttn -ml-2 z-20 outline-none rounded-r-md"
-                  onClick={signUpSubmit}>
+                  onClick={signUpSubmit}
+                  disabled={isSubmit}>
                   Sign Me Up!
                 </button>
 
