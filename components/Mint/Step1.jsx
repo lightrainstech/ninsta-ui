@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { RiArrowDownSLine, RiImage2Fill } from 'react-icons/ri'
 
 import InstaCard from './InstaCard'

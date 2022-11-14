@@ -3,7 +3,6 @@ import { formatDate, truncate } from '../../utils'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { RiLoader5Line } from 'react-icons/ri'
 import { getAssets } from '../../actions'
 import getConfig from 'next/config'
 import { useSelector } from 'react-redux'
