@@ -20,13 +20,13 @@ const EmptyCard = ({ asset }) => {
         <RiImageEditLine size={40} />
       </div>
       <strong className="text-xl">{asset.title}</strong>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div class="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
+      <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
     </div>
   )
 }
