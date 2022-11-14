@@ -85,6 +85,7 @@ const Masthead = () => {
                   className="bttn -ml-2 z-20 outline-none rounded-r-md"
                   onClick={signUpSubmit}
                   disabled={isSubmit}>
+                  {isSubmit && <AiOutlineLoading className="animate-spin" />}
                   Sign Me Up!
                 </button>
 
