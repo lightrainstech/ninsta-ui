@@ -21,7 +21,6 @@ const FreemintCount = () => {
     functionName: 'getFreeMinting',
     args: [account.address]
   })
-  console.log(parseInt(getFreeMinting?.data?.toString()))
 
   return (
     <>

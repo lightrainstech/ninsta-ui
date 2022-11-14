@@ -46,7 +46,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
             placeholder="Caption"
             onChange={handleChange}
             rows={3}
-            maxLength={40}
+            maxLength={240}
           />
           <div className="min-h-[20px] mb-4">
             <strong

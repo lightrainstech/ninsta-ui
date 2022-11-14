@@ -1,6 +1,6 @@
 export const truncate = (str, max, sep) => {
   str = typeof str !== 'undefined' && str !== null ? str : ''
-  max = max || 6
+  max = max || 12
 
   var len = str.length
   if (len > max) {
@@ -18,4 +18,12 @@ export const truncate = (str, max, sep) => {
   }
 
   return str
+}
+
+export const formatDate = date => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  })
 }

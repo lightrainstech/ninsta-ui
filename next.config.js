@@ -36,14 +36,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['unsplash.it'],
+    domains: ['unsplash.it', 'gateway.pinata.cloud', 'ipfs.io'],
     formats: ['image/avif', 'image/webp']
   },
   publicRuntimeConfig: {
     backendUrl: 'https://api.ninsta.io/api',
     infura: '9969f5fd1bc248289bb7cc90bb20e163',
     walletconnect: 'aacd16027c242c0034350228947f584c',
-    nftContract: '0x54ba75640ABC49672f70C18bdda15F8bc7398A3C'
+    nftContract: '0x1B34a4DAF1DbcF775fa2a41108665D846CA1bb74',
+    chainExplorer: 'https://mumbai.polygonscan.com/',
+    opesnSea: 'https://testnets.opensea.io/assets/mumbai/'
   },
   poweredByHeader: false,
   async headers() {

@@ -7,6 +7,8 @@ import toast from 'react-hot-toast'
 import { useSelector } from 'react-redux'
 
 export default function Me() {
+  const user = useSelector(state => state.user)
+  console.log(user)
   return (
     <>
       <NextSeo
@@ -19,7 +21,7 @@ export default function Me() {
           <h1 className="leading-relaxed font-serif text-center">
             Welcome, <br />{' '}
             <span className="text-brand-500 break-all">
-              alongemail@maybegmail.com
+              {user.email || 'someone@example.com'}
             </span>
           </h1>
           <div className="not-prose">
