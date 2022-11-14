@@ -1,8 +1,7 @@
-import { AccountButton, useAccount, useConnectModal } from '@web3modal/react'
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
+import { useAccount, useConnectModal } from '@web3modal/react'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import { truncate } from '../../utils/index'
 

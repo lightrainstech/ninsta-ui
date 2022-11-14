@@ -1,6 +1,7 @@
+import Features from '../../components/Collections/Features'
 import Footer from '../../components/Footer'
-import Latest from './Latest'
-import Masthead from './Masthead'
+import Latest from '../../components/Collections/Latest'
+import Masthead from '../../components/Collections/Masthead'
 import Menu from '../../components/Menu'
 import { NextSeo } from 'next-seo'
 
@@ -21,6 +22,7 @@ export default function Collections() {
           world of Digital Collectibles.
         </h2>
         <Latest />
+        <Features />
         <Masthead />
       </section>
       <Footer />
