@@ -2,7 +2,7 @@ import { useAccount, useContractRead } from '@web3modal/react'
 
 import React from 'react'
 import getConfig from 'next/config'
-import nftAbi from '../abi/nft.json'
+import nftAbi from '../abi/ninsta.json'
 
 const { publicRuntimeConfig } = getConfig()
 

@@ -5,6 +5,7 @@ import { saveAsset } from '../../actions'
 import toast from 'react-hot-toast'
 import { useAccount } from '@web3modal/react'
 import { useSelector } from 'react-redux'
+import useMint from '../../hooks/useMint'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
@@ -12,21 +13,25 @@ const Step3 = dynamic(() => import('./Step3'))
 const DynamicCtaBanner = dynamic(() => import('./CtaBanner'))
 const DynamicFreemintCount = dynamic(() => import('./FreemintCount'))
 
-function Mint() {
-  const [minting, setMinting] = useState(2)
-  const [banner, setBanner] = useState(false)
-  const [nftInfo, setNftInfo] = useState({
-    title: '',
-    description: '',
-    royalty: '0x0000000000000000000000000000000000000000',
-    royaltyPer: 0,
-    file: '',
-    fileLocal: null
-  })
+const initialState = {
+  title: '',
+  description: '',
+  royalty: '0x0000000000000000000000000000000000000000',
+  royaltyPer: 0,
+  file: '',
+  fileLocal: null
+}
 
+function Mint() {
+  const [minting, setMinting] = useState(1)
+  const [banner, setBanner] = useState(true)
+  const [nftInfo, setNftInfo] = useState(initialState)
   const [isSubmit, setIsSubmit] = useState(false)
+
   const user = useSelector(state => state.user)
   const { account } = useAccount()
+  const { payMint } = useMint()
+
   const validate = () => {
     const { title, file } = nftInfo
     if (title === '' || file === '') return false
@@ -40,11 +45,13 @@ function Mint() {
     setMinting(2)
   }
   const handleActive = value => setMinting(value)
+  const handlePayMint = async () => {
+    payMint(nftInfo)
+  }
   const handleSubmit = async event => {
     setIsSubmit(true)
     try {
       const { title, description, royalty, royaltyPer, file } = nftInfo
-
       await saveAsset(
         {
           file,
@@ -72,7 +79,9 @@ function Mint() {
 
   return (
     <>
-      {banner && <DynamicCtaBanner setBanner={setBanner} />}
+      {banner && (
+        <DynamicCtaBanner setBanner={setBanner} handlePayMint={handlePayMint} />
+      )}
       <div className="container py-20">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2 pr-6">
