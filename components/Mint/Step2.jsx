@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
 import { useAccount, useConnectModal } from '@web3modal/react'
 
 import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
+import React from 'react'
 import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
   const { account, isReady } = useAccount()
   const { open } = useConnectModal()
-
   return (
     <div
       className={`rounded p-6 bg-[#1F2126] bg-opacity-60 steps ${
@@ -42,7 +41,7 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                 <>
                   <p>Connected Wallet</p>
                   <div className="flex justify-between items-center text-white rounded py-2 px-3 my-4 border-2 font-mono">
-                    <p>{truncate(account.address, 20)}</p>
+                    <p>{truncate(account.address, 18)}</p>
                   </div>
                 </>
               ) : (
