@@ -15,7 +15,7 @@ function Features() {
             <li>
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded bg-indigo-500 text-white">
                     <RiHandHeartLine size={26} />
                   </div>
                 </div>
@@ -34,7 +34,7 @@ function Features() {
             <li className="mt-10">
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded bg-indigo-500 text-white">
                     <RiStarSmileLine size={26} />
                   </div>
                 </div>
@@ -53,7 +53,7 @@ function Features() {
             <li className="mt-10">
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <div className="flex items-center justify-center h-12 w-12 rounded bg-indigo-500 text-white">
                     <RiBitCoinLine size={26} />
                   </div>
                 </div>

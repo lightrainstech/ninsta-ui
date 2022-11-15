@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-
+import { RiMoneyDollarCircleLine } from 'react-icons/ri'
 function CtaBanner({ setBanner }) {
   return (
     <div className="w-screen h-screen clear-both animate-fade-in-down fixed top-0 lef-0 z-40 bg-gray-900 bg-opacity-90">
@@ -15,12 +15,12 @@ function CtaBanner({ setBanner }) {
           </span>
         </h2>
         <div className="lg:mt-0 lg:flex-shrink-0">
-          <div className="mt-12 inline-flex flex-row space-x-2 rounded-md shadow">
+          <div className="mt-12 inline-flex flex-row space-x-2 rounded shadow">
             <Link href="/become-affiliate">
-              <a className="bttn rounded-md">Become an Affiliate</a>
+              <a className="bttn rounded">Become an Affiliate</a>
             </Link>
             <Link href="/faq">
-              <a className="border-2 border-brand-500 px-3 py-2 rounded-md text-lg link">
+              <a className="border-2 border-brand-500 px-3 py-2 rounded text-lg link">
                 Other ways
               </a>
             </Link>
@@ -30,6 +30,13 @@ function CtaBanner({ setBanner }) {
             onClick={() => setBanner(false)}>
             {`No, i don't want free`}
           </p>
+
+          <button
+            type="button"
+            className="py-3 px-4 flex flex-row justify-center items-center bttn focus:ring-insta-500 focus:ring-offset-insta-200 text-white w-full transition ease-in duration-200 text-center text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded mt-6">
+            <RiMoneyDollarCircleLine className="mr-1" />
+            Pay and Mint
+          </button>
         </div>
       </div>
     </div>

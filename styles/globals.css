@@ -8,12 +8,12 @@
   }
   .form input,
   .form textarea {
-    @apply outline-0 focus:outline-0 border-0 p-2 outline-none mb-4 mt-0.5 w-full rounded-md resize-none;
+    @apply outline-0 focus:outline-0 border-0 p-2 outline-none mb-4 mt-0.5 w-full rounded resize-none;
     background: rgba(43, 46, 53, 0.72);
   }
 
   .bttn {
-    @apply px-3 py-2 text-lg text-white hover:bttn_hover;
+    @apply px-3 py-2 text-lg text-white hover:bttn_hover shadow-md;
     background-image: linear-gradient(
       45deg,
       hsl(335deg 100% 50%) 0%,

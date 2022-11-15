@@ -11,7 +11,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
 
   return (
     <div
-      className={`rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps ${
+      className={`rounded p-6 bg-[#1F2126] bg-opacity-60 steps ${
         minting === 1 && 'active'
       }`}>
       <div className="pb-10 flex flex-row items-center justify-between space-x-4">
@@ -80,7 +80,7 @@ function Step1({ minting, nftInfo, setNftInfo, handleStep1, handleActive }) {
               </div>
             )}
           </div>
-          <button className="bttn rounded-md w-full" onClick={handleStep1}>
+          <button className="bttn rounded w-full" onClick={handleStep1}>
             Save & Proceed
           </button>
         </div>

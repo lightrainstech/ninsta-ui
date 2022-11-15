@@ -14,7 +14,7 @@ const DynamicFreemintCount = dynamic(() => import('./FreemintCount'))
 
 function Mint() {
   const [minting, setMinting] = useState(1)
-  const [banner, setBanner] = useState(false)
+  const [banner, setBanner] = useState(true)
   const [nftInfo, setNftInfo] = useState({
     title: '',
     description: '',
