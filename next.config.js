@@ -36,7 +36,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['unsplash.it', 'gateway.pinata.cloud', 'ipfs.io'],
+    domains: [
+      'unsplash.it',
+      'gateway.pinata.cloud',
+      'ipfs.io',
+      'ipfs.ninsta.io'
+    ],
     formats: ['image/avif', 'image/webp']
   },
   publicRuntimeConfig: {

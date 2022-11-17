@@ -3,9 +3,10 @@ import React, { Suspense, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { saveAsset } from '../../actions'
 import toast from 'react-hot-toast'
-import { useAccount } from '@web3modal/react'
+import { useAccount } from 'wagmi'
 import { useSelector } from 'react-redux'
 import useMint from '../../hooks/useMint'
+import { useWeb3Modal } from '@web3modal/react'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })
@@ -27,10 +28,12 @@ function Mint() {
   const [banner, setBanner] = useState(false)
   const [nftInfo, setNftInfo] = useState(initialState)
   const [isSubmit, setIsSubmit] = useState(false)
+  const [finalData, setFinalData] = useState([])
 
   const user = useSelector(state => state.user)
-  const { account } = useAccount()
-  const { payMint } = useMint()
+  const { address } = useAccount()
+  const { payMint } = useMint(finalData)
+  const { open } = useWeb3Modal()
 
   const validate = () => {
     const { title, file } = nftInfo
@@ -45,9 +48,7 @@ function Mint() {
     setMinting(2)
   }
   const handleActive = value => setMinting(value)
-  const handlePayMint = async () => {
-    payMint(nftInfo)
-  }
+
   const handleSubmit = async event => {
     setIsSubmit(true)
     try {
@@ -60,13 +61,13 @@ function Mint() {
           royalty,
           royaltyPer,
           handle: 'ninsta',
-          wallet: account.address
+          wallet: address
         },
         user.accessToken
       )
       setMinting(3)
     } catch (error) {
-      console.log('error', error.response.data.response)
+      console.log('error', error)
       if (error.response.data.response.statusCode === 400) {
         toast.error(error.response.data.response.message)
         setBanner(true)
@@ -79,9 +80,7 @@ function Mint() {
 
   return (
     <>
-      {banner && (
-        <DynamicCtaBanner setBanner={setBanner} handlePayMint={handlePayMint} />
-      )}
+      {banner && <DynamicCtaBanner setBanner={setBanner} nftInfo={nftInfo} />}
       <div className="container py-20">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           <div className="col-span-2 pr-6">

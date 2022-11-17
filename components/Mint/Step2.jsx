@@ -1,5 +1,6 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-import { useAccount, useConnectModal } from '@web3modal/react'
+import { useWeb3Modal } from '@web3modal/react'
+import { useAccount } from 'wagmi'
 
 import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
@@ -7,8 +8,8 @@ import React from 'react'
 import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
-  const { account, isReady } = useAccount()
-  const { open } = useConnectModal()
+  const { address, isConnected } = useAccount()
+  const { open } = useWeb3Modal()
   return (
     <div
       className={`rounded p-6 bg-[#1F2126] bg-opacity-60 steps ${
@@ -37,11 +38,11 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
         <div className="flex flex-col md:flex-row gap-6  pb-6">
           <div className="h-full">
             <div className="mb-5">
-              {account.isConnected ? (
+              {isConnected ? (
                 <>
                   <p>Connected Wallet</p>
                   <div className="flex justify-between items-center text-white rounded py-2 px-3 my-4 border-2 font-mono">
-                    <p>{truncate(account.address, 18)}</p>
+                    <p>{truncate(address, 18)}</p>
                   </div>
                 </>
               ) : (
@@ -58,7 +59,7 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
               )}
             </div>
 
-            {account.isConnected && (
+            {isConnected && (
               <div>
                 <button
                   className="bttn rounded my-4 flex gap-5"

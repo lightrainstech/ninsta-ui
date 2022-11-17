@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
-import { RiMoneyDollarCircleLine } from 'react-icons/ri'
-function CtaBanner({ setBanner, handlePayMint }) {
+import PayButton from './PayButton'
+
+function CtaBanner({ setBanner, nftInfo }) {
   return (
     <div className="w-screen h-screen clear-both animate-fade-in-down fixed top-0 lef-0 z-40 bg-gray-900 bg-opacity-90">
       <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20 flex flex-col items-center justify-center h-full">
@@ -30,14 +31,7 @@ function CtaBanner({ setBanner, handlePayMint }) {
             onClick={() => setBanner(false)}>
             {`No, i don't want free`}
           </p>
-
-          <button
-            type="button"
-            className="py-3 px-4 flex flex-row justify-center items-center bttn focus:ring-insta-500 focus:ring-offset-insta-200 text-white w-full transition ease-in duration-200 text-center text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded mt-6"
-            onClick={handlePayMint}>
-            <RiMoneyDollarCircleLine className="mr-1" />
-            Pay and Mint
-          </button>
+          <PayButton nftInfo={nftInfo} setBanner={setBanner} />
         </div>
       </div>
     </div>

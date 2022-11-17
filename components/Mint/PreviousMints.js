@@ -33,11 +33,12 @@ const EmptyCard = ({ asset }) => {
 }
 
 const DCCard = ({ asset }) => {
+  console.log(asset)
   return (
     <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded">
       <div className="relative h-[260px]">
         <Image
-          src={asset.media.path}
+          src={asset.media.path.replace('ipfs.io', 'ipfs.ninsta.io')}
           alt=""
           layout="fill"
           className="hover:scale-110 transform transition duration-700"
