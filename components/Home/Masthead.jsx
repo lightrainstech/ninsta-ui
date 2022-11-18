@@ -63,7 +63,7 @@ const Masthead = () => {
             {isAuthenticate ? (
               <div className="flex flex-row space-x-2">
                 <Link href="/mint-digital-collectable" prefetch={false}>
-                  <a className="bttn rounded-md">Start Minting</a>
+                  <a className="bttn rounded">Start Minting</a>
                 </Link>
                 <Link href="/me" prefetch={false}>
                   <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
@@ -108,7 +108,7 @@ const Masthead = () => {
                       <input
                         type="text"
                         name="royalty"
-                        className="outline-0 focus:outline-0 border-2 border-insta-500 rounded-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
+                        className="outline-0 focus:outline-0 border-2 border-insta-500 rounded px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
                         value={affCode}
                         placeholder="Enter Affiliate Code"
                         onChange={evt => {

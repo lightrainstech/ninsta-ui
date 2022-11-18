@@ -15,7 +15,6 @@ import { wrapper } from '../components/store'
 
 const DynamicGtag = dynamic(() => import('../components/Gtag'))
 
-
 function MyApp({ Component, pageProps, router }) {
   const store = useStore(state => state)
 
@@ -47,7 +46,6 @@ function MyApp({ Component, pageProps, router }) {
                 opacity: 1
               }
             }}>
-
             <Component {...pageProps} />
           </m.div>
         </LazyMotion>

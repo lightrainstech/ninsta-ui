@@ -1,18 +1,18 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-import { useAccount, useConnectModal } from '@web3modal/react'
-import { AiOutlineLoading } from 'react-icons/ai'
+import { useWeb3Modal } from '@web3modal/react'
+import { useAccount } from 'wagmi'
 
+import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React from 'react'
 import { truncate } from '../../utils/index'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
-  const { account, isReady } = useAccount()
-  const { open } = useConnectModal()
-
+  const { address, isConnected } = useAccount()
+  const { open } = useWeb3Modal()
   return (
     <div
-      className={`rounded-md p-6 bg-[#1F2126] bg-opacity-60 steps ${
+      className={`rounded p-6 bg-[#1F2126] bg-opacity-60 steps ${
         minting === 2 && 'active'
       }`}>
       <div className="pb-10 flex flex-row items-center justify-between space-x-4">
@@ -38,30 +38,31 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
         <div className="flex flex-col md:flex-row gap-6  pb-6">
           <div className="h-full">
             <div className="mb-5">
-              {account.isConnected ? (
+              {isConnected ? (
                 <>
                   <p>Connected Wallet</p>
-                  <div className="flex justify-between items-center text-white rounded-md py-2 px-3 my-4 border ">
-                    <p>{truncate(account.address, 20)}</p>
+                  <div className="flex justify-between items-center text-white rounded py-2 px-3 my-4 border-2 font-mono">
+                    <p>{truncate(address, 18)}</p>
                   </div>
                 </>
               ) : (
-                <>
-                  <p className="text-gray-500">
-                    Click on Connect Wallet to connect or Create your Crypto
-                    Wallet
-                  </p>
-                  <button className="bttn rounded-md my-4" onClick={open}>
+                <div className="flex flex-row space-x-3">
+                  <button className="bttn rounded my-4" onClick={open}>
                     Connect Wallet
                   </button>
-                </>
+                  <button
+                    className="border-2 border-brand-500 my-4 px-3 rounded text-lg"
+                    onClick={open}>
+                    Get a wallet
+                  </button>
+                </div>
               )}
             </div>
 
-            {account.isConnected && (
+            {isConnected && (
               <div>
                 <button
-                  className="bttn rounded-md my-4 flex gap-5"
+                  className="bttn rounded my-4 flex gap-5"
                   onClick={handleSubmit}
                   disabled={isSubmit}>
                   {isSubmit && <AiOutlineLoading className="animate-spin" />}

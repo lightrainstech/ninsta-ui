@@ -1,13 +1,15 @@
-import { useAccount, useContractRead } from '@web3modal/react'
+import { useAccount, useContractRead } from 'wagmi'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import getConfig from 'next/config'
-import nftAbi from '../abi/nft.json'
+import nftAbi from '../abi/ninsta.json'
+import { setRequestMeta } from 'next/dist/server/request-meta'
 
 const { publicRuntimeConfig } = getConfig()
 
 const FreemintCount = () => {
-  const { account } = useAccount()
+  const { address } = useAccount()
+  const [res, setRes] = useState('')
 
   const getFreeMax = useContractRead({
     address: publicRuntimeConfig.nftContract,
@@ -19,18 +21,28 @@ const FreemintCount = () => {
     address: publicRuntimeConfig.nftContract,
     abi: nftAbi,
     functionName: 'getFreeMinting',
-    args: [account.address]
+    args: [address]
   })
+
+  useEffect(() => {
+    if (getFreeMinting && getFreeMax && getFreeMinting.length > 0) {
+      let remain = parseInt(getFreeMinting.data[0].toString())
+
+      if (!getFreeMinting.data[1]) {
+        remain = 3
+      }
+      console.log(parseInt(getFreeMinting.data[0].toString()))
+      console.log(parseInt(getFreeMax.data.toString()))
+      setRes(`${remain}`)
+    } else {
+      setRes('3')
+    }
+  }, [getFreeMinting, getFreeMax])
 
   return (
     <>
-      <span className="text-brand-500">
-        {isNaN(parseInt(getFreeMinting?.data?.toString()))
-          ? 1
-          : parseInt(getFreeMinting?.data?.toString()) + 1}
-        /{getFreeMax?.data?.toString()}
-      </span>{' '}
-      Free NFT
+      <span className="text-brand-500 mr-3">{res}</span>
+      Free NFT remaining
     </>
   )
 }

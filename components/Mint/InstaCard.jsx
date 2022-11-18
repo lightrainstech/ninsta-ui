@@ -25,7 +25,7 @@ function InstaCard({ nftInfo, setNftInfo }) {
 
   return (
     <div className="w-[280px]">
-      <div className="bg-zinc-800 flex p-4 flex-col gap-4 shadow rounded-md  mx-auto">
+      <div className="bg-zinc-800 flex p-4 flex-col gap-4 shadow rounded  mx-auto">
         <FileUploader handleChange={handleChange} name="file" types={fileTypes}>
           {nftInfo?.fileLocal === null ? (
             <div

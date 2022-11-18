@@ -6,14 +6,14 @@ import Link from 'next/link'
 import { RiImageEditLine } from 'react-icons/ri'
 import { getAssets } from '../../actions'
 import getConfig from 'next/config'
-import { useSelector } from 'react-redux'
 import useInterval from '../../hooks/useInterval'
+import { useSelector } from 'react-redux'
 
 const { publicRuntimeConfig } = getConfig()
 
 const EmptyCard = ({ asset }) => {
   return (
-    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded-md cursor-wait relative">
+    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded cursor-wait relative">
       <span className="absolute right-0 bg-yellow-300 h-8 opacity-100 z-50 top-0 rounded-tr-md rounded-bl-md px-3 text-black">
         Getting Ready...
       </span>
@@ -33,11 +33,12 @@ const EmptyCard = ({ asset }) => {
 }
 
 const DCCard = ({ asset }) => {
+  console.log(asset)
   return (
-    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded-md">
+    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded">
       <div className="relative h-[260px]">
         <Image
-          src={asset.media.path}
+          src={asset.media.path.replace('ipfs.io', 'ipfs.ninsta.io')}
           alt=""
           layout="fill"
           className="hover:scale-110 transform transition duration-700"

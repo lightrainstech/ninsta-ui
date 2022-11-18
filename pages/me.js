@@ -1,14 +1,24 @@
+import React, { useEffect } from 'react'
+
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
 import PreviousMints from '../components/Mint/PreviousMints'
-import React from 'react'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
 export default function Me() {
   const user = useSelector(state => state.user)
-  console.log(user)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!user) {
+      toast.error('You need to login to access this page.')
+      router.push('/')
+    }
+  }, [user])
+
   return (
     <>
       <NextSeo
@@ -21,7 +31,7 @@ export default function Me() {
           <h1 className="leading-relaxed font-serif text-center">
             Welcome, <br />{' '}
             <span className="text-brand-500 break-all">
-              {user.email || 'someone@example.com'}
+              {user?.email || 'someone@example.com'}
             </span>
           </h1>
           <div className="not-prose">

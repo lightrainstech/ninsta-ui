@@ -18,6 +18,14 @@ export const saveAsset = (data, token) =>
     }
   })
 
+export const saveMeta = (data, token) =>
+  http.post('/assets/metadata', data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+
 export const affiliate = (data, token) =>
   http.post('/affiliates/', data, {
     headers: {

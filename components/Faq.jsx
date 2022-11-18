@@ -12,15 +12,12 @@ const accordionData = [
     acceptedAnswerText: `<b>Ninsta</b> is a global platform that helps you share your <b>digital collectibles on Instagram</b>, in less time and free of cost. It is a one-of-its-kind tool that helps you mint your image into a digital collectible, freely and easily.`
   },
   {
-    questionName: 'How can I contact the Ninsta team?',
-    acceptedAnswerText: `You can reach out to us: <ul class="list-disc list-inside ml-3">
-  <li>Email Support: <a class="link" href="mailto:hello@ninsta.io">hello@ninsta.io</a></li>
-  <li>Social Media: <a class="link" href="https://www.instagram.com/ninstacollectables/">Instagram</a>, <a class="link" href="https://discord.com/invite/2p7KT4da3e">Discord<a/></li>
-  <li>Platform Support: <a class="link" href="https://ninsta.io/contact">Contact Us</a></li></ul>`
-  },
-  {
     questionName: 'What do I need to mint a digital collectible?',
     acceptedAnswerText: `You only require the image you need to be converted into a collectible, along with a questionName and a caption. Once you’ve got these aspects set, you’re ready to mint in your digital collectible.`
+  },
+  {
+    questionName: 'How can I create more free Digital Collectibles?',
+    acceptedAnswerText: `You can always earn free slots to create more Digital Collectibles by supporting Ninsta in various social media. Please join our <a href="https://discord.gg/2p7KT4da3e" class="link">Discord</a> server for more details.`
   },
   {
     questionName:
@@ -41,11 +38,15 @@ const accordionData = [
   },
   {
     questionName: 'What is the Ninsta Affiliate Program?',
-    acceptedAnswerText: `The <b>Ninsta Affiliate Program</b> is a plan built to connect with the Ninsta community. As an affiliate, one needs to promote our products and services. Ninsta would provide the tools and means to its affiliates. Moreover, an affiliate would be enquestionNamed to earn a substantial commission, based on their performance.`
+    acceptedAnswerText: `The <b>Ninsta Affiliate Program</b> is a plan built to connect with the Ninsta community. As an affiliate, one needs to promote our products and services. Ninsta would provide the tools and means to its affiliates. Moreover, an affiliate would be eligible to earn a substantial commission, based on their performance.`
   },
   {
     questionName: 'How do I become a Ninsta affiliate?',
-    acceptedAnswerText: `To become a part of our community, go to <a class='link' href='https://ninsta.io/become-affiliate'>https://ninsta.io/become-affiliate</a>. Enter your email address, and click on <b>Get Code</b> to begin your journey with us. `
+    acceptedAnswerText: `To become a part of our community, go to <a class='link' href='https://ninsta.io/become-affiliate'>https://ninsta.io/become-affiliate</a>. Enter your email address, and click on <b>Get Code</b> to begin your journey with us.`
+  },
+  {
+    questionName: 'How can I contact the Ninsta team?',
+    acceptedAnswerText: `You can reach out to us: <ul class="list-disc list-inside ml-3"><li>Email Support: <a class="link" href="mailto:hello@ninsta.io">hello@ninsta.io</a></li><li>Social Media: <a class="link" href="https://www.instagram.com/ninstaio/">Instagram</a>, <a class="link" href="https://discord.com/invite/2p7KT4da3e">Discord<a/></li><li>Platform Support: <a class="link" href="https://ninsta.io/contact">Contact Us</a></li></ul>`
   }
 ]
 
@@ -61,7 +62,7 @@ const Accordion = ({ questionName, acceptedAnswerText, open }) => {
       </div>
       {isActive && (
         <div
-          className="text-lg mb-16 text-gray-300 bg-slate-800 p-3 rounded leading-relaxed"
+          className="text-lg mb-16 text-gray-300 bg-slate-800 p-3 rounded leading-relaxed faq"
           dangerouslySetInnerHTML={{ __html: acceptedAnswerText }}
         />
       )}
