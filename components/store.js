@@ -69,7 +69,7 @@ const makeStore = ({ isServer }) => {
     const { persistStore, persistReducer } = require('redux-persist')
     const storage = require('redux-persist/lib/storage').default
     const persistConfig = {
-      key: 'ninsta',
+      key: 'ninstaio',
       storage
     }
     const persistedReducer = persistReducer(persistConfig, rootReducer) // Create a new reducer with our existing reducer

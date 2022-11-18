@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import React from 'react'
 import PayButton from './PayButton'
+import React from 'react'
 
 function CtaBanner({ setBanner, nftInfo }) {
   return (
