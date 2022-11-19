@@ -3,7 +3,8 @@ import Menu from '../components/Menu'
 import React from 'react'
 export default function Custom404() {
   return (
-    <div className="flex flex-col items-center justify-between bg-[#100E1A]">
+    <div className="flex flex-col items-center justify-between relative">
+      <span className="grad w-[1000px] h-[1000px] rounded-full"></span>
       <Menu />
       <div className="h-screen flex flex-col items-center justify-center text-gray-600">
         <h1 className="mt-3 text-lg">404 - Page Not Found</h1>
