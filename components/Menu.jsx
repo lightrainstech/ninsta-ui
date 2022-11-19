@@ -55,7 +55,7 @@ const Menu = () => {
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="menu-button"
-                tabindex="-1">
+                tabIndex="-1">
                 <div
                   className="py-1 mt-4 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none rounded"
                   role="none">
@@ -63,7 +63,7 @@ const Menu = () => {
                     <a
                       className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400"
                       role="menuitem"
-                      tabindex="-1"
+                      tabIndex="-1"
                       id="menu-item-0">
                       Account settings
                     </a>
@@ -72,7 +72,7 @@ const Menu = () => {
                     onClick={() => dispatch({ type: 'USER_LOGOUT' })}
                     className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400 cursor-pointer"
                     role="menuitem"
-                    tabindex="-1"
+                    tabIndex="-1"
                     id="menu-item-1">
                     Sign out
                   </div>
@@ -126,7 +126,7 @@ const Menu = () => {
                       <a
                         className="link cursor-pointer text-lg"
                         role="menuitem"
-                        tabindex="-1"
+                        tabIndex="-1"
                         id="menu-item-0">
                         Account settings
                       </a>
@@ -135,7 +135,7 @@ const Menu = () => {
                       onClick={() => dispatch({ type: 'USER_LOGOUT' })}
                       className="link cursor-pointer text-lg hover:text-brand-400"
                       role="menuitem"
-                      tabindex="-1"
+                      tabIndex="-1"
                       id="menu-item-1">
                       Sign out
                     </div>
