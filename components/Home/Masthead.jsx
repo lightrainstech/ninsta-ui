@@ -61,16 +61,9 @@ const Masthead = () => {
           </h2>
           <div className="py-8">
             {isAuthenticate ? (
-              <div className="flex flex-row space-x-2">
-                <Link href="/mint-digital-collectable" prefetch={false}>
-                  <a className="bttn rounded">Start Minting</a>
-                </Link>
-                <Link href="/me" prefetch={false}>
-                  <a className="px-3 py-2 text-lg text-white !bg-none hover:bttn_hover link underline underline-offset-4">
-                    My Profile
-                  </a>
-                </Link>
-              </div>
+              <Link href="/mint-digital-collectable" prefetch={false}>
+                <a className="bttn rounded !text-xl">Start Minting</a>
+              </Link>
             ) : (
               <>
                 <div

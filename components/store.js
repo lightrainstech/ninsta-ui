@@ -19,7 +19,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         user: action.data.user
       }
-
+    case 'USER_LOGOUT':
+      return {
+        ...state,
+        affcode: '',
+        user: null,
+        account: null,
+        network: null,
+        wallet: null
+      }
     case 'USER_AFF_CODE':
       return {
         ...state,
