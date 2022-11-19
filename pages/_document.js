@@ -27,7 +27,7 @@ class MyDocument extends Document {
           />
           <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
         </Head>
-        <body>
+        <body className="bg-[#100E1A]">
           <Main />
           <NextScript />
         </body>
