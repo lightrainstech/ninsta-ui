@@ -23,7 +23,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             as="image"
-            href="https://ninsta.io/bgfinal.min.webp"
+            href="https://ninsta.io/bg-isolateds.webp"
           />
           <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
         </Head>
