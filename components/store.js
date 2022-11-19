@@ -19,7 +19,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         user: action.data.user
       }
-
+    case 'USER_LOGOUT':
+      return {
+        ...state,
+        affcode: '',
+        user: null,
+        account: null,
+        network: null,
+        wallet: null
+      }
     case 'USER_AFF_CODE':
       return {
         ...state,
@@ -69,7 +77,7 @@ const makeStore = ({ isServer }) => {
     const { persistStore, persistReducer } = require('redux-persist')
     const storage = require('redux-persist/lib/storage').default
     const persistConfig = {
-      key: 'ninsta',
+      key: 'ninstaio',
       storage
     }
     const persistedReducer = persistReducer(persistConfig, rootReducer) // Create a new reducer with our existing reducer

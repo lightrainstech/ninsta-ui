@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-
+import useAuth from './useAuth'
+import { useDispatch } from 'react-redux'
 const menu = [
   { title: 'How it Works', path: '/how-it-works' },
   { title: 'Collections', path: '/collections' },
@@ -10,6 +11,8 @@ const menu = [
 
 const Menu = () => {
   const [isOpen, setIsOpen] = React.useState(false)
+  const dispatch = useDispatch()
+  const isAuthenticate = useAuth()
 
   return (
     <nav className="container ">
@@ -27,6 +30,56 @@ const Menu = () => {
               </Link>
             )
           })}
+
+          {isAuthenticate && (
+            <div className="relative inline-block text-left group">
+              <div>
+                <button
+                  type="button"
+                  className="inline-flex w-full justify-center rounded-md text-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 hover:text-brand-400"
+                  id="menu-button"
+                  aria-expanded="true"
+                  aria-haspopup="true">
+                  Account
+                  <svg
+                    className="fill-current h-4 w-4 mt-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </button>
+              </div>
+
+              <div
+                className="absolute right-0 z-10 -mt-0.5 w-56 origin-top-right invisible group-hover:visible"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabindex="-1">
+                <div
+                  className="py-1 mt-4 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none rounded"
+                  role="none">
+                  <Link href="/me" prefetch={false}>
+                    <a
+                      className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="menu-item-0">
+                      Account settings
+                    </a>
+                  </Link>
+                  <div
+                    onClick={() => dispatch({ type: 'USER_LOGOUT' })}
+                    className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400 cursor-pointer"
+                    role="menuitem"
+                    tabindex="-1"
+                    id="menu-item-1">
+                    Sign out
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className="relative md:hidden">
           <svg
@@ -67,6 +120,27 @@ const Menu = () => {
                     </Link>
                   )
                 })}
+                {isAuthenticate && (
+                  <>
+                    <Link href="/me" prefetch={false}>
+                      <a
+                        className="link cursor-pointer text-lg"
+                        role="menuitem"
+                        tabindex="-1"
+                        id="menu-item-0">
+                        Account settings
+                      </a>
+                    </Link>
+                    <div
+                      onClick={() => dispatch({ type: 'USER_LOGOUT' })}
+                      className="link cursor-pointer text-lg hover:text-brand-400"
+                      role="menuitem"
+                      tabindex="-1"
+                      id="menu-item-1">
+                      Sign out
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           )}

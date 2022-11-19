@@ -1,11 +1,11 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-import { useWeb3Modal } from '@web3modal/react'
-import { useAccount } from 'wagmi'
 
 import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
 import React from 'react'
 import { truncate } from '../../utils/index'
+import { useAccount } from 'wagmi'
+import { useWeb3Modal } from '@web3modal/react'
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
   const { address, isConnected } = useAccount()

@@ -1,12 +1,12 @@
-import React from 'react'
-import { useContract, useSigner, useAccount, useProvider } from 'wagmi'
+import { useAccount, useContract, useProvider, useSigner } from 'wagmi'
 
-import ninsta from '../components/abi/ninsta.json'
+import React from 'react'
+import Web3 from 'web3'
+import { ethers } from 'ethers'
 import getConfig from 'next/config'
+import ninsta from '../components/abi/ninsta.json'
 import { saveMeta } from '../actions'
 import { useSelector } from 'react-redux'
-import { ethers } from 'ethers'
-import Web3 from 'web3'
 
 const { publicRuntimeConfig } = getConfig()
 

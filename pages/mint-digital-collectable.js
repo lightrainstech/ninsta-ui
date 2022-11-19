@@ -3,6 +3,7 @@ import {
   modalConnectors,
   walletConnectProvider
 } from '@web3modal/ethereum'
+import { WagmiConfig, chain, configureChains, createClient } from 'wagmi'
 
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
@@ -12,8 +13,6 @@ import dynamic from 'next/dynamic'
 import getConfig from 'next/config'
 import useAuth from '../components/useAuth'
 import { useRouter } from 'next/router'
-import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
-import { publicProvider } from 'wagmi/providers/public'
 
 const DynamicMint = dynamic(() => import('../components/Mint'))
 const { publicRuntimeConfig } = getConfig()

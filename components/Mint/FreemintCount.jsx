@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react'
 import { useAccount, useContractRead } from 'wagmi'
 
-import React, { useEffect, useState } from 'react'
 import getConfig from 'next/config'
 import nftAbi from '../abi/ninsta.json'
 import { setRequestMeta } from 'next/dist/server/request-meta'

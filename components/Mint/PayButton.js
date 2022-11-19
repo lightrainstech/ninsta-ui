@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { RiMoneyDollarCircleLine } from 'react-icons/ri'
-import { AiOutlineLoading } from 'react-icons/ai'
-import { usePrepareContractWrite, useContractWrite } from 'wagmi'
-import { ethers } from 'ethers'
-import { useSelector } from 'react-redux'
-import { saveMeta } from '../../actions'
-import { useAccount } from 'wagmi'
-import toast from 'react-hot-toast'
+import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 
-import ninsta from '../abi/ninsta.json'
+import { AiOutlineLoading } from 'react-icons/ai'
+import { RiMoneyDollarCircleLine } from 'react-icons/ri'
+import { ethers } from 'ethers'
 import getConfig from 'next/config'
+import ninsta from '../abi/ninsta.json'
+import { saveMeta } from '../../actions'
+import toast from 'react-hot-toast'
+import { useAccount } from 'wagmi'
+import { useSelector } from 'react-redux'
+
 const { publicRuntimeConfig } = getConfig()
 
 const PayButton = ({ nftInfo }) => {
@@ -81,7 +82,7 @@ const PayButton = ({ nftInfo }) => {
       }
       setIsReady(true)
     } catch (error) {
-      console.log('errorerrorerror', error)
+      console.log('err', error)
     }
     setIsSubmit(false)
   }
