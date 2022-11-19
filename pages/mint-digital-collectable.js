@@ -48,21 +48,19 @@ export default function Home({ props }) {
         title="Mint Digital Collectable"
         description="Upload the image you want to convert to Digital Collectable"
       />
-      <div className="bg-[#100E1A]">
-        <Menu />
-        <WagmiConfig client={wagmiClient}>
-          <DynamicMint />
-        </WagmiConfig>
+      <Menu />
+      <WagmiConfig client={wagmiClient}>
+        <DynamicMint />
+      </WagmiConfig>
 
-        <Web3Modal
-          projectId={projectId}
-          theme="dark"
-          accentColor="default"
-          ethereumClient={ethereumClient}
-        />
+      <Web3Modal
+        projectId={projectId}
+        theme="dark"
+        accentColor="default"
+        ethereumClient={ethereumClient}
+      />
 
-        <Footer />
-      </div>
+      <Footer />
     </>
   )
 }

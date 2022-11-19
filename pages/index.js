@@ -10,7 +10,7 @@ const DynamicFooter = dynamic(() => import('../components/Footer'), {
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between bg-[#100E1A] bg-cover md:bg-[url(/bgfinal.min.webp)] bg-no-repeat bg-right bg-opacity-60">
+    <div className="flex flex-col items-center justify-between md:bg-[url(/bg-isolateds.webp)]">
       <Menu />
       <Suspense
         fallback={
