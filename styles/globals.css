@@ -98,4 +98,11 @@
   .list-info {
     @apply flex flex-row justify-between items-center;
   }
+  h1,
+  h2 {
+    @apply bg-cover;
+    background-clip: text;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(170, 170, 170));
+    box-decoration-break: clone;
+  }
 }
