@@ -9,6 +9,12 @@ const menu = [
   { title: 'Contact', path: '/contact' }
 ]
 
+const authdMenu = [
+  { title: 'Start Minting', path: '/mint-digital-collectable' },
+  { title: 'History', path: '/me' },
+  { title: 'Affiliate program', path: '/become-affiliate' }
+]
+
 const Menu = () => {
   const [isOpen, setIsOpen] = React.useState(false)
   const dispatch = useDispatch()
@@ -49,7 +55,6 @@ const Menu = () => {
                   </svg>
                 </button>
               </div>
-
               <div
                 className="absolute right-0 z-10 -mt-0.5 w-56 origin-top-right invisible group-hover:visible"
                 role="menu"
@@ -59,15 +64,20 @@ const Menu = () => {
                 <div
                   className="py-1 mt-4 bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none rounded"
                   role="none">
-                  <Link href="/me" prefetch={false}>
-                    <a
-                      className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400"
-                      role="menuitem"
-                      tabIndex="-1"
-                      id="menu-item-0">
-                      Account settings
-                    </a>
-                  </Link>
+                  {authdMenu.map((item, index) => {
+                    return (
+                      <Link
+                        key={index}
+                        href={item.path}
+                        prefetch={false}
+                        tabIndex="-1">
+                        <a className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400">
+                          {item.title}
+                        </a>
+                      </Link>
+                    )
+                  })}
+
                   <div
                     onClick={() => dispatch({ type: 'USER_LOGOUT' })}
                     className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400 cursor-pointer"
@@ -107,7 +117,7 @@ const Menu = () => {
               aria-orientation="vertical"
               aria-labelledby="menu-button"
               tabIndex="-1">
-              <div className="p-5 flex flex-col gap-5 h-72" role="none">
+              <div className="p-5 flex flex-col gap-5" role="none">
                 {menu.map((item, index) => {
                   return (
                     <Link key={index} href={item.path} prefetch={false}>
@@ -122,15 +132,19 @@ const Menu = () => {
                 })}
                 {isAuthenticate && (
                   <>
-                    <Link href="/me" prefetch={false}>
-                      <a
-                        className="link cursor-pointer text-lg"
-                        role="menuitem"
-                        tabIndex="-1"
-                        id="menu-item-0">
-                        Account settings
-                      </a>
-                    </Link>
+                    {authdMenu.map((item, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          href={item.path}
+                          prefetch={false}
+                          tabIndex="-1">
+                          <a className="link cursor-pointer text-lg">
+                            {item.title}
+                          </a>
+                        </Link>
+                      )
+                    })}
                     <div
                       onClick={() => dispatch({ type: 'USER_LOGOUT' })}
                       className="link cursor-pointer text-lg hover:text-brand-400"

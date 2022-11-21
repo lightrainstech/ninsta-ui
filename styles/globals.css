@@ -12,7 +12,7 @@
     background: rgba(43, 46, 53, 0.72);
   }
   .grad {
-    @apply absolute top-[-500px] dark:opacity-20 opacity-[0.15] -z-30;
+    @apply absolute top-[-500px] dark:opacity-20 opacity-[0.15] -z-30 left-[20%];
     background-image: conic-gradient(
       from 180deg,
       rgb(42, 138, 246) 0deg,
