@@ -127,7 +127,6 @@ const MintHistory = () => {
 
   return (
     <div className="p-0 md:py-6 overflow-hidden">
-      <h3 className="text-xl my-3">Your previous mints</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {assets.map((e, i) => {
           return e.tokenId ? (

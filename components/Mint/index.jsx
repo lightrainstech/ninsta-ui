@@ -24,16 +24,13 @@ const initialState = {
 }
 
 function Mint() {
-  const [minting, setMinting] = useState(3)
+  const [minting, setMinting] = useState(1)
   const [banner, setBanner] = useState(false)
   const [nftInfo, setNftInfo] = useState(initialState)
   const [isSubmit, setIsSubmit] = useState(false)
-  const [finalData, setFinalData] = useState([])
 
   const user = useSelector(state => state.user)
   const { address } = useAccount()
-  const { payMint } = useMint(finalData)
-  const { open } = useWeb3Modal()
 
   const validate = () => {
     const { title, file } = nftInfo

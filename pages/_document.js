@@ -27,10 +27,10 @@ class MyDocument extends Document {
           />
           <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
         </Head>
-        <body className="bg-[#100E1A] bg-right bg-[length:1150px_818px] bg-no-repeat bg-opacity-60 relative antialiased">
-          <span className="grad w-[316px] h-[900px] md:w-[1000px] md:h-[1000px] rounded-full"></span>
+        <body className="bg-[#100E1A] bg-right bg-[length:1150px_818px] bg-no-repeat bg-opacity-60 antialiased">
           <Main />
           <NextScript />
+          <span className="grad w-[316px] h-[900px] md:w-[1000px] md:h-[1000px] rounded-full"></span>
         </body>
       </Html>
     )
