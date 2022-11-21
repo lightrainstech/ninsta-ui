@@ -62,7 +62,7 @@ function Features() {
                     Revenue
                   </h5>
                   <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-300">
-                    Revenue share arrangements are tailer made for the kind of
+                    Revenue share arrangements are tailor-made for the kind of
                     audience you are looking for as well the reach that you are
                     expecting. Another huge factor is the quality of the
                     collection.
