@@ -19,6 +19,9 @@ export default function Home() {
       toast.error('Enter a valid email address to get started')
       return
     }
+    setMyAffCode('')
+    setMyAffLink('')
+    setCopy(false)
     try {
       const result = await affiliate({ affEmail: email }, user.accessToken)
       setCopy(false)
