@@ -24,7 +24,7 @@ const initialState = {
 }
 
 function Mint() {
-  const [minting, setMinting] = useState(1)
+  const [minting, setMinting] = useState(3)
   const [banner, setBanner] = useState(false)
   const [nftInfo, setNftInfo] = useState(initialState)
   const [isSubmit, setIsSubmit] = useState(false)

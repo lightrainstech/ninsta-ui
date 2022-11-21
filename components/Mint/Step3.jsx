@@ -4,7 +4,7 @@ import PreviousMints from './PreviousMints'
 import React from 'react'
 const Step3 = ({ nftInfo }) => {
   return (
-    <div className="rounded p-6 bg-[#1F2126] bg-opacity-60 steps min-h-[200px]">
+    <div className="rounded p-6-0 md:p-6 bg-transparent md:bg-[#1F2126] bg-opacity-60 steps min-h-[200px]">
       <div className="flex flex-col md:flex-row space-y-3 md:space-x-3">
         <div className="text-center">
           <Image src="/thumbs-up.svg" height={140} width={140} alt="" />

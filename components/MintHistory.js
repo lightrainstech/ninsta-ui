@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { formatDate, truncate } from '../../utils'
+import { formatDate, truncate } from '../utils'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { RiImageEditLine } from 'react-icons/ri'
-import { getAssets } from '../../actions'
+import { getAssets } from '../actions'
 import getConfig from 'next/config'
-import useInterval from '../../hooks/useInterval'
+import useInterval from '../hooks/useInterval'
 import { useSelector } from 'react-redux'
 
 const { publicRuntimeConfig } = getConfig()
@@ -104,14 +104,14 @@ const DCCard = ({ asset }) => {
     </div>
   )
 }
-const PreviousMints = () => {
+const MintHistory = () => {
   const user = useSelector(state => state.user)
   const [assets, setAssets] = useState([])
 
   useEffect(() => {
     const getAllAssets = async () => {
       const assets = await getAssets(user.accessToken)
-      setAssets(assets.data.data.data.slice(0, 4))
+      setAssets(assets.data.data.data)
     }
     getAllAssets()
   }, [user])
@@ -120,15 +120,15 @@ const PreviousMints = () => {
     const filterAssets = assets.filter(value => !value.tokenId)
     if (filterAssets.length > 0) {
       getAssets(user.accessToken)
-        .then(res => setAssets(res.data.data.data.slice(0, 4)))
+        .then(res => setAssets(res.data.data.data))
         .catch(e => console.log(e))
     }
-  }, 60000)
+  }, 600000)
 
   return (
     <div className="p-0 md:py-6 overflow-hidden">
       <h3 className="text-xl my-3">Your previous mints</h3>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {assets.map((e, i) => {
           return e.tokenId ? (
             <DCCard key={i} asset={e} />
@@ -141,4 +141,4 @@ const PreviousMints = () => {
   )
 }
 
-export default PreviousMints
+export default MintHistory
