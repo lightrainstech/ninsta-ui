@@ -68,6 +68,15 @@ const Menu = () => {
                       Account settings
                     </a>
                   </Link>
+                  <Link href="/become-affiliate" prefetch={false}>
+                    <a
+                      className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400"
+                      role="menuitem"
+                      tabIndex="-1"
+                      id="menu-item-0">
+                      Affiliate program
+                    </a>
+                  </Link>
                   <div
                     onClick={() => dispatch({ type: 'USER_LOGOUT' })}
                     className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400 cursor-pointer"
@@ -129,6 +138,15 @@ const Menu = () => {
                         tabIndex="-1"
                         id="menu-item-0">
                         Account settings
+                      </a>
+                    </Link>
+                    <Link href="/become-affiliate" prefetch={false}>
+                      <a
+                        className="text-gray-700 block px-4 py-2 text-xl hover:text-brand-400"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="menu-item-0">
+                        Affiliate program
                       </a>
                     </Link>
                     <div
