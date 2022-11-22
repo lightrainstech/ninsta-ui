@@ -10,6 +10,7 @@ import { saveMeta, updateAsset } from '../../actions'
 import toast from 'react-hot-toast'
 import { useAccount } from 'wagmi'
 import { useSelector } from 'react-redux'
+import { useWeb3Modal } from '@web3modal/react'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -24,7 +25,8 @@ const PayButton = ({
   const [isReady, setIsReady] = React.useState(false)
   const [isSubmit, setIsSubmit] = React.useState(false)
   const user = useSelector(state => state.user)
-  const { address } = useAccount()
+  const { address, isConnected } = useAccount()
+  const { open } = useWeb3Modal()
 
   const { config } = usePrepareContractWrite({
     address: publicRuntimeConfig.nftContract,
@@ -38,7 +40,6 @@ const PayButton = ({
 
   const { data, isSuccess, error, write } = useContractWrite(config)
 
-  console.log(nftInfo)
   useEffect(() => {
     if (isReady) {
       write?.()
@@ -60,7 +61,11 @@ const PayButton = ({
           if (transfer.length > 0) {
             const tokenId = parseInt(transfer[0].topics[3], 16)
             updateAsset({ tokenId, docId: nftInfo._id }, user.accessToken)
-            window.location.reload()
+              .then(res => {
+                console.log(res)
+                window.location.reload()
+              })
+              .catch(e => console.log)
           }
           setBanner(false)
         })
@@ -76,14 +81,16 @@ const PayButton = ({
 
   const handlePayMint = async () => {
     setIsSubmit(true)
+
     try {
       const { title, description, royalty, royaltyPer, file } = nftInfo
 
-      if (res.length === 0) {
-        console.log('1')
-        if (!retry) {
-          console.log('2')
+      if (!isConnected) {
+        open()
+      }
 
+      if (res.length === 0) {
+        if (!retry) {
           const result = await saveMeta(
             {
               file,
@@ -106,8 +113,6 @@ const PayButton = ({
             res.royaltyPer
           ])
         } else {
-          console.log('3')
-
           setRes([
             nftInfo.wallet,
             nftInfo.assetUri,

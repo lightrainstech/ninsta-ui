@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import { formatDate, truncate } from '../utils'
 
 import Image from 'next/image'
@@ -9,10 +9,13 @@ import { getAssets } from '../actions'
 import getConfig from 'next/config'
 import useInterval from '../hooks/useInterval'
 import { useSelector } from 'react-redux'
+import Notify from './Notify'
+import { useAccount, useSwitchNetwork, useNetwork } from 'wagmi'
+import { useWeb3Modal } from '@web3modal/react'
 
 const { publicRuntimeConfig } = getConfig()
 
-const EmptyCard = ({ asset }) => {
+const EmptyCard = ({ asset, isConnected }) => {
   return (
     <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded relative">
       <span className="absolute right-0 bg-yellow-300 opacity-100 z-50 top-0 rounded-tr-md rounded-bl-md px-3 py-1 text-gray-700">
@@ -26,7 +29,7 @@ const EmptyCard = ({ asset }) => {
 
       <p className="list-info">
         <strong className="text-xl">{asset.title}</strong>
-        {asset.mintType !== 'free' && (
+        {asset.mintType !== 'free' && isConnected && (
           <PayButton
             nftInfo={asset}
             buttonText="Retry Payment"
@@ -117,9 +120,13 @@ const DCCard = ({ asset }) => {
     </div>
   )
 }
+
 const MintHistory = () => {
   const user = useSelector(state => state.user)
   const [assets, setAssets] = useState([])
+  const { open } = useWeb3Modal()
+  const { address, isConnected } = useAccount()
+  const { chain, chains } = useNetwork()
 
   useEffect(() => {
     const getAllAssets = async () => {
@@ -145,12 +152,37 @@ const MintHistory = () => {
           <p className="mt-3 text-lg">Loading...</p>
         </div>
       )}
+      <div className="mb-5">
+        {!isConnected && (
+          <Notify
+            {...{
+              title: 'No wallet connected',
+              message: 'You are not connected to any wallet',
+              Component: () => (
+                <button className="text-blue-500" onClick={open}>
+                  Connect Wallet
+                </button>
+              )
+            }}
+          />
+        )}
+
+        {chain?.unsupported && chains?.length > 0 && (
+          <Notify
+            {...{
+              title: 'Unsupported chain',
+              message: `Switch your network to ${chains[0].name}`
+            }}
+          />
+        )}
+      </div>
+
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {assets.map((e, i) => {
           return e.tokenId ? (
             <DCCard key={i} asset={e} />
           ) : (
-            <EmptyCard key={i} asset={e} />
+            <EmptyCard key={i} asset={e} isConnected={isConnected} />
           )
         })}
       </div>
