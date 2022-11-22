@@ -139,6 +139,11 @@ const MintHistory = () => {
 
   return (
     <div className="p-0 md:py-6 overflow-hidden">
+      {assets.length === 0 && (
+        <div className="h-[300px] w-full flex flex-col items-center justify-center text-gray-600">
+          <p className="mt-3 text-lg">Loading...</p>
+        </div>
+      )}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {assets.map((e, i) => {
           return e.tokenId ? (
