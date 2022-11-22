@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PreviousMints from './PreviousMints'
 import React from 'react'
+
 const Step3 = ({ nftInfo }) => {
   return (
     <div className="rounded p-6-0 md:p-6 bg-transparent md:bg-[#1F2126] bg-opacity-60 steps min-h-[200px]">

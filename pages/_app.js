@@ -49,7 +49,15 @@ function MyApp({ Component, pageProps, router }) {
             <Component {...pageProps} />
           </m.div>
         </LazyMotion>
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            style: {
+              borderRadius: '10px',
+              background: '#100E1A',
+              color: '#fff'
+            }
+          }}
+        />
       </PersistGate>
       <DynamicGtag />
     </>

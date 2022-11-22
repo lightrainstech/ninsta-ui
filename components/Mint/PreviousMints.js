@@ -35,7 +35,6 @@ const EmptyCard = ({ asset }) => {
 }
 
 const DCCard = ({ asset }) => {
-  console.log(asset)
   return (
     <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded">
       <div className="relative h-[180px] md:h-[260px]">
