@@ -3,6 +3,7 @@ import { formatDate, truncate } from '../utils'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import PayButton from './Mint/PayButton'
 import { RiImageEditLine } from 'react-icons/ri'
 import { getAssets } from '../actions'
 import getConfig from 'next/config'
@@ -13,16 +14,28 @@ const { publicRuntimeConfig } = getConfig()
 
 const EmptyCard = ({ asset }) => {
   return (
-    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded cursor-wait relative">
-      <span className="absolute right-0 bg-yellow-300 h-8 opacity-100 z-50 top-0 rounded-tr-md rounded-bl-md px-3 text-black">
-        Getting Ready...
+    <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded relative">
+      <span className="absolute right-0 bg-yellow-300 opacity-100 z-50 top-0 rounded-tr-md rounded-bl-md px-3 py-1 text-gray-700">
+        {asset.mintType === 'matic' && asset.isPaid === false
+          ? `Payment pending`
+          : `Getting Ready...`}
       </span>
-      <div className="animate-pulse bg-gray-900 flex flex-col items-center justify-center h-[180px] md:h-[260px]">
+      <div className="animate-pulse bg-gray-900 flex flex-col items-center justify-center h-[180px] md:h-[260px] cursor-wait">
         <RiImageEditLine size={40} />
       </div>
-      <strong className="text-xl">{asset.title}</strong>
+
+      <p className="list-info">
+        <strong className="text-xl">{asset.title}</strong>
+        {asset.mintType !== 'free' && (
+          <PayButton
+            nftInfo={asset}
+            buttonText="Retry Payment"
+            buttonStyles="bttn !px-2 !py-1 !text-sm rounded"
+          />
+        )}
+      </p>
       <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
-      <div className="hidden md:block">
+      <div className="hidden md:block cursor-wait">
         <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
         <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
         <div className="h-3 bg-slate-700 rounded animate-pulse mt-2"></div>
@@ -35,7 +48,6 @@ const EmptyCard = ({ asset }) => {
 }
 
 const DCCard = ({ asset }) => {
-  console.log(asset)
   return (
     <div className="bg-zinc-800 flex flex-col p-3 gap-3 rounded">
       <div className="relative h-[180px] md:h-[260px]">
@@ -54,7 +66,7 @@ const DCCard = ({ asset }) => {
           <Link
             href={`${publicRuntimeConfig.opesnSea}${publicRuntimeConfig.nftContract}/${asset.tokenId}`}>
             <a className="link text-brand-400" target="_blank">
-              0x6a...3a7c
+              {`${truncate(publicRuntimeConfig.nftContract)}/${asset.tokenId}`}
             </a>
           </Link>
         </p>
@@ -96,8 +108,8 @@ const DCCard = ({ asset }) => {
             <span title={asset.createdAt}>{formatDate(asset.createdAt)}</span>
           </p>
           <p className="list-info">
-            <span>Chain:</span>
-            <span>Mumbai</span>
+            <span>Blockchain:</span>
+            <span title="Polygon Mumbai">Polygon</span>
           </p>
         </div>
       </div>
@@ -127,7 +139,7 @@ const MintHistory = () => {
 
   return (
     <div className="p-0 md:py-6 overflow-hidden">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {assets.map((e, i) => {
           return e.tokenId ? (
             <DCCard key={i} asset={e} />

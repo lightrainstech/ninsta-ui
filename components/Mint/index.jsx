@@ -4,9 +4,7 @@ import dynamic from 'next/dynamic'
 import { saveAsset } from '../../actions'
 import toast from 'react-hot-toast'
 import { useAccount } from 'wagmi'
-import useMint from '../../hooks/useMint'
 import { useSelector } from 'react-redux'
-import { useWeb3Modal } from '@web3modal/react'
 
 const Step1 = dynamic(() => import('./Step1'), { suspense: true })
 const Step2 = dynamic(() => import('./Step2'), { suspense: true })

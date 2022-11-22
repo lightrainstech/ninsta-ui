@@ -13,7 +13,12 @@ import { useSelector } from 'react-redux'
 
 const { publicRuntimeConfig } = getConfig()
 
-const PayButton = ({ nftInfo }) => {
+const PayButton = ({
+  nftInfo,
+  setBanner,
+  buttonStyles = 'py-3 px-4 items-center bttn focus:ring-insta-500 focus:ring-offset-insta-200 text-white w-full transition ease-in duration-200 text-center text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded mt-6',
+  buttonText = 'Pay & Mint'
+}) => {
   const [res, setRes] = React.useState([])
   const [isReady, setIsReady] = React.useState(false)
   const [isSubmit, setIsSubmit] = React.useState(false)
@@ -77,12 +82,12 @@ const PayButton = ({ nftInfo }) => {
           res.royalty,
           res.royaltyPer
         ])
-
         await new Promise(r => setTimeout(r, 5000))
       }
       setIsReady(true)
     } catch (error) {
       console.log('err', error)
+      toast.error(error.response.data.response.message)
     }
     setIsSubmit(false)
   }
@@ -92,13 +97,13 @@ const PayButton = ({ nftInfo }) => {
       type="button"
       onClick={handlePayMint}
       disabled={isSubmit || isReady}
-      className="py-3 px-4 flex flex-row justify-center items-center bttn focus:ring-insta-500 focus:ring-offset-insta-200 text-white w-full transition ease-in duration-200 text-center text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded mt-6">
+      className={`flex flex-row justify-center items-center ${buttonStyles}`}>
       {isSubmit || isReady ? (
         <AiOutlineLoading className="mr-1 animate-spin" />
       ) : (
         <RiMoneyDollarCircleLine className="mr-1" />
       )}
-      Pay and Mint
+      <p>{buttonText}</p>
     </button>
   )
 }
