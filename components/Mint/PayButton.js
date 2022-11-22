@@ -6,7 +6,7 @@ import { RiMoneyDollarCircleLine } from 'react-icons/ri'
 import { ethers } from 'ethers'
 import getConfig from 'next/config'
 import ninsta from '../abi/ninsta.json'
-import { saveMeta } from '../../actions'
+import { saveMeta, updateAsset } from '../../actions'
 import toast from 'react-hot-toast'
 import { useAccount } from 'wagmi'
 import { useSelector } from 'react-redux'
@@ -15,9 +15,10 @@ const { publicRuntimeConfig } = getConfig()
 
 const PayButton = ({
   nftInfo,
-  setBanner,
+  setBanner = () => {},
   buttonStyles = 'py-3 px-4 items-center bttn focus:ring-insta-500 focus:ring-offset-insta-200 text-white w-full transition ease-in duration-200 text-center text-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded mt-6',
-  buttonText = 'Pay & Mint'
+  buttonText = 'Pay & Mint',
+  retry = false
 }) => {
   const [res, setRes] = React.useState([])
   const [isReady, setIsReady] = React.useState(false)
@@ -34,8 +35,10 @@ const PayButton = ({
       value: ethers.utils.parseEther('0.07')
     }
   })
-  const { isSuccess, error, write } = useContractWrite(config)
 
+  const { data, isSuccess, error, write } = useContractWrite(config)
+
+  console.log(nftInfo)
   useEffect(() => {
     if (isReady) {
       write?.()
@@ -45,9 +48,25 @@ const PayButton = ({
   useEffect(() => {
     if (isSuccess) {
       toast.success('Minting in process. Will complete in few minutes')
-      setBanner(false)
     }
   }, [isSuccess])
+
+  useEffect(() => {
+    if (data) {
+      data
+        .wait()
+        .then(result => {
+          const transfer = result.logs.filter(value => value.data === '0x')
+          if (transfer.length > 0) {
+            const tokenId = parseInt(transfer[0].topics[3], 16)
+            updateAsset({ tokenId, docId: nftInfo._id }, user.accessToken)
+            window.location.reload()
+          }
+          setBanner(false)
+        })
+        .catch(e => console.log(e))
+    }
+  }, [data])
 
   useEffect(() => {
     if (error) {
@@ -61,27 +80,43 @@ const PayButton = ({
       const { title, description, royalty, royaltyPer, file } = nftInfo
 
       if (res.length === 0) {
-        const result = await saveMeta(
-          {
-            file,
-            title,
-            description,
-            royalty,
-            royaltyPer,
-            handle: 'ninsta',
-            wallet: address
-          },
-          user.accessToken
-        )
+        console.log('1')
+        if (!retry) {
+          console.log('2')
 
-        const res = result.data.data.data
-        setRes([
-          res.wallet,
-          res.assetUri,
-          'ninsta',
-          res.royalty,
-          res.royaltyPer
-        ])
+          const result = await saveMeta(
+            {
+              file,
+              title,
+              description,
+              royalty,
+              royaltyPer,
+              handle: 'ninsta',
+              wallet: address
+            },
+            user.accessToken
+          )
+
+          res = result.data.data.data
+          setRes([
+            res.wallet,
+            res.assetUri,
+            'ninsta',
+            res.royalty,
+            res.royaltyPer
+          ])
+        } else {
+          console.log('3')
+
+          setRes([
+            nftInfo.wallet,
+            nftInfo.assetUri,
+            'ninsta',
+            nftInfo.royalty,
+            nftInfo.royaltyPer
+          ])
+        }
+
         await new Promise(r => setTimeout(r, 5000))
       }
       setIsReady(true)

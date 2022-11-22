@@ -18,6 +18,13 @@ export const saveAsset = (data, token) =>
     }
   })
 
+export const updateAsset = (data, token) =>
+  http.put('/assets', data, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+
 export const saveMeta = (data, token) =>
   http.post('/assets/metadata', data, {
     headers: {

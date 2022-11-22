@@ -31,6 +31,7 @@ const EmptyCard = ({ asset }) => {
             nftInfo={asset}
             buttonText="Retry Payment"
             buttonStyles="bttn !px-2 !py-1 !text-sm rounded"
+            retry={true}
           />
         )}
       </p>
