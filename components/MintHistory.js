@@ -1,17 +1,19 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { formatDate, truncate } from '../utils'
+import { useAccount, useNetwork } from 'wagmi'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import PayButton from './Mint/PayButton'
 import { RiImageEditLine } from 'react-icons/ri'
+import dynamic from 'next/dynamic'
 import { getAssets } from '../actions'
 import getConfig from 'next/config'
 import useInterval from '../hooks/useInterval'
 import { useSelector } from 'react-redux'
-import Notify from './Notify'
-import { useAccount, useSwitchNetwork, useNetwork } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/react'
+
+const DynamicNotify = dynamic(() => import('./Notify'))
+const DynamicPayButton = dynamic(() => import('./Mint/PayButton'))
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -30,7 +32,7 @@ const EmptyCard = ({ asset, isConnected }) => {
       <p className="list-info">
         <strong className="text-xl">{asset.title}</strong>
         {asset.mintType !== 'free' && isConnected && (
-          <PayButton
+          <DynamicPayButton
             nftInfo={asset}
             buttonText="Retry Payment"
             buttonStyles="bttn !px-2 !py-1 !text-sm rounded"
@@ -147,19 +149,16 @@ const MintHistory = () => {
 
   return (
     <div className="p-0 md:py-6 overflow-hidden">
-      {assets.length === 0 && (
-        <div className="h-[300px] w-full flex flex-col items-center justify-center text-gray-600">
-          <p className="mt-3 text-lg">Loading...</p>
-        </div>
-      )}
       <div className="mb-5">
         {!isConnected && (
-          <Notify
+          <DynamicNotify
             {...{
               title: 'No wallet connected',
-              message: 'You are not connected to any wallet',
+              message: 'You are not connected any wallet',
               Component: () => (
-                <button className="text-blue-500" onClick={open}>
+                <button
+                  className="bttn rounded px-3 py-2 text-blue-500"
+                  onClick={open}>
                   Connect Wallet
                 </button>
               )
@@ -168,7 +167,7 @@ const MintHistory = () => {
         )}
 
         {chain?.unsupported && chains?.length > 0 && (
-          <Notify
+          <DynamicNotify
             {...{
               title: 'Unsupported chain',
               message: `Switch your network to ${chains[0].name}`
@@ -176,6 +175,12 @@ const MintHistory = () => {
           />
         )}
       </div>
+
+      {assets.length === 0 && (
+        <div className="h-[300px] w-full flex flex-col items-center justify-center text-gray-600">
+          <p className="mt-3 text-lg">Loading...</p>
+        </div>
+      )}
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
         {assets.map((e, i) => {
