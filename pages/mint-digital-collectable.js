@@ -1,12 +1,12 @@
-import { WagmiConfig } from 'wagmi'
 import Footer from '../components/Footer'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
+import { WagmiConfig } from 'wagmi'
+import { Web3Mod } from '../utils/web3'
 import { Web3Modal } from '@web3modal/react'
 import dynamic from 'next/dynamic'
 import useAuth from '../components/useAuth'
 import { useRouter } from 'next/router'
-import { Web3Mod } from '../utils/web3'
 const DynamicMint = dynamic(() => import('../components/Mint'))
 
 const { wagmiClient, ethereumClient } = Web3Mod.getAllClients()

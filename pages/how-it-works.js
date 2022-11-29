@@ -12,9 +12,7 @@ export default function Home() {
       />
       <Menu />
       <section className="container py-20">
-        <h1 className="leading-relaxed text-5xl font-bold text-center font-serif">
-          How Ninsta Works
-        </h1>
+        <h1 className="h1text">How Ninsta Works</h1>
         <Howto />
       </section>
       <Footer />
