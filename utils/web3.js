@@ -14,7 +14,7 @@ import {
 
 export const Web3Mod = {
   projectId: publicRuntimeConfig.walletconnect,
-  chains: [chain.polygonMumbai],
+  chains: [chain.polygonMumbai], // polygonMumbai change to polygon to go live
   getProvider: () =>
     configureChains(Web3Mod.chains, [
       walletConnectProvider({ projectId: Web3Mod.projectId })
