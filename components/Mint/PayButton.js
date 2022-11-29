@@ -22,6 +22,7 @@ const PayButton = ({
   retry = false
 }) => {
   const [res, setRes] = React.useState([])
+  const [nftData, setNftData] = React.useState(null)
   const [isReady, setIsReady] = React.useState(false)
   const [isSubmit, setIsSubmit] = React.useState(false)
   const user = useSelector(state => state.user)
@@ -60,7 +61,7 @@ const PayButton = ({
           const transfer = result.logs.filter(value => value.data === '0x')
           if (transfer.length > 0) {
             const tokenId = parseInt(transfer[0].topics[3], 16)
-            updateAsset({ tokenId, docId: nftInfo._id }, user.accessToken)
+            updateAsset({ tokenId, docId: nftData._id }, user.accessToken)
               .then(res => {
                 console.log(res)
                 window.location.reload()
@@ -105,6 +106,7 @@ const PayButton = ({
           )
 
           res = result.data.data.data
+          setNftData(res)
           setRes([
             res.wallet,
             res.assetUri,
