@@ -11,10 +11,10 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'same-origin'
   },
-  {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff'
-  },
+  // {
+  //   key: 'X-Content-Type-Options',
+  //   value: 'nosniff'
+  // },
   {
     key: 'Permissions-Policy',
     value: 'geolocation=(self), interest-cohort=()'
