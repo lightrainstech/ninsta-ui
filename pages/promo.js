@@ -20,9 +20,7 @@ export default function Home() {
 
       <Menu />
       <div className="container mt-20">
-        <h1 className="leading-relaxed text-5xl font-bold text-center font-serif mb-16">
-          Perks and Promos
-        </h1>
+        <h1 className="h1text mb-16">Perks and Promos</h1>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 justify-center mb-20">
           <div className="col-span-3">
             <iframe

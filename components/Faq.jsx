@@ -73,9 +73,7 @@ const Accordion = ({ questionName, acceptedAnswerText, open }) => {
 export default function Faq() {
   return (
     <section className="container mt-20">
-      <h1 className="leading-relaxed text-5xl font-bold text-center font-serif">
-        Frequently Asked Questions (FAQ)
-      </h1>
+      <h1 className="h1text">Frequently Asked Questions (FAQ)</h1>
       <div className="accordion my-20 mx-4 md:mx-40">
         {accordionData.map(({ questionName, acceptedAnswerText }, key) => (
           <Accordion
