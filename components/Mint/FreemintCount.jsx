@@ -25,14 +25,17 @@ const FreemintCount = () => {
   })
 
   useEffect(() => {
-    if (getFreeMinting && getFreeMax && getFreeMinting.length > 0) {
+    if (
+      getFreeMinting.data &&
+      getFreeMax.data &&
+      getFreeMinting.data.length > 0
+    ) {
       let remain = parseInt(getFreeMinting.data[0].toString())
 
       if (!getFreeMinting.data[1]) {
         remain = 3
       }
-      console.log(parseInt(getFreeMinting.data[0].toString()))
-      console.log(parseInt(getFreeMax.data.toString()))
+
       setRes(`${remain}`)
     } else {
       setRes('3')
