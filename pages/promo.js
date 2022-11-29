@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
-import SocialLinks from '../components/SocialLinks'
 
 export default function Home() {
   return (
@@ -29,8 +28,6 @@ export default function Home() {
             <iframe
               width="100%"
               height="800"
-              name="hbB4n"
-              loading="lazy"
               src="https://gleam.io/hbB4n/ninsta-prelaunch"
               frameBorder="0"></iframe>
           </div>
