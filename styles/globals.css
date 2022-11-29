@@ -105,4 +105,14 @@
     background-image: linear-gradient(rgb(255, 255, 255), rgb(170, 170, 170));
     box-decoration-break: clone;
   }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    iframe {
+      min-height: 100%;
+    }
+  }
 }
