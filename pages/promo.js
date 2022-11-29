@@ -17,10 +17,6 @@ export default function Home() {
         <meta property="og:title" content="Ninsta Pre-launch" />
         <meta property="twitter:card" content="summary" />
         <meta property="fb:app_id" content="152351391599356" />
-        <script
-          type="text/javascript"
-          src="https://widget.gleamjs.io/e.js"
-          async="true"></script>
       </Head>
 
       <Menu />
@@ -32,7 +28,7 @@ export default function Home() {
           <div className="col-span-3">
             <iframe
               width="100%"
-              height="600"
+              height="800"
               name="hbB4n"
               loading="lazy"
               src="https://gleam.io/hbB4n/ninsta-prelaunch"
@@ -56,12 +52,6 @@ export default function Home() {
             <Link href="mailto:hello@ninsta.io">
               <a className="text-brand-500">hello@ninsta.io</a>
             </Link>
-
-            <h3 className="text-2xl mt-8 mb-2">Social Media</h3>
-            <p className="text-lg mb-2">
-              {`We are also active on following social media for any support that you might need during the whole process of getting your Digital Collectible up in Instagram. Feel free to connect.`}
-            </p>
-            <SocialLinks size={48} />
           </div>
         </div>
       </div>
