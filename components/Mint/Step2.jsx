@@ -1,14 +1,20 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
+import dynamic from 'next/dynamic'
 
 import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
 import React from 'react'
 import { truncate } from '../../utils/index'
-import { useAccount } from 'wagmi'
+import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/react'
+
+const DynamicNotify = dynamic(() => import('../Notify'))
 
 function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
   const { address, isConnected } = useAccount()
+  const { chain, chains } = useNetwork()
+  const { switchNetwork } = useSwitchNetwork()
+
   const { open } = useWeb3Modal()
   return (
     <div
@@ -59,12 +65,29 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
               )}
             </div>
 
+            {chain?.unsupported && chains?.length > 0 && (
+              <>
+                <DynamicNotify
+                  {...{
+                    title: 'Unsupported chain',
+                    message: `Switch your network to ${chains[0].name}`,
+                    inline: true,
+                    Component: () => (
+                      <button onClick={() => switchNetwork(chains[0].id)}>
+                        Switch Network
+                      </button>
+                    )
+                  }}
+                />
+              </>
+            )}
+
             {isConnected && (
               <div>
                 <button
                   className="bttn rounded my-4 flex gap-5"
                   onClick={handleSubmit}
-                  disabled={isSubmit}>
+                  disabled={isSubmit || chain.unsupported}>
                   {isSubmit && <AiOutlineLoading className="animate-spin" />}
                   Create NFT
                 </button>
