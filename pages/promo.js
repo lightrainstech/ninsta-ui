@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
-import SocialLinks from '../components/SocialLinks'
+import Script from 'next/script'
 
 export default function Home() {
   return (
@@ -17,26 +17,20 @@ export default function Home() {
         <meta property="og:title" content="Ninsta Pre-launch" />
         <meta property="twitter:card" content="summary" />
         <meta property="fb:app_id" content="152351391599356" />
-        <script
-          type="text/javascript"
-          src="https://widget.gleamjs.io/e.js"
-          async="true"></script>
       </Head>
+      <Script src="https://widget.gleamjs.io/e.js" strategy="lazyOnload" />
 
       <Menu />
       <div className="container mt-20">
-        <h1 className="leading-relaxed text-5xl font-bold text-center font-serif mb-16">
-          Perks and Promos
-        </h1>
+        <h1 className="h1text mb-16">Perks and Promos</h1>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 justify-center mb-20">
           <div className="col-span-3">
-            <iframe
-              width="100%"
-              height="600"
-              name="hbB4n"
-              loading="lazy"
-              src="https://gleam.io/hbB4n/ninsta-prelaunch"
-              frameBorder="0"></iframe>
+            <a
+              class="e-widget no-button"
+              href="https://gleam.io/hbB4n/ninsta-prelaunch"
+              rel="nofollow">
+              Ninsta Pre-launch
+            </a>
           </div>
 
           <div className="col-span-2">
@@ -56,12 +50,6 @@ export default function Home() {
             <Link href="mailto:hello@ninsta.io">
               <a className="text-brand-500">hello@ninsta.io</a>
             </Link>
-
-            <h3 className="text-2xl mt-8 mb-2">Social Media</h3>
-            <p className="text-lg mb-2">
-              {`We are also active on following social media for any support that you might need during the whole process of getting your Digital Collectible up in Instagram. Feel free to connect.`}
-            </p>
-            <SocialLinks size={48} />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function Home() {
       <Menu />
       <div className="container mt-32 ">
         <div className="prose prose-lg dark:prose-invert prose-slate max-w-none">
-          <h1>Privacy Policy for Ninsta</h1>
+          <h1 className="h1text">Privacy Policy for Ninsta</h1>
 
           <p>
             At Ninsta, accessible from ninsta.io, one of our main priorities is
