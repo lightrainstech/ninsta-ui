@@ -1,11 +1,11 @@
 import { RiArrowDownSLine, RiWallet2Line } from 'react-icons/ri'
-import dynamic from 'next/dynamic'
+import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 
 import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { truncate } from '../../utils/index'
-import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/react'
 
 const DynamicNotify = dynamic(() => import('../Notify'))
@@ -73,7 +73,9 @@ function Step2({ minting, nftInfo, handleSubmit, handleActive, isSubmit }) {
                     message: `Switch your network to ${chains[0].name}`,
                     inline: true,
                     Component: () => (
-                      <button onClick={() => switchNetwork(chains[0].id)}>
+                      <button
+                        className="border-2 border-brand-500 my-4 px-3 rounded text-lg"
+                        onClick={() => switchNetwork(chains[0].id)}>
                         Switch Network
                       </button>
                     )
