@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux'
 const menu = [
   { title: 'How it Works', path: '/how-it-works' },
   { title: 'Collections', path: '/collections' },
+  { title: 'Promo', path: '/promo' },
   { title: 'Contact', path: '/contact' }
 ]
 
