@@ -1,6 +1,16 @@
 import React from 'react'
 
-const Notify = ({ title, message, Component }) => {
+const Notify = ({ title, message, Component, inline = false }) => {
+  if (inline) {
+    return (
+      <div>
+        <p className="text-sm text-orange-700">
+          {title} - {message}
+        </p>
+        {Component && <Component />}
+      </div>
+    )
+  }
   return (
     <div
       className="flex flex-col text-xl space-y-1 bg-zinc-100 border border-red-500 text-gray-200 p-6 rounded items-center justify-center h-40 text-center w-full md:w-2/5 mx-auto bg-opacity-40 my-10"

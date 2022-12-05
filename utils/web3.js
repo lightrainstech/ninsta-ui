@@ -1,11 +1,12 @@
-import getConfig from 'next/config'
-const { publicRuntimeConfig } = getConfig()
-import { chain, configureChains, createClient } from 'wagmi'
 import {
   EthereumClient,
   modalConnectors,
   walletConnectProvider
 } from '@web3modal/ethereum'
+import { chain, configureChains, createClient } from 'wagmi'
+
+import getConfig from 'next/config'
+const { publicRuntimeConfig } = getConfig()
 
 /*
  * Chain names
@@ -14,7 +15,7 @@ import {
 
 export const Web3Mod = {
   projectId: publicRuntimeConfig.walletconnect,
-  chains: [chain.polygonMumbai], // polygonMumbai change to polygon to go live
+  chains: [chain.polygon], // polygonMumbai change to polygon to go live
   getProvider: () =>
     configureChains(Web3Mod.chains, [
       walletConnectProvider({ projectId: Web3Mod.projectId })
