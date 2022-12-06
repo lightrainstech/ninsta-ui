@@ -35,16 +35,11 @@ export default function Home() {
 
           <div className="col-span-2">
             <p className="mb-8 text-xl">
-              {`Our support team acknowledges and takes on board that
-              entrepreneurial exploration isn’t facile – it comes with a galore
-              of challenges and probabilities – and that’s why we’re here to
-              assist, aid and advise you, on your journey, towards commercial
-              build-up.`}
+              {`At Ninsta, we want our customers to be able to mint more and share more. You receive 3 free mints by signing up for Ninsta. In addition, you can also unlock further rewards by completing simple tasks that earn you points. And for those of who want to participate in building Ninsta and earn bigger rewards, please join our discord channel.`}
             </p>
-
             <h3 className="text-2xl mb-2">Email contact</h3>
             <p className="text-lg mb-2">
-              {`You can reach us via email, addressing your concerns.
+              {`You can reach us via email, addressing your concerns if any.
               We’ll make sure to revert to you within a span of 24 hours.`}
             </p>
             <Link href="mailto:hello@ninsta.io">
