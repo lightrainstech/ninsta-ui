@@ -5,14 +5,24 @@ import { NextSeo } from 'next-seo'
 import React from 'react'
 import { affiliate } from '../actions'
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 
 export default function Home() {
-  const [email, setEmail] = React.useState('')
+  const [email, setEmail] = React.useState(null)
   const [copy, setCopy] = React.useState(false)
   const [myAffCode, setMyAffCode] = React.useState('')
   const [myAffLink, setMyAffLink] = React.useState('')
   const user = useSelector(state => state.user)
+  const router = useRouter()
+
+  React.useEffect(() => {
+    if (!user) {
+      setEmail(null)
+    } else {
+      setEmail(user.email)
+    }
+  }, [user])
 
   const formSubmit = async () => {
     if (!email.match(/^[a-zA-Z0-9_][a-zA-Z0-9_.]*/)) {
@@ -63,23 +73,34 @@ export default function Home() {
             products and earn a substantial commission.`}
           </p>
 
-          <div className="text-center my-16">
-            <h2>Start spreading the word.</h2>
-            <input
-              type="text"
-              value={email}
-              onChange={evt => {
-                setEmail(evt.target.value)
-              }}
-              placeholder="Email Address"
-              className="outline-0 focus:outline-0 border-2 border-brand-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[250px] md:w-[300px] -z-10"
-            />
-            <button
-              className="text-white border-2 border-brand-500 rounded-r-md bg-brand-500 px-3 py-2 -ml-2 z-20"
-              onClick={formSubmit}>
-              Get Code
-            </button>
-          </div>
+          {user?.email ? (
+            <div className="text-center my-16">
+              <h2>Start spreading the word.</h2>
+              <input
+                type="text"
+                value={email}
+                onChange={evt => {
+                  setEmail(evt.target.value)
+                }}
+                placeholder="Email Address"
+                className="outline-0 focus:outline-0 border-2 border-brand-500 rounded-l-md px-3 py-2 outline-none m-0 bg-zinc-800 w-[250px] md:w-[300px] -z-10"
+              />
+              <button
+                className="text-white border-2 border-brand-500 rounded-r-md bg-brand-500 px-3 py-2 -ml-2 z-20"
+                onClick={formSubmit}>
+                Get Code
+              </button>
+            </div>
+          ) : (
+            <div
+              className="flex flex-col text-xl space-y-1 bg-gray-700 border border-yellow-600 text-gray-200 p-6 rounded items-center justify-center h-40 text-center w-full md:w-4/5 mx-auto bg-opacity-40 my-10"
+              role="alert">
+              <strong className="font-bold text-2xl">You need to login</strong>
+              <span className="block sm:inline">
+                You need to be logged in to access your Affiliate details
+              </span>
+            </div>
+          )}
 
           {myAffCode && (
             <div className="text-center">
@@ -91,7 +112,6 @@ export default function Home() {
                 </div>
               </CopyToClipboard>
               <h3>Alternatively you can use following link</h3>
-
               <CopyToClipboard text={myAffLink} onCopy={() => setCopy(!copy)}>
                 <div className="px-4 py-3 bg-gray-800 max-w-max mx-auto text-2xl md:text-3xl font-mono rounded-xl cursor-pointer select-all break-all">
                   {myAffLink}
