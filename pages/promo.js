@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Menu from '../components/Menu'
 import { NextSeo } from 'next-seo'
-import Script from 'next/script'
 
 export default function Home() {
   return (
@@ -18,19 +17,17 @@ export default function Home() {
         <meta property="twitter:card" content="summary" />
         <meta property="fb:app_id" content="152351391599356" />
       </Head>
-      <Script src="https://widget.gleamjs.io/e.js" strategy="lazyOnload" />
 
       <Menu />
       <div className="container mt-20">
         <h1 className="h1text mb-16">Perks and Promos</h1>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 justify-center mb-20">
           <div className="col-span-3">
-            <a
-              class="e-widget no-button"
-              href="https://gleam.io/hbB4n/ninsta-prelaunch"
-              rel="nofollow">
-              Ninsta Pre-launch
-            </a>
+            <iframe
+              src="https://gleam.io/hbB4n/ninsta-prelaunch"
+              frameBorder="0"
+              height={800}
+              allowfullscreen></iframe>
           </div>
 
           <div className="col-span-2">
