@@ -4,10 +4,6 @@ import SocialLinks from './SocialLinks'
 
 const footerMenu = [
   {
-    title: 'Promo',
-    path: '/promo'
-  },
-  {
     title: 'FAQ',
     path: '/faq'
   },
