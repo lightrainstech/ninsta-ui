@@ -85,7 +85,7 @@ const Masthead = () => {
                     className="bttn -ml-2 z-20 outline-none rounded-r-md"
                     onClick={signUpSubmit}
                     disabled={isSubmit}>
-                    Sign Me Up!
+                    {`Let's Start`}
                   </button>
 
                   <div className="min-h-[20px] mb-4">
