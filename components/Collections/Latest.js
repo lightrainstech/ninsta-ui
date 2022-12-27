@@ -16,10 +16,9 @@ function Latest() {
               src="/coll/panda.jpeg"
             />
           </div>
-          <h3 className="text-2xl font-bold mt-2">Cute Panda</h3>
+          <h3 className="text-2xl font-bold mt-2">The cute Panda collection</h3>
           <p className="text-gray-400 mt-2">
-            The question of whether computers can think is like the question of
-            whether submarines can swim.
+            Pandas look cuter with some swag.
           </p>
         </div>
       </div>
