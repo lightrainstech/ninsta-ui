@@ -69,8 +69,8 @@ const Masthead = () => {
                 <div
                   className={
                     isSubmit
-                      ? 'opacity-20 select-none z-50 pointer-events-none animate-pulse'
-                      : 'active'
+                      ? 'opacity-20 select-none z-50 pointer-events-none animate-pulse w-full'
+                      : 'active w-full'
                   }>
                   <input
                     type="email"
@@ -85,7 +85,8 @@ const Masthead = () => {
                     className="bttn -ml-2 z-20 outline-none rounded-r-md"
                     onClick={signUpSubmit}
                     disabled={isSubmit}>
-                    {`Let's Start`}
+                    <span className="hidden md:block">{`Let's `}</span>
+                    <span>Start</span>
                   </button>
 
                   <div className="min-h-[20px] mb-4">
