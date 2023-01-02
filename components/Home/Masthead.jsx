@@ -85,8 +85,10 @@ const Masthead = () => {
                     className="bttn -ml-2 z-20 outline-none rounded-r-md"
                     onClick={signUpSubmit}
                     disabled={isSubmit}>
-                    <span className="hidden md:block">{`Let's `}</span>
-                    <span>Start</span>
+                    <div className="flex flex-row space-x-1">
+                      <span className="hidden md:block">{`Let's `}</span>
+                      <span>Start</span>
+                    </div>
                   </button>
 
                   <div className="min-h-[20px] mb-4">
