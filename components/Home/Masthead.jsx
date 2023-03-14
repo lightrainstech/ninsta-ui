@@ -45,6 +45,26 @@ const Masthead = () => {
     <main className="container py-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 top-0 z-10 mx-auto justify-start py-10 md:py-20">
         <div className="col-span-1 flex flex-col">
+          <a
+            href="https://techcrunch.com/2023/03/13/meta-winds-down-support-for-nfts-on-instagram-and-facebook/"
+            class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 max-w-max"
+            role="alert">
+            <span class="text-xs bg-brand-600 rounded-full text-white px-4 py-1.5 mr-3">
+              Important
+            </span>{' '}
+            <span class="text-sm font-medium">We are shutting down Ninsta</span>
+            <svg
+              class="ml-2 w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+
           <h1 className="text-3xl md:text-5xl font-serif font-bold leading-[1.3] md:!leading-[1.35]">
             Ninsta helps you mint <br />
             <span className="text-brand-500">Digital Collectibles</span> <br />
@@ -59,73 +79,6 @@ const Masthead = () => {
           <h2 className="text-lg mt-3 text-gray-400 w-full md:w-5/6">
             Get your Instagram profile noticed with NFTs
           </h2>
-          <div className="py-8">
-            {isAuthenticate ? (
-              <Link href="/mint-digital-collectable" prefetch={false}>
-                <a className="bttn rounded !text-xl">Start Minting</a>
-              </Link>
-            ) : (
-              <>
-                <div
-                  className={
-                    isSubmit
-                      ? 'opacity-20 select-none z-50 pointer-events-none animate-pulse w-full'
-                      : 'active w-full'
-                  }>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={evt => {
-                      setEmail(evt.target.value)
-                    }}
-                    placeholder="Email Address"
-                    className="outline-0 focus:outline-0 border-2 border-insta-500 text-lg rounded-l-md px-3 py-1.5 outline-none bg-zinc-800 w-[200px] md:w-[220px] -z-10"
-                  />
-                  <button
-                    className="bttn -ml-2 z-20 outline-none rounded-r-md"
-                    onClick={signUpSubmit}
-                    disabled={isSubmit}>
-                    <div className="flex flex-row space-x-1">
-                      <span className="hidden md:block">{`Let's `}</span>
-                      <span>Start</span>
-                    </div>
-                  </button>
-
-                  <div className="min-h-[20px] mb-4">
-                    <p
-                      onClick={() => setAffiliate(!aff)}
-                      className="text-blue-400 text-sm block cursor-pointer select-none hover:text-brand-400">
-                      Affiliate Code?
-                    </p>
-                    <div
-                      className={
-                        aff ? 'visible animate-fade-in-down' : 'invisible'
-                      }>
-                      <input
-                        type="text"
-                        name="royalty"
-                        className="outline-0 focus:outline-0 border-2 border-insta-500 rounded px-3 py-2 outline-none m-0 bg-zinc-800 w-[220px] -z-10"
-                        value={affCode}
-                        placeholder="Enter Affiliate Code"
-                        onChange={evt => {
-                          setAffCode(evt.target.value)
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-xs text-gray-500 mt-2 w-[280px]">
-                  {`By creating an account, you agree to Ninsta's `}
-                  <Link href="/privacypolicy" prefetch={false}>
-                    <a className="text-gray-300 hover:text-brand-500">
-                      Privacy Policy and Terms of Use.
-                    </a>
-                  </Link>
-                </p>
-              </>
-            )}
-          </div>
         </div>
       </div>
     </main>
